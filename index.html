@@ -206,6 +206,38 @@
         transition: opacity 0.3s ease, transform 0.3s ease;
       }
       
+      /* Fleet Usage Chart Enhancements */
+      .fleet-usage-widget .chart-container {
+        width: 100% !important;
+        min-width: 0 !important;
+        flex: 1 !important;
+      }
+      
+      .fleet-usage-widget .chart-wrapper {
+        width: 100% !important;
+        display: block !important;
+        position: relative !important;
+        overflow: hidden;
+      }
+      
+      .fleet-usage-widget canvas {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+      }
+      
+      .fleet-usage-widget .row {
+        width: 100% !important;
+        margin: 0 !important;
+      }
+      
+      .fleet-usage-widget .col-md-8,
+      .fleet-usage-widget .col-md-4 {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+      }
+      
       /* Dark Mode Enhancements */
       .dark-mode .usage-card {
         background: #2c3e50;
@@ -1432,21 +1464,21 @@
                       <div class="col-md-9">
                         <div class="row">
                           <div class="col-md-8">
-                            <div class="chart-container">
+                            <div class="chart-container w-100">
                               <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h6 class="mb-0">Usage Pattern Over Time</h6>
                                 <span class="badge bg-secondary" id="seasonalIndicator">Peak Season</span>
                               </div>
-                              <div class="chart-wrapper" style="height: 300px; position: relative;">
-                                <canvas id="usagePatternChart"></canvas>
+                              <div class="chart-wrapper w-100" style="height: 320px; position: relative;">
+                                <canvas id="usagePatternChart" style="width: 100% !important; height: 100% !important;"></canvas>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4">
-                            <div class="chart-container">
+                            <div class="chart-container w-100">
                               <h6 class="mb-3">Vehicle Type Distribution</h6>
-                              <div class="chart-wrapper" style="height: 300px; position: relative;">
-                                <canvas id="vehicleTypeUsageChart"></canvas>
+                              <div class="chart-wrapper w-100" style="height: 320px; position: relative;">
+                                <canvas id="vehicleTypeUsageChart" style="width: 100% !important; height: 100% !important;"></canvas>
                               </div>
                             </div>
                           </div>
@@ -4784,6 +4816,15 @@
         
         // Update fleet usage data every 5 minutes
         setInterval(populateFleetUsageData, 300000);
+        
+        // Add window resize handler for chart responsiveness
+        window.addEventListener('resize', function() {
+          if (usagePatternChart) {
+            setTimeout(() => {
+              usagePatternChart.resize();
+            }, 100);
+          }
+        });
       }
 
       let currentUsagePeriod = 'today';
@@ -5000,6 +5041,7 @@
           options: {
             responsive: true,
             maintainAspectRatio: false,
+            aspectRatio: 2.5,
             plugins: {
               legend: { 
                 display: true,
