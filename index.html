@@ -126,6 +126,15 @@
         border-color: #007bff;
       }
       
+      .critical-alert-item.acknowledged {
+        opacity: 0.7;
+        background: #f8f9fa;
+      }
+      
+      .critical-alert-item.acknowledged .alert-content {
+        text-decoration: line-through;
+      }
+      
       .high-priority {
         border-left: 4px solid #dc3545 !important;
       }
@@ -5198,9 +5207,137 @@
           populateCriticalAlerts();
           updateAlertCounts();
         }, 120000);
+        
+        // Generate random alerts every 3-5 minutes for demo
+        setInterval(() => {
+          if (Math.random() > 0.7) { // 30% chance
+            generateRandomCriticalAlert();
+          }
+        }, Math.random() * 120000 + 180000); // 3-5 minutes
+        
+        // Update alert timestamps every minute
+        setInterval(updateAlertTimestamps, 60000);
       }
 
-      const criticalAlertsData = [
+      function generateRandomCriticalAlert() {
+        const alertTemplates = [
+          {
+            type: 'fuel',
+            priority: 'medium',
+            title: 'Low Fuel Alert',
+            messageTemplate: 'Vehicle {vehicle} fuel level below 15%',
+            businessImpact: 'medium',
+            estimatedLoss: '$50-100'
+          },
+          {
+            type: 'speeding',
+            priority: 'high',
+            title: 'Speeding Violation',
+            messageTemplate: 'Vehicle {vehicle} exceeded speed limit by 15+ mph',
+            businessImpact: 'high',
+            estimatedLoss: 'Insurance Risk'
+          },
+          {
+            type: 'breakdown',
+            priority: 'high',
+            title: 'Vehicle Breakdown',
+            messageTemplate: 'Vehicle {vehicle} reported mechanical issues',
+            businessImpact: 'critical',
+            estimatedLoss: '$200-500'
+          },
+          {
+            type: 'accident',
+            priority: 'high',
+            title: 'Incident Report',
+            messageTemplate: 'Minor incident reported for vehicle {vehicle}',
+            businessImpact: 'critical',
+            estimatedLoss: '$1000+'
+          }
+        ];
+
+        const vehicles = ['ABC123', 'XYZ789', 'DEF456', 'GHI345', 'JKL012', 'MNO678', 'PQR901'];
+        const customers = ['Alice Brown', 'Bob Wilson', 'Carol Davis', 'David Lee', 'Emma White'];
+        const locations = ['Manhattan Branch', 'Brooklyn Branch', 'Queens Branch', 'Bronx Branch'];
+        
+        const template = alertTemplates[Math.floor(Math.random() * alertTemplates.length)];
+        const vehicle = vehicles[Math.floor(Math.random() * vehicles.length)];
+        const customer = customers[Math.floor(Math.random() * customers.length)];
+        const location = locations[Math.floor(Math.random() * locations.length)];
+        
+        const newAlert = {
+          id: 'AUTO' + Date.now(),
+          type: template.type,
+          priority: template.priority,
+          title: template.title,
+          message: template.messageTemplate.replace('{vehicle}', `${getVehicleType()} - ${vehicle}`),
+          customer: template.type === 'fuel' || template.type === 'breakdown' ? 'Fleet Vehicle' : customer,
+          vehicle: `${getVehicleType()} - ${vehicle}`,
+          time: 'Just now',
+          timestamp: new Date(),
+          status: 'active',
+          businessImpact: template.businessImpact,
+          location: location,
+          contactNumber: template.type === 'fuel' || template.type === 'breakdown' ? 'N/A' : `+1 (555) ${Math.floor(100 + Math.random() * 900)}-${Math.floor(1000 + Math.random() * 9000)}`,
+          estimatedLoss: template.estimatedLoss,
+          acknowledged: false
+        };
+        
+        criticalAlertsData.unshift(newAlert);
+        
+        // Keep only last 20 alerts
+        if (criticalAlertsData.length > 20) {
+          criticalAlertsData = criticalAlertsData.slice(0, 20);
+        }
+        
+        populateCriticalAlerts();
+        updateAlertCounts();
+        
+        // Show notification for high priority alerts
+        if (newAlert.priority === 'high') {
+          showNotification(`🚨 NEW CRITICAL ALERT: ${newAlert.title}`, 'danger');
+        }
+        
+        // Track new alert
+        trackEvent('alert_generated', {
+          alert_id: newAlert.id,
+          alert_type: newAlert.type,
+          priority: newAlert.priority
+        });
+      }
+
+      function getVehicleType() {
+        const types = ['Toyota Camry', 'Honda CR-V', 'Ford Focus', 'BMW X3', 'Nissan Altima', 'Mercedes C-Class'];
+        return types[Math.floor(Math.random() * types.length)];
+      }
+
+      function updateAlertTimestamps() {
+        criticalAlertsData.forEach(alert => {
+          if (alert.timestamp) {
+            const now = new Date();
+            const diff = now - new Date(alert.timestamp);
+            const minutes = Math.floor(diff / 60000);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+            
+            if (days > 0) {
+              alert.time = `${days} day${days > 1 ? 's' : ''} ago`;
+            } else if (hours > 0) {
+              alert.time = `${hours} hour${hours > 1 ? 's' : ''} ago`;
+            } else if (minutes > 0) {
+              alert.time = `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+            } else {
+              alert.time = 'Just now';
+            }
+          }
+        });
+        
+        // Refresh display if alerts are visible
+        if (document.getElementById('criticalAlertsList')) {
+          populateCriticalAlerts();
+        }
+      }
+
+      let criticalAlertsData = [
         {
           id: 'OVR001',
           type: 'overdue',
@@ -5210,8 +5347,13 @@
           customer: 'John Smith',
           vehicle: 'Toyota Camry - ABC123',
           time: '2 days ago',
+          timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
           status: 'active',
-          businessImpact: 'high'
+          businessImpact: 'high',
+          location: 'Manhattan Branch',
+          contactNumber: '+1 (555) 123-4567',
+          estimatedLoss: '$450/day',
+          acknowledged: false
         },
         {
           id: 'INS002',
@@ -5222,8 +5364,13 @@
           customer: 'Fleet Vehicle',
           vehicle: 'BMW X3 - GHI345',
           time: '1 hour ago',
+          timestamp: new Date(Date.now() - 60 * 60 * 1000),
           status: 'active',
-          businessImpact: 'critical'
+          businessImpact: 'critical',
+          location: 'Queens Branch',
+          contactNumber: 'N/A',
+          estimatedLoss: '$2,500 potential',
+          acknowledged: false
         },
         {
           id: 'PAY003',
@@ -5234,8 +5381,47 @@
           customer: 'Sarah Johnson',
           vehicle: 'Honda CR-V - XYZ789',
           time: '30 minutes ago',
+          timestamp: new Date(Date.now() - 30 * 60 * 1000),
           status: 'active',
-          businessImpact: 'medium'
+          businessImpact: 'medium',
+          location: 'Brooklyn Branch',
+          contactNumber: '+1 (555) 987-6543',
+          estimatedLoss: '$285',
+          acknowledged: false
+        },
+        {
+          id: 'MAINT004',
+          type: 'maintenance',
+          priority: 'high',
+          title: 'Critical Maintenance Required',
+          message: 'Ford Focus brake system warning - immediate service needed',
+          customer: 'Fleet Vehicle',
+          vehicle: 'Ford Focus - DEF456',
+          time: '45 minutes ago',
+          timestamp: new Date(Date.now() - 45 * 60 * 1000),
+          status: 'active',
+          businessImpact: 'critical',
+          location: 'Bronx Branch',
+          contactNumber: 'N/A',
+          estimatedLoss: 'Safety Risk',
+          acknowledged: false
+        },
+        {
+          id: 'GEO005',
+          type: 'geofence',
+          priority: 'medium',
+          title: 'Geofence Violation',
+          message: 'Nissan Altima left authorized zone without permission',
+          customer: 'Mike Davis',
+          vehicle: 'Nissan Altima - JKL012',
+          time: '15 minutes ago',
+          timestamp: new Date(Date.now() - 15 * 60 * 1000),
+          status: 'active',
+          businessImpact: 'medium',
+          location: 'Outside Zone A',
+          contactNumber: '+1 (555) 456-7890',
+          estimatedLoss: 'Policy Violation',
+          acknowledged: false
         }
       ];
 
@@ -5248,22 +5434,42 @@
           : criticalAlertsData.filter(alert => alert.status === 'active' && alert.priority === currentAlertFilter);
         
         container.innerHTML = filteredAlerts.map(alert => `
-          <div class="critical-alert-item ${alert.priority}-priority mb-3" data-alert-id="${alert.id}">
+          <div class="critical-alert-item ${alert.priority}-priority mb-3 ${alert.acknowledged ? 'acknowledged' : ''}" data-alert-id="${alert.id}">
             <div class="d-flex justify-content-between align-items-start">
               <div class="alert-content flex-grow-1">
                 <div class="d-flex align-items-center mb-2">
                   <i class="fas ${getAlertIcon(alert.type)} text-${getAlertColor(alert.priority)} me-2"></i>
                   <h6 class="mb-0 fw-bold">${alert.title}</h6>
-                  <span class="badge bg-${getAlertColor(alert.priority)} ms-2">${alert.priority}</span>
+                  <span class="badge bg-${getAlertColor(alert.priority)} ms-2">${alert.priority.toUpperCase()}</span>
+                  ${alert.acknowledged ? '<span class="badge bg-secondary ms-1">ACK</span>' : ''}
                 </div>
-                <p class="mb-2 text-muted">${alert.message}</p>
-                <div class="alert-meta">
-                  <small class="text-muted">
-                    <i class="fas fa-user me-1"></i>${alert.customer} • 
-                    <i class="fas fa-clock me-1"></i>${alert.time} • 
-                    <i class="fas fa-exclamation-circle me-1"></i>${alert.businessImpact} impact
-                  </small>
+                <p class="mb-2 text-dark">${alert.message}</p>
+                <div class="alert-meta mb-2">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <small class="text-muted">
+                        <i class="fas fa-user me-1"></i><strong>Customer:</strong> ${alert.customer}<br>
+                        <i class="fas fa-map-marker-alt me-1"></i><strong>Location:</strong> ${alert.location}
+                      </small>
+                    </div>
+                    <div class="col-md-6">
+                      <small class="text-muted">
+                        <i class="fas fa-clock me-1"></i><strong>Time:</strong> ${alert.time}<br>
+                        <i class="fas fa-dollar-sign me-1"></i><strong>Impact:</strong> ${alert.estimatedLoss}
+                      </small>
+                    </div>
+                  </div>
                 </div>
+                ${alert.contactNumber !== 'N/A' ? `
+                  <div class="alert-contact mb-2">
+                    <button class="btn btn-outline-primary btn-sm me-2" onclick="contactCustomer('${alert.contactNumber}', '${alert.customer}')">
+                      <i class="fas fa-phone me-1"></i>Call Customer
+                    </button>
+                    <button class="btn btn-outline-info btn-sm" onclick="sendSMS('${alert.contactNumber}', '${alert.customer}')">
+                      <i class="fas fa-sms me-1"></i>SMS
+                    </button>
+                  </div>
+                ` : ''}
               </div>
               <div class="alert-actions ms-3">
                 <div class="btn-group-vertical btn-group-sm">
@@ -5272,6 +5478,12 @@
                   </button>
                   <button class="btn btn-outline-warning btn-sm" onclick="snoozeAlert('${alert.id}')" title="Snooze Alert">
                     <i class="fas fa-clock"></i>
+                  </button>
+                  <button class="btn btn-outline-info btn-sm" onclick="viewAlertDetails('${alert.id}')" title="View Details">
+                    <i class="fas fa-info-circle"></i>
+                  </button>
+                  <button class="btn btn-outline-danger btn-sm" onclick="escalateAlert('${alert.id}')" title="Escalate">
+                    <i class="fas fa-arrow-up"></i>
                   </button>
                 </div>
               </div>
@@ -5304,34 +5516,93 @@
         return colors[priority] || 'secondary';
       }
 
+      function getAlertIcon(type) {
+        const icons = {
+          overdue: 'fa-clock',
+          insurance: 'fa-shield-alt',
+          payment: 'fa-credit-card',
+          maintenance: 'fa-wrench',
+          geofence: 'fa-map-marker-alt',
+          fuel: 'fa-gas-pump',
+          speeding: 'fa-tachometer-alt',
+          breakdown: 'fa-exclamation-triangle',
+          accident: 'fa-car-crash'
+        };
+        return icons[type] || 'fa-bell';
+      }
+
       function resolveAlert(alertId) {
         const alert = criticalAlertsData.find(a => a.id === alertId);
         if (!alert) return;
         
-        alert.status = 'resolved';
-        populateCriticalAlerts();
-        updateAlertCounts();
-        showNotification(`Alert ${alertId} resolved successfully`, 'success');
+        const resolution = prompt(`Resolve Alert ${alertId}:\n\nPlease provide resolution details:`, 'Issue resolved - customer contacted and situation handled');
+        
+        if (resolution) {
+          alert.status = 'resolved';
+          alert.resolvedAt = new Date().toISOString();
+          alert.resolution = resolution;
+          alert.resolvedBy = 'Admin'; // In real system, get current user
+          
+          populateCriticalAlerts();
+          updateAlertCounts();
+          
+          showNotification(`✅ Alert ${alertId} resolved successfully`, 'success');
+          
+          // Track resolution
+          trackEvent('alert_resolved', {
+            alert_id: alertId,
+            alert_type: alert.type,
+            resolution_time: new Date() - new Date(alert.timestamp),
+            resolved_by: 'Admin'
+          });
+        }
       }
 
       function snoozeAlert(alertId) {
         const alert = criticalAlertsData.find(a => a.id === alertId);
         if (!alert) return;
         
-        alert.status = 'snoozed';
-        populateCriticalAlerts();
-        updateAlertCounts();
-        showNotification(`Alert ${alertId} snoozed for 1 hour`, 'warning');
+        const snoozeOptions = [
+          { label: '15 minutes', value: 15 },
+          { label: '30 minutes', value: 30 },
+          { label: '1 hour', value: 60 },
+          { label: '2 hours', value: 120 },
+          { label: '4 hours', value: 240 }
+        ];
         
-        // Reactivate after 1 hour
-        setTimeout(() => {
-          if (alert.status === 'snoozed') {
-            alert.status = 'active';
-            populateCriticalAlerts();
-            updateAlertCounts();
-            showNotification(`Alert ${alertId} reactivated`, 'info');
-          }
-        }, 3600000);
+        const choice = prompt(`Snooze Alert ${alertId} for:\n\n${snoozeOptions.map((opt, i) => `${i+1}. ${opt.label}`).join('\n')}\n\nEnter choice (1-5):`, '3');
+        
+        if (choice && choice >= 1 && choice <= 5) {
+          const snoozeTime = snoozeOptions[choice - 1];
+          
+          alert.status = 'snoozed';
+          alert.snoozedAt = new Date().toISOString();
+          alert.snoozeUntil = new Date(Date.now() + snoozeTime.value * 60000).toISOString();
+          
+          populateCriticalAlerts();
+          updateAlertCounts();
+          
+          showNotification(`⏰ Alert ${alertId} snoozed for ${snoozeTime.label}`, 'warning');
+          
+          // Reactivate after snooze period
+          setTimeout(() => {
+            if (alert.status === 'snoozed') {
+              alert.status = 'active';
+              alert.snoozedAt = null;
+              alert.snoozeUntil = null;
+              populateCriticalAlerts();
+              updateAlertCounts();
+              showNotification(`🔔 Alert ${alertId} reactivated`, 'info');
+            }
+          }, snoozeTime.value * 60000);
+          
+          // Track snooze
+          trackEvent('alert_snoozed', {
+            alert_id: alertId,
+            snooze_duration: snoozeTime.value,
+            alert_type: alert.type
+          });
+        }
       }
 
       function handleEmergencyAlert() {
@@ -5339,21 +5610,69 @@
       }
 
       function acknowledgeAllAlerts() {
-        const activeAlerts = criticalAlertsData.filter(a => a.status === 'active');
+        const activeAlerts = criticalAlertsData.filter(a => a.status === 'active' && !a.acknowledged);
         
         if (activeAlerts.length === 0) {
-          showNotification('No active alerts to acknowledge', 'info');
+          showNotification('No unacknowledged alerts to acknowledge', 'info');
           return;
         }
         
-        if (confirm(`Acknowledge all ${activeAlerts.length} active alerts?`)) {
+        if (confirm(`Acknowledge all ${activeAlerts.length} active alerts?\n\nThis will mark them as seen but keep them active for resolution.`)) {
           activeAlerts.forEach(alert => {
             alert.acknowledged = true;
+            alert.acknowledgedAt = new Date().toISOString();
+            alert.acknowledgedBy = 'Admin'; // In real system, get current user
           });
           
           populateCriticalAlerts();
-          showNotification(`${activeAlerts.length} alerts acknowledged`, 'success');
+          updateAlertCounts();
+          showNotification(`✅ ${activeAlerts.length} alerts acknowledged`, 'success');
+          
+          // Track bulk acknowledgment
+          trackEvent('bulk_acknowledge_alerts', {
+            count: activeAlerts.length,
+            acknowledged_by: 'Admin'
+          });
         }
+      }
+
+      function filterAlerts(type) {
+        currentAlertFilter = type;
+        
+        // Update filter button states
+        document.querySelectorAll('#alertFilterAll, #alertFilterHigh, #alertFilterMedium').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        
+        // Add active class to clicked button
+        const buttonMap = {
+          'all': 'alertFilterAll',
+          'high': 'alertFilterHigh', 
+          'medium': 'alertFilterMedium'
+        };
+        
+        const activeButton = document.getElementById(buttonMap[type]);
+        if (activeButton) {
+          activeButton.classList.add('active');
+        }
+        
+        // Update display
+        populateCriticalAlerts();
+        
+        // Show filter feedback
+        const filterNames = {
+          'all': 'All Alerts',
+          'high': 'High Priority Only',
+          'medium': 'Medium Priority Only'
+        };
+        
+        showNotification(`Filtering: ${filterNames[type]}`, 'info');
+        
+        // Track filter usage
+        trackEvent('alert_filter_changed', {
+          filter_type: type,
+          visible_alerts: document.querySelectorAll('.critical-alert-item').length
+        });
       }
 
       function openAlertCenter() {
@@ -5362,6 +5681,182 @@
 
       function generateAlertReport() {
         alert('📊 Critical Alerts Report\n\nGenerating comprehensive alert report:\n• Active alerts summary\n• Response time analysis\n• Alert trend analysis\n• Performance metrics\n• Recommendations');
+      }
+
+      // === ENHANCED ALERT MANAGEMENT FUNCTIONS ===
+      function contactCustomer(phoneNumber, customerName) {
+        if (confirm(`Call ${customerName} at ${phoneNumber}?`)) {
+          // Simulate phone call
+          showNotification(`📞 Calling ${customerName}...`, 'info');
+          
+          // Log the contact attempt
+          const alert = criticalAlertsData.find(a => a.contactNumber === phoneNumber);
+          if (alert) {
+            alert.lastContact = new Date().toISOString();
+            alert.contactAttempts = (alert.contactAttempts || 0) + 1;
+          }
+          
+          // In a real system, this would integrate with a phone system
+          setTimeout(() => {
+            showNotification(`Call logged for ${customerName}`, 'success');
+          }, 2000);
+        }
+      }
+
+      function sendSMS(phoneNumber, customerName) {
+        const message = prompt(`Send SMS to ${customerName}:`, 'Your vehicle return is overdue. Please contact us immediately.');
+        if (message) {
+          showNotification(`📱 SMS sent to ${customerName}`, 'success');
+          
+          // Log the SMS
+          const alert = criticalAlertsData.find(a => a.contactNumber === phoneNumber);
+          if (alert) {
+            alert.lastSMS = new Date().toISOString();
+            alert.smsAttempts = (alert.smsAttempts || 0) + 1;
+          }
+        }
+      }
+
+      function viewAlertDetails(alertId) {
+        const alert = criticalAlertsData.find(a => a.id === alertId);
+        if (!alert) return;
+
+        // Create detailed alert modal
+        let modal = document.getElementById('alertDetailsModal');
+        if (!modal) {
+          modal = document.createElement('div');
+          modal.id = 'alertDetailsModal';
+          modal.innerHTML = `
+            <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1rem;">
+              <div style="background:#fff;padding:2rem;border-radius:12px;width:95vw;max-width:600px;max-height:90vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h4 class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i>Alert Details</h4>
+                  <button class="btn-close" id="closeAlertDetailsModal"></button>
+                </div>
+                <div id="alertDetailsContent"></div>
+                <div class="mt-4 d-flex justify-content-end gap-2">
+                  <button class="btn btn-outline-secondary" id="closeAlertDetails">Close</button>
+                  <button class="btn btn-warning" onclick="snoozeAlert('${alertId}'); closeAlertDetailsModal();">Snooze</button>
+                  <button class="btn btn-success" onclick="resolveAlert('${alertId}'); closeAlertDetailsModal();">Resolve</button>
+                </div>
+              </div>
+            </div>
+          `;
+          document.body.appendChild(modal);
+
+          document.getElementById('closeAlertDetailsModal').onclick = closeAlertDetailsModal;
+          document.getElementById('closeAlertDetails').onclick = closeAlertDetailsModal;
+        }
+
+        // Populate alert details
+        const detailsHTML = `
+          <div class="alert alert-${getAlertColor(alert.priority)} mb-3">
+            <h5 class="alert-heading">${alert.title} - ${alert.id}</h5>
+            <p class="mb-0">${alert.message}</p>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <h6>Alert Information</h6>
+              <table class="table table-sm">
+                <tr><td><strong>Type:</strong></td><td>${alert.type.charAt(0).toUpperCase() + alert.type.slice(1)}</td></tr>
+                <tr><td><strong>Priority:</strong></td><td><span class="badge bg-${getAlertColor(alert.priority)}">${alert.priority.toUpperCase()}</span></td></tr>
+                <tr><td><strong>Status:</strong></td><td><span class="badge bg-${alert.status === 'active' ? 'danger' : 'secondary'}">${alert.status.toUpperCase()}</span></td></tr>
+                <tr><td><strong>Business Impact:</strong></td><td>${alert.businessImpact}</td></tr>
+                <tr><td><strong>Estimated Loss:</strong></td><td class="text-danger">${alert.estimatedLoss}</td></tr>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <h6>Contact Information</h6>
+              <table class="table table-sm">
+                <tr><td><strong>Customer:</strong></td><td>${alert.customer}</td></tr>
+                <tr><td><strong>Vehicle:</strong></td><td>${alert.vehicle}</td></tr>
+                <tr><td><strong>Location:</strong></td><td>${alert.location}</td></tr>
+                <tr><td><strong>Phone:</strong></td><td>${alert.contactNumber}</td></tr>
+                <tr><td><strong>Acknowledged:</strong></td><td>${alert.acknowledged ? 'Yes' : 'No'}</td></tr>
+              </table>
+            </div>
+          </div>
+          
+          <div class="mt-3">
+            <h6>Recommended Actions</h6>
+            <div class="alert alert-info">
+              ${getRecommendedActions(alert.type, alert.priority)}
+            </div>
+          </div>
+        `;
+
+        document.getElementById('alertDetailsContent').innerHTML = detailsHTML;
+        modal.style.display = 'flex';
+      }
+
+      function closeAlertDetailsModal() {
+        const modal = document.getElementById('alertDetailsModal');
+        if (modal) {
+          modal.style.display = 'none';
+        }
+      }
+
+      function escalateAlert(alertId) {
+        const alert = criticalAlertsData.find(a => a.id === alertId);
+        if (!alert) return;
+
+        const escalationLevels = {
+          low: 'Supervisor',
+          medium: 'Branch Manager', 
+          high: 'Regional Director',
+          critical: 'Emergency Team'
+        };
+
+        const nextLevel = escalationLevels[alert.businessImpact] || 'Supervisor';
+        
+        if (confirm(`Escalate alert ${alertId} to ${nextLevel}?\n\nThis will:\n• Send immediate notification\n• Create escalation record\n• Update alert priority\n• Track response time`)) {
+          alert.escalated = true;
+          alert.escalatedTo = nextLevel;
+          alert.escalatedAt = new Date().toISOString();
+          
+          populateCriticalAlerts();
+          showNotification(`🚨 Alert ${alertId} escalated to ${nextLevel}`, 'warning');
+          
+          // Track escalation
+          trackEvent('alert_escalated', {
+            alert_id: alertId,
+            escalated_to: nextLevel,
+            original_priority: alert.priority
+          });
+        }
+      }
+
+      function getRecommendedActions(type, priority) {
+        const actions = {
+          overdue: {
+            high: '• Contact customer immediately<br>• Dispatch recovery team if needed<br>• Apply late fees per policy<br>• Document incident',
+            medium: '• Send reminder notification<br>• Schedule follow-up call<br>• Review customer history',
+            low: '• Send automated reminder<br>• Monitor for 24 hours'
+          },
+          insurance: {
+            high: '• Remove vehicle from service immediately<br>• Contact insurance provider<br>• Update fleet availability<br>• Notify all staff',
+            medium: '• Schedule insurance renewal<br>• Prepare documentation<br>• Set calendar reminder',
+            low: '• Review renewal options<br>• Prepare paperwork'
+          },
+          payment: {
+            high: '• Contact customer immediately<br>• Hold vehicle if not released<br>• Process alternative payment<br>• Update booking status',
+            medium: '• Send payment reminder<br>• Offer payment assistance<br>• Schedule follow-up',
+            low: '• Send automated reminder<br>• Monitor payment status'
+          },
+          maintenance: {
+            high: '• Remove vehicle from service immediately<br>• Schedule emergency maintenance<br>• Notify safety team<br>• Document safety concern',
+            medium: '• Schedule maintenance within 24 hours<br>• Monitor vehicle status<br>• Prepare parts order',
+            low: '• Schedule routine maintenance<br>• Add to maintenance queue'
+          },
+          geofence: {
+            high: '• Contact customer immediately<br>• Track vehicle location<br>• Assess security risk<br>• Consider remote disable',
+            medium: '• Send location alert<br>• Monitor vehicle movement<br>• Contact if continues',
+            low: '• Log violation<br>• Send automated notification'
+          }
+        };
+
+        return actions[type]?.[priority] || '• Review alert details<br>• Take appropriate action<br>• Document response';
       }
 
       function showDaySchedule(day) {
