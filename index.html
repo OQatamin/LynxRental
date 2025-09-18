@@ -1056,6 +1056,467 @@
       .dark-mode .alert.alert-info small {
         color: #a0aec0 !important;
       }
+      
+      /* Operations Calendar Widget Improvements */
+      .mini-calendar {
+        font-size: 13px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #e9ecef;
+      }
+      
+      .calendar-header {
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #dee2e6;
+      }
+      
+      .calendar-header h6 {
+        margin: 0;
+        font-weight: 600;
+        color: #495057;
+      }
+      
+      .calendar-grid {
+        background: white;
+        border-radius: 6px;
+        padding: 8px;
+      }
+      
+      .calendar-day-header {
+        font-weight: 600;
+        color: #6c757d;
+        padding: 4px 2px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .calendar-day {
+        padding: 2px;
+        min-height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .calendar-date {
+        padding: 6px 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 12px;
+        font-weight: 500;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        border: 1px solid transparent;
+        min-height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .calendar-date:hover {
+        background: #e3f2fd;
+        border-color: #2196f3;
+        transform: scale(1.05);
+      }
+      
+      .calendar-date.today {
+        background: #007bff;
+        color: white;
+        font-weight: bold;
+        border-color: #0056b3;
+        box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+      }
+      
+      .calendar-date.has-event {
+        position: relative;
+        font-weight: 600;
+      }
+      
+      .calendar-date.has-event::after {
+        content: '';
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        width: 3px;
+        height: 3px;
+        background: #28a745;
+        border-radius: 50%;
+        border: 1px solid white;
+        z-index: 1;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      }
+      
+      .calendar-date.today.has-event::after {
+        background: #ffc107;
+        border-color: #007bff;
+      }
+      
+      /* Schedule Section Improvements */
+      .schedule-today {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 12px;
+        margin-top: 16px;
+        border: 1px solid #e9ecef;
+      }
+      
+      .schedule-today h6 {
+        margin: 0 0 12px 0;
+        font-weight: 600;
+        color: #495057;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #dee2e6;
+      }
+      
+      .schedule-item {
+        transition: all 0.2s ease;
+        border-radius: 6px;
+        margin-bottom: 8px;
+        border: 1px solid #e9ecef;
+        background: white;
+      }
+      
+      .schedule-item:hover {
+        background: #f8f9fa;
+        transform: translateX(3px);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-color: #007bff;
+      }
+      
+      .schedule-time {
+        min-width: 50px;
+        text-align: center;
+        background: #f8f9fa;
+        border-radius: 4px;
+        padding: 4px 6px;
+        margin-right: 12px;
+        border: 1px solid #e9ecef;
+      }
+      
+      .schedule-time strong {
+        font-size: 11px;
+        color: #495057;
+        font-weight: 600;
+      }
+      
+      /* Quick Actions Improvements */
+      .btn-group-calendar {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .btn-group-calendar .btn {
+        border-radius: 6px;
+        font-size: 12px;
+        padding: 8px 12px;
+        font-weight: 500;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        transition: all 0.2s ease;
+      }
+      
+      .btn-group-calendar .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+      
+      /* Dark Mode for Operations Calendar */
+      .dark-mode .mini-calendar {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .calendar-header {
+        border-bottom-color: #4a5568;
+      }
+      
+      .dark-mode .calendar-header h6 {
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .calendar-grid {
+        background: #374151;
+        border-color: #4a5568;
+      }
+      
+      .dark-mode .calendar-day-header {
+        color: #a0aec0;
+      }
+      
+      .dark-mode .calendar-date {
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .calendar-date:hover {
+        background: #374151;
+        border-color: #3182ce;
+      }
+      
+      .dark-mode .calendar-date.today {
+        background: #3182ce;
+        border-color: #2c5aa0;
+        color: white;
+      }
+      
+      .dark-mode .calendar-date.has-event::after {
+        background: #68d391;
+        border-color: #2d3748;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      }
+      
+      .dark-mode .calendar-date.today.has-event::after {
+        background: #f6ad55;
+        border-color: #3182ce;
+      }
+      
+      .dark-mode .schedule-today {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .schedule-today h6 {
+        color: #e2e8f0;
+        border-bottom-color: #4a5568;
+      }
+      
+      .dark-mode .schedule-item {
+        background: #374151;
+        border-color: #4a5568;
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .schedule-item:hover {
+        background: #4a5568;
+        border-color: #3182ce;
+      }
+      
+      .dark-mode .schedule-time {
+        background: #2d3748;
+        border-color: #4a5568;
+      }
+      
+      .dark-mode .schedule-time strong {
+        color: #e2e8f0;
+      }
+      
+      /* Full Calendar Styles */
+      .calendar-full {
+        background: white;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+        overflow: hidden;
+      }
+      
+      .calendar-header-full {
+        background: #f8f9fa;
+        padding: 12px;
+        border-bottom: 1px solid #dee2e6;
+      }
+      
+      .calendar-day-header {
+        font-weight: 600;
+        color: #495057;
+        padding: 8px 4px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .calendar-body-full {
+        padding: 8px;
+      }
+      
+      .calendar-week {
+        min-height: 80px;
+        border-bottom: 1px solid #e9ecef;
+      }
+      
+      .calendar-week:last-child {
+        border-bottom: none;
+      }
+      
+      .calendar-day-full {
+        padding: 4px;
+        border-right: 1px solid #e9ecef;
+        min-height: 80px;
+        position: relative;
+      }
+      
+      .calendar-day-full:last-child {
+        border-right: none;
+      }
+      
+      .calendar-day-content {
+        height: 100%;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        position: relative;
+      }
+      
+      .calendar-day-content:hover {
+        background: #f8f9fa;
+        transform: scale(1.02);
+      }
+      
+      .calendar-day-content.today {
+        background: #e3f2fd;
+        border: 2px solid #2196f3;
+      }
+      
+      .day-number {
+        font-weight: 600;
+        font-size: 14px;
+        color: #495057;
+      }
+      
+      .day-events {
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+      }
+      
+      .event-indicator {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 20px;
+      }
+      
+      .events-list {
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      
+      .event-item {
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      
+      .event-item:hover {
+        background: #f8f9fa;
+        transform: translateX(3px);
+      }
+      
+      .time-slot {
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      
+      .time-slot:hover {
+        background: #f8f9fa !important;
+        transform: translateX(3px);
+      }
+      
+      .scheduled-event {
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      
+      .scheduled-event:hover {
+        background: #f8f9fa;
+        transform: translateX(3px);
+      }
+      
+      /* Dark Mode for Full Calendar */
+      .dark-mode .calendar-full {
+        background: #2d3748;
+        border-color: #4a5568;
+      }
+      
+      .dark-mode .calendar-header-full {
+        background: #374151;
+        border-bottom-color: #4a5568;
+      }
+      
+      .dark-mode .calendar-day-header {
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .calendar-week {
+        border-bottom-color: #4a5568;
+      }
+      
+      .dark-mode .calendar-day-full {
+        border-right-color: #4a5568;
+      }
+      
+      .dark-mode .calendar-day-content {
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .calendar-day-content:hover {
+        background: #374151;
+      }
+      
+      .dark-mode .calendar-day-content.today {
+        background: #1a365d;
+        border-color: #3182ce;
+      }
+      
+      .dark-mode .day-number {
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .event-item {
+        background: #374151;
+        border-color: #4a5568;
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .event-item:hover {
+        background: #4a5568;
+      }
+      
+      .dark-mode .time-slot {
+        background: #374151;
+        border-color: #4a5568;
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .time-slot:hover {
+        background: #4a5568 !important;
+      }
+      
+      .dark-mode .scheduled-event {
+        background: #374151;
+        border-color: #4a5568;
+        color: #e2e8f0;
+      }
+      
+      .dark-mode .scheduled-event:hover {
+        background: #4a5568;
+      }
+      
+      /* Page Placeholder Modal Dark Mode */
+      .dark-mode .page-placeholder-modal {
+        background: #2d3748 !important;
+        color: #e2e8f0 !important;
+        border: 1px solid #4a5568 !important;
+      }
+      
+      .dark-mode .page-placeholder-modal h4 {
+        color: #e2e8f0 !important;
+      }
+      
+      .dark-mode .page-placeholder-modal .text-muted {
+        color: #a0aec0 !important;
+      }
     </style>
   </head>
   <body>
@@ -1851,7 +2312,7 @@
                     </div>
 
                     <!-- Quick Schedule Actions -->
-                    <div class="mt-3 d-grid gap-2">
+                    <div class="mt-3 btn-group-calendar">
                       <button class="btn btn-primary btn-sm" onclick="scheduleMaintenanceSlot()">
                         <i class="fas fa-wrench me-2"></i>Schedule Maintenance
                       </button>
@@ -4583,9 +5044,16 @@
         const sidebarLinks = document.querySelectorAll('.sidebar .nav-item a');
         sidebarLinks.forEach(link => {
           link.addEventListener('click', function(e) {
+            const pageName = this.querySelector('p').textContent.trim();
+            
+            // Skip showing placeholder for Dashboard (Overview) since we're already on it
+            if (pageName === 'Dashboard (Overview)') {
+              e.preventDefault();
+              return; // Do nothing, stay on current page
+            }
+            
             if (!this.getAttribute('href') || this.getAttribute('href') === '#') {
               e.preventDefault();
-              const pageName = this.querySelector('p').textContent.trim();
               showPagePlaceholder(pageName);
             }
           });
@@ -4599,7 +5067,7 @@
             modal.id = 'pageModal';
             modal.innerHTML = `
               <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1rem;">
-                <div style="background:#fff;padding:2rem;border-radius:8px;width:95vw;max-width:400px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,0.1);">
+                <div class="page-placeholder-modal" style="background:#fff;padding:2rem;border-radius:8px;width:95vw;max-width:400px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,0.1);">
                   <div class="mb-3">
                     <i class="fas fa-info-circle text-primary" style="font-size: 48px;"></i>
                   </div>
@@ -7692,7 +8160,69 @@
 
       // === CALENDAR INTEGRATION FUNCTIONS ===
       function openFullCalendar() {
-        alert('📅 Full Calendar System\n\nOpening comprehensive calendar with:\n• Monthly/weekly/daily views\n• Booking management\n• Staff scheduling\n• Maintenance planning\n• Event coordination\n• Integration with all modules');
+        const modal = document.createElement('div');
+        modal.id = 'fullCalendarModal';
+        modal.innerHTML = `
+          <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1rem;">
+            <div class="modal-content" style="padding:0;border-radius:12px;width:95vw;max-width:1200px;max-height:90vh;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+              <div class="modal-header" style="background:#f8f9fa;padding:1rem;border-bottom:1px solid #dee2e6;">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                  <h4 class="mb-0"><i class="fas fa-calendar-alt me-2"></i>Operations Calendar - Full View</h4>
+                  <button class="btn-close" onclick="closeModal('fullCalendarModal')"></button>
+                </div>
+              </div>
+              <div class="modal-body" style="padding:1.5rem;max-height:70vh;overflow-y:auto;">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="calendar-view mb-4">
+                      <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 id="calendarMonth">${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</h5>
+                        <div class="btn-group">
+                          <button class="btn btn-outline-primary btn-sm" onclick="changeCalendarView('month')">Month</button>
+                          <button class="btn btn-outline-primary btn-sm" onclick="changeCalendarView('week')">Week</button>
+                          <button class="btn btn-outline-primary btn-sm" onclick="changeCalendarView('day')">Day</button>
+                        </div>
+                      </div>
+                      <div id="fullCalendarGrid" class="calendar-full-grid">
+                        <!-- Full calendar will be populated here -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="calendar-sidebar">
+                      <h6 class="mb-3">Quick Actions</h6>
+                      <div class="d-grid gap-2 mb-4">
+                        <button class="btn btn-primary btn-sm" onclick="addNewEvent()">
+                          <i class="fas fa-plus me-2"></i>Add Event
+                        </button>
+                        <button class="btn btn-success btn-sm" onclick="scheduleMaintenanceSlot()">
+                          <i class="fas fa-wrench me-2"></i>Schedule Maintenance
+                        </button>
+                        <button class="btn btn-info btn-sm" onclick="bookStaffMeeting()">
+                          <i class="fas fa-users me-2"></i>Staff Meeting
+                        </button>
+                      </div>
+                      
+                      <h6 class="mb-3">Today's Events</h6>
+                      <div id="todayEventsList" class="events-list">
+                        <!-- Today's events will be populated here -->
+                      </div>
+                      
+                      <h6 class="mb-3">Upcoming</h6>
+                      <div id="upcomingEventsList" class="events-list">
+                        <!-- Upcoming events will be populated here -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+        generateFullCalendar();
+        populateTodayEvents();
+        populateUpcomingEvents();
       }
 
       // === FLEET USAGE ANALYTICS WIDGET ===
@@ -9200,7 +9730,114 @@
       }
 
       function showDaySchedule(day) {
-        alert(`📅 Schedule for Day ${day}\n\nShowing:\n• All scheduled events\n• Staff assignments\n• Vehicle bookings\n• Maintenance appointments\n• Available time slots\n• Conflict detection`);
+        const today = new Date();
+        const selectedDate = new Date(today.getFullYear(), today.getMonth(), day);
+        const dateStr = selectedDate.toLocaleDateString('en-US', { 
+          weekday: 'long', 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        });
+        
+        const modal = document.createElement('div');
+        modal.id = 'dayScheduleModal';
+        modal.innerHTML = `
+          <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1rem;">
+            <div class="modal-content" style="padding:0;border-radius:12px;width:95vw;max-width:800px;max-height:90vh;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+              <div class="modal-header" style="background:#f8f9fa;padding:1rem;border-bottom:1px solid #dee2e6;">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                  <h4 class="mb-0"><i class="fas fa-calendar-day me-2"></i>Schedule for ${dateStr}</h4>
+                  <button class="btn-close" onclick="closeModal('dayScheduleModal')"></button>
+                </div>
+              </div>
+              <div class="modal-body" style="padding:1.5rem;max-height:70vh;overflow-y:auto;">
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h6 class="mb-0"><i class="fas fa-clock me-2"></i>Time Slots</h6>
+                      </div>
+                      <div class="card-body">
+                        <div id="dayTimeSlots">
+                          <!-- Time slots will be populated here -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h6 class="mb-0"><i class="fas fa-list me-2"></i>Scheduled Events</h6>
+                      </div>
+                      <div class="card-body">
+                        <div id="dayScheduledEvents">
+                          <!-- Scheduled events will be populated here -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card">
+                  <div class="card-header">
+                    <h6 class="mb-0"><i class="fas fa-plus me-2"></i>Add New Event</h6>
+                  </div>
+                  <div class="card-body">
+                    <form id="addEventForm">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label class="form-label">Event Title</label>
+                            <input type="text" class="form-control" id="eventTitle" required>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label class="form-label">Event Type</label>
+                            <select class="form-select" id="eventType" required>
+                              <option value="maintenance">Maintenance</option>
+                              <option value="meeting">Meeting</option>
+                              <option value="inspection">Inspection</option>
+                              <option value="customer">Customer Service</option>
+                              <option value="other">Other</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label class="form-label">Start Time</label>
+                            <input type="time" class="form-control" id="eventStartTime" required>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label class="form-label">Duration (minutes)</label>
+                            <input type="number" class="form-control" id="eventDuration" value="60" min="15" step="15">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" id="eventDescription" rows="3"></textarea>
+                      </div>
+                      <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                          <i class="fas fa-plus me-2"></i>Add Event
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('dayScheduleModal')">Cancel</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+        populateDaySchedule(day);
+        setupEventForm();
       }
 
       function scheduleMaintenanceSlot() {
@@ -9213,6 +9850,281 @@
 
       function planVehicleInspection() {
         alert('📋 Vehicle Inspection Planner\n\nInspection scheduling:\n• Inspection checklist\n• Inspector assignment\n• Time slot booking\n• Vehicle preparation\n• Documentation setup\n• Compliance tracking');
+      }
+
+      // === SUPPORTING CALENDAR FUNCTIONS ===
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.remove();
+        }
+      }
+
+      function generateFullCalendar() {
+        const container = document.getElementById('fullCalendarGrid');
+        if (!container) return;
+        
+        const today = new Date();
+        const currentMonth = today.getMonth();
+        const currentYear = today.getFullYear();
+        const currentDate = today.getDate();
+        
+        const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+        
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                           'July', 'August', 'September', 'October', 'November', 'December'];
+        
+        let calendarHTML = `
+          <div class="calendar-full">
+            <div class="calendar-header-full">
+              <div class="row text-center fw-bold mb-2">
+                <div class="col calendar-day-header">Sun</div>
+                <div class="col calendar-day-header">Mon</div>
+                <div class="col calendar-day-header">Tue</div>
+                <div class="col calendar-day-header">Wed</div>
+                <div class="col calendar-day-header">Thu</div>
+                <div class="col calendar-day-header">Fri</div>
+                <div class="col calendar-day-header">Sat</div>
+              </div>
+            </div>
+            <div class="calendar-body-full">
+        `;
+        
+        let dayCount = 1;
+        for (let week = 0; week < 6; week++) {
+          calendarHTML += '<div class="row calendar-week">';
+          for (let day = 0; day < 7; day++) {
+            if ((week === 0 && day < firstDay) || dayCount > daysInMonth) {
+              calendarHTML += '<div class="col calendar-day-full"></div>';
+            } else {
+              const isToday = dayCount === currentDate;
+              const hasEvent = Math.random() > 0.7;
+              const eventCount = hasEvent ? Math.floor(Math.random() * 3) + 1 : 0;
+              
+              calendarHTML += `
+                <div class="col calendar-day-full">
+                  <div class="calendar-day-content ${isToday ? 'today' : ''}" onclick="showDaySchedule(${dayCount})">
+                    <div class="day-number">${dayCount}</div>
+                    <div class="day-events">
+                      ${eventCount > 0 ? `<span class="event-indicator" style="background: #28a745;">${eventCount}</span>` : ''}
+                    </div>
+                  </div>
+                </div>
+              `;
+              dayCount++;
+            }
+          }
+          calendarHTML += '</div>';
+          if (dayCount > daysInMonth) break;
+        }
+        
+        calendarHTML += '</div></div>';
+        container.innerHTML = calendarHTML;
+      }
+
+      function populateTodayEvents() {
+        const container = document.getElementById('todayEventsList');
+        if (!container) return;
+        
+        const events = [
+          { time: '09:00', title: 'Honda Civic Service', type: 'maintenance' },
+          { time: '11:30', title: 'Staff Briefing', type: 'meeting' },
+          { time: '14:00', title: 'Fleet Inspection', type: 'inspection' }
+        ];
+        
+        container.innerHTML = events.map(event => `
+          <div class="event-item mb-2 p-2 border rounded">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <strong>${event.time}</strong>
+                <div class="small text-muted">${event.title}</div>
+              </div>
+              <span class="badge bg-${getEventTypeColor(event.type)}">${event.type}</span>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function populateUpcomingEvents() {
+        const container = document.getElementById('upcomingEventsList');
+        if (!container) return;
+        
+        const events = [
+          { date: 'Tomorrow', title: 'BMW X3 Oil Change', type: 'maintenance' },
+          { date: 'Friday', title: 'Weekly Team Meeting', type: 'meeting' },
+          { date: 'Next Week', title: 'Quarterly Fleet Review', type: 'inspection' }
+        ];
+        
+        container.innerHTML = events.map(event => `
+          <div class="event-item mb-2 p-2 border rounded">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <strong>${event.date}</strong>
+                <div class="small text-muted">${event.title}</div>
+              </div>
+              <span class="badge bg-${getEventTypeColor(event.type)}">${event.type}</span>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function populateDaySchedule(day) {
+        const timeSlotsContainer = document.getElementById('dayTimeSlots');
+        const eventsContainer = document.getElementById('dayScheduledEvents');
+        
+        if (timeSlotsContainer) {
+          const timeSlots = [];
+          for (let hour = 8; hour <= 18; hour++) {
+            const time = `${hour.toString().padStart(2, '0')}:00`;
+            const isBooked = Math.random() > 0.7;
+            timeSlots.push({ time, isBooked });
+          }
+          
+          timeSlotsContainer.innerHTML = timeSlots.map(slot => `
+            <div class="time-slot d-flex justify-content-between align-items-center p-2 mb-1 border rounded ${slot.isBooked ? 'bg-light' : ''}">
+              <span>${slot.time}</span>
+              <span class="badge ${slot.isBooked ? 'bg-danger' : 'bg-success'}">
+                ${slot.isBooked ? 'Booked' : 'Available'}
+              </span>
+            </div>
+          `).join('');
+        }
+        
+        if (eventsContainer) {
+          const events = [
+            { time: '09:00', title: 'Honda Civic Service', type: 'maintenance', duration: '60' },
+            { time: '11:30', title: 'Staff Briefing', type: 'meeting', duration: '30' },
+            { time: '14:00', title: 'Fleet Inspection', type: 'inspection', duration: '90' }
+          ];
+          
+          eventsContainer.innerHTML = events.map(event => `
+            <div class="scheduled-event mb-2 p-2 border rounded">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <strong>${event.time}</strong>
+                  <div class="small text-muted">${event.title}</div>
+                  <div class="small text-muted">${event.duration} minutes</div>
+                </div>
+                <span class="badge bg-${getEventTypeColor(event.type)}">${event.type}</span>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      function getEventTypeColor(type) {
+        const colors = {
+          maintenance: 'warning',
+          meeting: 'info',
+          inspection: 'primary',
+          customer: 'success',
+          other: 'secondary'
+        };
+        return colors[type] || 'secondary';
+      }
+
+      function changeCalendarView(view) {
+        // This would switch between month/week/day views
+        console.log('Changing to', view, 'view');
+      }
+
+      function addNewEvent() {
+        // This would open the add event form
+        console.log('Adding new event');
+      }
+
+      function setupEventForm() {
+        const form = document.getElementById('addEventForm');
+        if (form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const eventData = {
+              title: document.getElementById('eventTitle').value,
+              type: document.getElementById('eventType').value,
+              startTime: document.getElementById('eventStartTime').value,
+              duration: document.getElementById('eventDuration').value,
+              description: document.getElementById('eventDescription').value
+            };
+            
+            console.log('New event:', eventData);
+            alert(`Event "${eventData.title}" scheduled for ${eventData.startTime}`);
+            closeModal('dayScheduleModal');
+          });
+        }
+      }
+
+      function setupMaintenanceForm() {
+        const form = document.getElementById('maintenanceForm');
+        if (form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const maintenanceData = {
+              vehicle: document.getElementById('maintenanceVehicle').value,
+              type: document.getElementById('maintenanceType').value,
+              date: document.getElementById('maintenanceDate').value,
+              time: document.getElementById('maintenanceTime').value,
+              technician: document.getElementById('maintenanceTechnician').value,
+              duration: document.getElementById('maintenanceDuration').value,
+              notes: document.getElementById('maintenanceNotes').value
+            };
+            
+            console.log('Maintenance scheduled:', maintenanceData);
+            alert(`Maintenance scheduled for ${maintenanceData.vehicle} on ${maintenanceData.date} at ${maintenanceData.time}`);
+            closeModal('maintenanceModal');
+          });
+        }
+      }
+
+      function setupMeetingForm() {
+        const form = document.getElementById('meetingForm');
+        if (form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const meetingData = {
+              title: document.getElementById('meetingTitle').value,
+              type: document.getElementById('meetingType').value,
+              date: document.getElementById('meetingDate').value,
+              time: document.getElementById('meetingTime').value,
+              duration: document.getElementById('meetingDuration').value,
+              location: document.getElementById('meetingLocation').value,
+              agenda: document.getElementById('meetingAgenda').value
+            };
+            
+            console.log('Meeting scheduled:', meetingData);
+            alert(`Meeting "${meetingData.title}" scheduled for ${meetingData.date} at ${meetingData.time}`);
+            closeModal('meetingModal');
+          });
+        }
+      }
+
+      function setupInspectionForm() {
+        const form = document.getElementById('inspectionForm');
+        if (form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inspectionData = {
+              vehicle: document.getElementById('inspectionVehicle').value,
+              type: document.getElementById('inspectionType').value,
+              date: document.getElementById('inspectionDate').value,
+              inspector: document.getElementById('inspectionInspector').value,
+              notes: document.getElementById('inspectionNotes').value
+            };
+            
+            console.log('Inspection scheduled:', inspectionData);
+            alert(`Inspection scheduled for ${inspectionData.vehicle} on ${inspectionData.date}`);
+            closeModal('inspectionModal');
+          });
+        }
+      }
+
+      function toggleAllAttendees() {
+        const allCheckbox = document.getElementById('attendee-all');
+        const attendeeCheckboxes = document.querySelectorAll('.attendee-check');
+        
+        attendeeCheckboxes.forEach(checkbox => {
+          checkbox.checked = allCheckbox.checked;
+        });
       }
     </script>
 
@@ -9439,4 +10351,3 @@
 
   </body>
 </html>
-
