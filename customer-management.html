@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Customer Management - LynxLite</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular", 
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/lynxlite.min.css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/css/unified-custom.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+          <div class="logo-header" data-background-color="dark">
+            <a href="index2.html" class="logo">
+              <img src="assets/img/lynxlite/logo_light.svg" alt="LynxLite - Acacus" class="navbar-brand" height="45" />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar"><i class="gg-menu-right"></i></button>
+              <button class="btn btn-toggle sidenav-toggler"><i class="gg-menu-left"></i></button>
+            </div>
+            <button class="topbar-toggler more"><i class="gg-more-vertical-alt"></i></button>
+          </div>
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a href="index2.html"><i class="fas fa-home"></i><p>Dashboard (Overview)</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="fleet-management.html"><i class="fas fa-car"></i><p>Fleet Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="booking-management.html"><i class="fas fa-calendar-alt"></i><p>Booking Management</p></a>
+              </li>
+              <li class="nav-item active">
+                <a href="customer-management.html"><i class="fas fa-users"></i><p>Customer Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="billing-payments.html"><i class="fas fa-credit-card"></i><p>Billing & Payments</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="maintenance-compliance.html"><i class="fas fa-wrench"></i><p>Maintenance & Compliance</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="telematics-tracking.html"><i class="fas fa-map-marked-alt"></i><p>Telematics & Tracking</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="reports-analytics.html"><i class="fas fa-chart-line"></i><p>Reports & Analytics</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="branch-staff-management.html"><i class="fas fa-building"></i><p>Branch / Staff Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="#"><i class="fas fa-cogs"></i><p>System Settings</p></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+      
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <div class="logo-header" data-background-color="dark">
+              <a href="index2.html" class="logo">
+                <img src="assets/img/lynxlite/logo_light.svg" alt="LynxLite - Acacus" class="navbar-brand" height="20" />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar"><i class="gg-menu-right"></i></button>
+                <button class="btn btn-toggle sidenav-toggler"><i class="gg-menu-left"></i></button>
+              </div>
+              <button class="topbar-toggler more"><i class="gg-more-vertical-alt"></i></button>
+            </div>
+          </div>
+          <!-- Navbar Header -->
+          <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+            <div class="container-fluid">
+              <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-search pe-1">
+                      <i class="fa fa-search search-icon"></i>
+                    </button>
+                  </div>
+                  <input type="text" placeholder="Search customers..." class="form-control" id="globalSearch" />
+                </div>
+              </nav>
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li class="nav-item d-flex align-items-center">
+                  <div class="form-check form-switch mb-0 ms-2">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch" />
+                    <label class="form-check-label" for="darkModeSwitch" style="color:inherit;">Dark Mode</label>
+                  </div>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" aria-haspopup="true">
+                    <i class="fa fa-search"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-search animated fadeIn">
+                    <form class="navbar-left navbar-form nav-search">
+                      <div class="input-group">
+                        <input type="text" placeholder="Search customers..." class="form-control" />
+                      </div>
+                    </form>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
+                    <li>
+                      <div class="dropdown-title d-flex justify-content-between align-items-center">Messages <a href="#" class="small">Mark all as read</a></div>
+                    </li>
+                    <li>
+                      <div class="message-notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#"><div class="notif-img"><i class="fas fa-id-card fa-2x"></i></div><div class="notif-content"><span class="subject">KYC Review</span><span class="block">New customer verification pending</span><span class="time">2 minutes ago</span></div></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bell"></i><span class="notification">2</span>
+                  </a>
+                  <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+                    <li><div class="dropdown-title">You have 2 new notifications</div></li>
+                    <li>
+                      <div class="notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#" class="notif-item"><div class="notif-icon notif-warning"><i class="fas fa-id-card"></i></div><div class="notif-content"><span class="block">License expiring for John Smith</span><span class="time">1 hour ago</span></div></a>
+                          <a href="#" class="notif-item"><div class="notif-icon notif-danger"><i class="fas fa-exclamation-triangle"></i></div><div class="notif-content"><span class="block">High risk customer flagged</span><span class="time">3 hours ago</span></div></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link" data-bs-toggle="dropdown" href="#" aria-expanded="false"><i class="fas fa-layer-group"></i></a>
+                  <div class="dropdown-menu quick-actions animated fadeIn">
+                    <div class="quick-actions-header"><span class="title mb-1">Quick Actions</span><span class="subtitle op-7">Shortcuts</span></div>
+                    <div class="quick-actions-scroll scrollbar-outer">
+                      <div class="quick-actions-items">
+                        <div class="row m-0">
+                          <a class="col-6 col-md-4 p-0" href="fleet-management.html"><div class="quick-actions-item"><div class="avatar-item bg-primary rounded-circle"><i class="fas fa-car"></i></div><span class="text">Fleet</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="booking-management.html"><div class="quick-actions-item"><div class="avatar-item bg-danger rounded-circle"><i class="far fa-calendar-alt"></i></div><span class="text">Bookings</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="reports-analytics.html"><div class="quick-actions-item"><div class="avatar-item bg-info rounded-circle"><i class="fas fa-file-excel"></i></div><span class="text">Reports</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="telematics-tracking.html"><div class="quick-actions-item"><div class="avatar-item bg-warning rounded-circle"><i class="fas fa-map"></i></div><span class="text">Tracking</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="billing-payments.html"><div class="quick-actions-item"><div class="avatar-item bg-success rounded-circle"><i class="fas fa-credit-card"></i></div><span class="text">Payments</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="maintenance-compliance.html"><div class="quick-actions-item"><div class="avatar-item bg-secondary rounded-circle"><i class="fas fa-wrench"></i></div><span class="text">Maintenance</span></div></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item topbar-user dropdown hidden-caret">
+                  <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+                    <div class="avatar-sm"><i class="fas fa-user-circle fa-2x"></i></div>
+                    <span class="profile-username"><span class="op-7">Hi,</span> <span class="fw-bold">Admin</span></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg"><i class="fas fa-user-circle fa-3x"></i></div>
+                          <div class="u-text">
+                            <h4>Admin</h4>
+                            <p class="text-muted">hello@example.com</p>
+                            <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="#">My Balance</a>
+                        <a class="dropdown-item" href="#">Inbox</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Account Setting</a>
+                        <a class="dropdown-item" href="#">Logout</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          
+        </div>
+        
+        <!-- Customer Management Content -->
+        <div class="container">
+          <div class="page-inner">
+            <!-- Quick Stats Cards -->
+            <div class="row">
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-primary bubble-shadow-small">
+                          <i class="fas fa-users"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Total Customers</p>
+                          <h4 class="card-title">1,247</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-success bubble-shadow-small">
+                          <i class="fas fa-user-check"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Verified</p>
+                          <h4 class="card-title">1,089</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-warning bubble-shadow-small">
+                          <i class="fas fa-user-clock"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Pending KYC</p>
+                          <h4 class="card-title">128</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-danger bubble-shadow-small">
+                          <i class="fas fa-user-times"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">High Risk</p>
+                          <h4 class="card-title">30</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Customer Search and Filters -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h4 class="card-title"><i class="fas fa-search me-2"></i>Customer Search & Filters</h4>
+                      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newCustomerModal">
+                        <i class="fas fa-plus"></i> Add Customer
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="row mb-3">
+                      <div class="col-md-3">
+                        <label class="form-label">Search Customer</label>
+                        <input type="text" class="form-control" id="searchCustomer" placeholder="Name, email, phone...">
+                      </div>
+                      <div class="col-md-2">
+                        <label class="form-label">Verification Status</label>
+                        <select class="form-select" id="filterVerification">
+                          <option value="">All Status</option>
+                          <option value="verified">Verified</option>
+                          <option value="pending">Pending</option>
+                          <option value="rejected">Rejected</option>
+                          <option value="expired">Expired</option>
+                        </select>
+                      </div>
+                      <div class="col-md-2">
+                        <label class="form-label">Risk Level</label>
+                        <select class="form-select" id="filterRisk">
+                          <option value="">All Levels</option>
+                          <option value="low">Low Risk</option>
+                          <option value="medium">Medium Risk</option>
+                          <option value="high">High Risk</option>
+                        </select>
+                      </div>
+                      <div class="col-md-2">
+                        <label class="form-label">Customer Type</label>
+                        <select class="form-select" id="filterType">
+                          <option value="">All Types</option>
+                          <option value="individual">Individual</option>
+                          <option value="corporate">Corporate</option>
+                          <option value="premium">Premium</option>
+                        </select>
+                      </div>
+                      <div class="col-md-2">
+                        <label class="form-label">Registration Date</label>
+                        <input type="date" class="form-control" id="filterDate">
+                      </div>
+                      <div class="col-md-1">
+                        <label class="form-label">&nbsp;</label>
+                        <div>
+                          <button class="btn btn-primary w-100" onclick="applyFilters()">
+                            <i class="fas fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Customer Profiles Table -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h4 class="card-title"><i class="fas fa-address-card me-2"></i>Customer Profiles</h4>
+                      <div>
+                        <button class="btn btn-outline-secondary btn-sm me-2">
+                          <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="btn btn-outline-primary btn-sm">
+                          <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Customer</th>
+                            <th>KYC Status</th>
+                            <th>Risk Score</th>
+                            <th>Total Rentals</th>
+                            <th>Last Activity</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody id="customerTableBody">
+                          <!-- Populated by JavaScript -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer Detail Modal -->
+    <div class="modal fade" id="customerDetailModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Customer Profile Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <!-- Customer Info -->
+              <div class="col-md-4">
+                <div class="card border-0">
+                  <div class="card-body text-center">
+                    <div class="avatar avatar-xl mb-3">
+                      <i class="fas fa-user-circle fa-4x" id="customerAvatar"></i>
+                    </div>
+                    <h5 id="customerName">John Smith</h5>
+                    <p class="text-muted" id="customerEmail">john.smith@email.com</p>
+                    <div class="d-flex justify-content-center gap-2 mb-3">
+                      <span class="badge bg-success" id="verificationBadge">Verified</span>
+                      <span class="badge bg-warning" id="riskBadge">Medium Risk</span>
+                    </div>
+                    <div class="row text-center">
+                      <div class="col-4">
+                        <h6 class="text-primary mb-0" id="totalRentals">12</h6>
+                        <small class="text-muted">Rentals</small>
+                      </div>
+                      <div class="col-4">
+                        <h6 class="text-success mb-0" id="totalSpent">$2,450</h6>
+                        <small class="text-muted">Spent</small>
+                      </div>
+                      <div class="col-4">
+                        <h6 class="text-info mb-0" id="memberSince">2023</h6>
+                        <small class="text-muted">Member Since</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- KYC Information -->
+                <div class="card mt-3">
+                  <div class="card-header">
+                    <h6 class="card-title mb-0"><i class="fas fa-id-card me-2"></i>KYC Information</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <label class="form-label text-muted">Driver's License</label>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <span>DL123456789</span>
+                        <span class="badge bg-success">Verified</span>
+                      </div>
+                      <small class="text-muted">Expires: 12/25/2027</small>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label text-muted">Government ID</label>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <span>SSN: ***-**-1234</span>
+                        <span class="badge bg-success">Verified</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label text-muted">Phone Verification</label>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <span>+1-555-0123</span>
+                        <span class="badge bg-success">Verified</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label text-muted">Email Verification</label>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <span>john.smith@email.com</span>
+                        <span class="badge bg-success">Verified</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Contact Preferences -->
+                <div class="card mt-3">
+                  <div class="card-header">
+                    <h6 class="card-title mb-0"><i class="fas fa-cogs me-2"></i>Preferences</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-2">
+                      <i class="fas fa-envelope text-primary me-2"></i>
+                      <span>Email Notifications: Enabled</span>
+                    </div>
+                    <div class="mb-2">
+                      <i class="fas fa-sms text-success me-2"></i>
+                      <span>SMS Alerts: Enabled</span>
+                    </div>
+                    <div class="mb-2">
+                      <i class="fas fa-credit-card text-info me-2"></i>
+                      <span>Auto-pay: Visa ****1234</span>
+                    </div>
+                    <div class="mb-2">
+                      <i class="fas fa-map-marker-alt text-warning me-2"></i>
+                      <span>Preferred Branch: Manhattan</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rental History -->
+              <div class="col-md-5">
+                <div class="card h-100">
+                  <div class="card-header">
+                    <h6 class="card-title mb-0"><i class="fas fa-history me-2"></i>Rental History</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="timeline">
+                      <div class="timeline-item">
+                        <div class="timeline-marker bg-success"></div>
+                        <div class="timeline-content">
+                          <h6 class="mb-1">Toyota Camry - ABC123</h6>
+                          <p class="text-muted mb-1">Dec 1-5, 2024 • Manhattan</p>
+                          <div class="d-flex justify-content-between">
+                            <span class="badge bg-success">Completed</span>
+                            <small class="text-success">$285.00</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="timeline-item">
+                        <div class="timeline-marker bg-primary"></div>
+                        <div class="timeline-content">
+                          <h6 class="mb-1">Honda CR-V - XYZ789</h6>
+                          <p class="text-muted mb-1">Nov 15-18, 2024 • Brooklyn</p>
+                          <div class="d-flex justify-content-between">
+                            <span class="badge bg-success">Completed</span>
+                            <small class="text-success">$225.00</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="timeline-item">
+                        <div class="timeline-marker bg-warning"></div>
+                        <div class="timeline-content">
+                          <h6 class="mb-1">Ford Focus - DEF456</h6>
+                          <p class="text-muted mb-1">Oct 28-30, 2024 • Queens</p>
+                          <div class="d-flex justify-content-between">
+                            <span class="badge bg-warning">Late Return</span>
+                            <small class="text-warning">$175.00</small>
+                          </div>
+                          <small class="text-danger">1 day late, $25 fee applied</small>
+                        </div>
+                      </div>
+                      <div class="timeline-item">
+                        <div class="timeline-marker bg-danger"></div>
+                        <div class="timeline-content">
+                          <h6 class="mb-1">BMW X3 - JKL345</h6>
+                          <p class="text-muted mb-1">Sep 12-15, 2024 • Manhattan</p>
+                          <div class="d-flex justify-content-between">
+                            <span class="badge bg-danger">Dispute</span>
+                            <small class="text-danger">$450.00</small>
+                          </div>
+                          <small class="text-danger">Minor damage claim - $200</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Driver Risk Assessment -->
+              <div class="col-md-3">
+                <div class="card h-100">
+                  <div class="card-header">
+                    <h6 class="card-title mb-0"><i class="fas fa-tachometer-alt me-2"></i>Driver Risk Score</h6>
+                  </div>
+                  <div class="card-body">
+                    <!-- Risk Score Gauge -->
+                    <div class="text-center mb-4">
+                      <div class="risk-score-circle mb-3">
+                        <canvas id="riskScoreGauge" width="120" height="120"></canvas>
+                        <div class="risk-score-text">
+                          <h3 class="text-warning mb-0">65</h3>
+                          <small class="text-muted">Medium Risk</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Risk Factors -->
+                    <div class="mb-3">
+                      <h6 class="mb-2">Risk Factors</h6>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span class="small">Speeding Incidents</span>
+                        <span class="badge bg-warning">2</span>
+                      </div>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span class="small">Late Returns</span>
+                        <span class="badge bg-warning">1</span>
+                      </div>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span class="small">Accidents/Claims</span>
+                        <span class="badge bg-danger">1</span>
+                      </div>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span class="small">Payment Issues</span>
+                        <span class="badge bg-success">0</span>
+                      </div>
+                    </div>
+
+                    <!-- Driving Metrics -->
+                    <div class="mb-3">
+                      <h6 class="mb-2">Driving Metrics</h6>
+                      <div class="mb-2">
+                        <div class="d-flex justify-content-between">
+                          <small>Avg Speed Compliance</small>
+                          <small class="text-warning">82%</small>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                          <div class="progress-bar bg-warning" style="width: 82%"></div>
+                        </div>
+                      </div>
+                      <div class="mb-2">
+                        <div class="d-flex justify-content-between">
+                          <small>Safe Driving Score</small>
+                          <small class="text-info">75%</small>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                          <div class="progress-bar bg-info" style="width: 75%"></div>
+                        </div>
+                      </div>
+                      <div class="mb-2">
+                        <div class="d-flex justify-content-between">
+                          <small>On-time Returns</small>
+                          <small class="text-success">92%</small>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                          <div class="progress-bar bg-success" style="width: 92%"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Risk Actions -->
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-outline-warning btn-sm" onclick="adjustRisk()">
+                        <i class="fas fa-edit"></i> Adjust Risk
+                      </button>
+                      <button class="btn btn-outline-info btn-sm" onclick="viewRiskDetails()">
+                        <i class="fas fa-chart-line"></i> Risk Report
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" onclick="flagCustomer()">
+              <i class="fas fa-flag"></i> Flag Customer
+            </button>
+            <button type="button" class="btn btn-primary" onclick="editCustomer()">
+              <i class="fas fa-edit"></i> Edit Profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Customer Modal -->
+    <div class="modal fade" id="newCustomerModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add New Customer</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form id="newCustomerForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">First Name *</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Last Name *</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Email *</label>
+                    <input type="email" class="form-control" id="email" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Phone *</label>
+                    <input type="tel" class="form-control" id="phone" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Driver's License Number *</label>
+                    <input type="text" class="form-control" id="licenseNumber" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">License Expiry Date *</label>
+                    <input type="date" class="form-control" id="licenseExpiry" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Date of Birth *</label>
+                    <input type="date" class="form-control" id="dateOfBirth" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Customer Type</label>
+                    <select class="form-select" id="customerType">
+                      <option value="individual">Individual</option>
+                      <option value="corporate">Corporate</option>
+                      <option value="premium">Premium</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" onclick="createCustomer()">
+              <i class="fas fa-plus"></i> Create Customer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/js/lynxlite.min.js"></script>
+    
+    <!-- Feedback System -->
+    <script src="assets/js/feedback-system.js"></script>
+
+    <script>
+      // Dark mode toggle logic
+      const darkModeSwitch = document.getElementById('darkModeSwitch');
+      function setDarkMode(enabled) {
+        if (enabled) {
+          document.body.classList.add('dark-mode');
+        } else {
+          document.body.classList.remove('dark-mode');
+        }
+      }
+      // On load, check localStorage
+      document.addEventListener('DOMContentLoaded', function() {
+        const darkPref = localStorage.getItem('darkMode') === 'true';
+        setDarkMode(darkPref);
+        if (darkModeSwitch) darkModeSwitch.checked = darkPref;
+        if (darkModeSwitch) {
+          darkModeSwitch.addEventListener('change', function() {
+            setDarkMode(this.checked);
+            localStorage.setItem('darkMode', this.checked);
+          });
+        }
+      });
+    </script>
+    
+    <script>
+      // Sample customer data
+      const customerData = [
+        {
+          id: 1,
+          name: 'John Smith',
+          email: 'john.smith@email.com',
+          phone: '+1-555-0123',
+          avatar: 'assets/img/profile.jpg',
+          verification: 'verified',
+          riskLevel: 'medium',
+          riskScore: 65,
+          totalRentals: 12,
+          totalSpent: 2450,
+          memberSince: '2023',
+          lastActivity: '2024-12-10',
+          license: { number: 'DL123456789', expiry: '2027-12-25', verified: true },
+          kyc: {
+            license: true,
+            id: true,
+            phone: true,
+            email: true
+          },
+          preferences: {
+            emailNotifications: true,
+            smsAlerts: true,
+            autopay: 'Visa ****1234',
+            preferredBranch: 'Manhattan'
+          },
+          riskFactors: {
+            speedingIncidents: 2,
+            lateReturns: 1,
+            accidents: 1,
+            paymentIssues: 0
+          },
+          drivingMetrics: {
+            speedCompliance: 82,
+            safeDriving: 75,
+            onTimeReturns: 92
+          }
+        },
+        {
+          id: 2,
+          name: 'Sarah Johnson',
+          email: 'sarah.j@email.com',
+          phone: '+1-555-0124',
+          avatar: 'assets/img/profile2.jpg',
+          verification: 'verified',
+          riskLevel: 'low',
+          riskScore: 25,
+          totalRentals: 8,
+          totalSpent: 1250,
+          memberSince: '2023',
+          lastActivity: '2024-12-08',
+          license: { number: 'DL987654321', expiry: '2026-08-15', verified: true },
+          kyc: {
+            license: true,
+            id: true,
+            phone: true,
+            email: true
+          },
+          preferences: {
+            emailNotifications: true,
+            smsAlerts: false,
+            autopay: 'MC ****5678',
+            preferredBranch: 'Brooklyn'
+          },
+          riskFactors: {
+            speedingIncidents: 0,
+            lateReturns: 0,
+            accidents: 0,
+            paymentIssues: 0
+          },
+          drivingMetrics: {
+            speedCompliance: 98,
+            safeDriving: 95,
+            onTimeReturns: 100
+          }
+        },
+        {
+          id: 3,
+          name: 'Mike Davis',
+          email: 'mike.d@email.com',
+          phone: '+1-555-0125',
+          avatar: 'assets/img/profile.jpg',
+          verification: 'pending',
+          riskLevel: 'high',
+          riskScore: 85,
+          totalRentals: 15,
+          totalSpent: 3200,
+          memberSince: '2022',
+          lastActivity: '2024-12-05',
+          license: { number: 'DL456789123', expiry: '2025-03-10', verified: false },
+          kyc: {
+            license: false,
+            id: true,
+            phone: true,
+            email: true
+          },
+          preferences: {
+            emailNotifications: true,
+            smsAlerts: true,
+            autopay: 'None',
+            preferredBranch: 'Queens'
+          },
+          riskFactors: {
+            speedingIncidents: 5,
+            lateReturns: 3,
+            accidents: 2,
+            paymentIssues: 1
+          },
+          drivingMetrics: {
+            speedCompliance: 65,
+            safeDriving: 55,
+            onTimeReturns: 80
+          }
+        },
+        {
+          id: 4,
+          name: 'Lisa Wong',
+          email: 'lisa.wong@email.com',
+          phone: '+1-555-0126',
+          avatar: 'assets/img/profile2.jpg',
+          verification: 'verified',
+          riskLevel: 'medium',
+          riskScore: 45,
+          totalRentals: 6,
+          totalSpent: 980,
+          memberSince: '2024',
+          lastActivity: '2024-12-09',
+          license: { number: 'DL789123456', expiry: '2028-01-20', verified: true },
+          kyc: {
+            license: true,
+            id: true,
+            phone: true,
+            email: true
+          },
+          preferences: {
+            emailNotifications: false,
+            smsAlerts: true,
+            autopay: 'Amex ****9012',
+            preferredBranch: 'Manhattan'
+          },
+          riskFactors: {
+            speedingIncidents: 1,
+            lateReturns: 0,
+            accidents: 0,
+            paymentIssues: 0
+          },
+          drivingMetrics: {
+            speedCompliance: 88,
+            safeDriving: 82,
+            onTimeReturns: 100
+          }
+        }
+      ];
+
+      let currentCustomerId = null;
+
+      // Initialize page
+      document.addEventListener('DOMContentLoaded', function() {
+        populateCustomerTable();
+        setupFilters();
+      });
+
+      function populateCustomerTable() {
+        populateCustomerTableWithData(customerData);
+      }
+
+      function getVerificationBadge(status) {
+        const badgeMap = {
+          'verified': 'bg-success',
+          'pending': 'bg-warning', 
+          'rejected': 'bg-danger',
+          'expired': 'bg-secondary'
+        };
+        const text = status.charAt(0).toUpperCase() + status.slice(1);
+        return `<span class="badge ${badgeMap[status] || 'bg-secondary'}">${text}</span>`;
+      }
+
+      function getRiskBadge(level) {
+        const badgeMap = {
+          'low': { class: 'bg-success', text: 'Low Risk' },
+          'medium': { class: 'bg-warning', text: 'Medium Risk' },
+          'high': { class: 'bg-danger', text: 'High Risk' }
+        };
+        const info = badgeMap[level] || { class: 'bg-secondary', text: level };
+        return `<span class="badge ${info.class}">${info.text}</span>`;
+      }
+
+      function initializeCircularProgress() {
+        document.querySelectorAll('.circular-progress').forEach(element => {
+          const score = element.dataset.score;
+          // Simple circular progress implementation
+          element.style.background = `conic-gradient(#007bff 0deg ${score * 3.6}deg, #e9ecef ${score * 3.6}deg 360deg)`;
+        });
+      }
+
+      function openCustomerDetail(customerId) {
+        currentCustomerId = customerId;
+        const customer = customerData.find(c => c.id === customerId);
+        
+        if (customer) {
+          // Populate customer details in modal
+          document.getElementById('customerName').textContent = customer.name;
+          document.getElementById('customerEmail').textContent = customer.email;
+          document.getElementById('customerAvatar').src = customer.avatar;
+          document.getElementById('verificationBadge').className = `badge ${getVerificationBadge(customer.verification).match(/bg-\w+/)[0]}`;
+          document.getElementById('verificationBadge').textContent = customer.verification.charAt(0).toUpperCase() + customer.verification.slice(1);
+          document.getElementById('riskBadge').className = `badge ${getRiskBadge(customer.riskLevel).match(/bg-\w+/)[0]}`;
+          document.getElementById('riskBadge').textContent = getRiskBadge(customer.riskLevel).match(/>([^<]+)</)[1];
+          document.getElementById('totalRentals').textContent = customer.totalRentals;
+          document.getElementById('totalSpent').textContent = `$${customer.totalSpent.toLocaleString()}`;
+          document.getElementById('memberSince').textContent = customer.memberSince;
+          
+          // Draw risk score gauge
+          drawRiskScoreGauge(customer.riskScore);
+          
+          new bootstrap.Modal(document.getElementById('customerDetailModal')).show();
+        }
+      }
+
+      function drawRiskScoreGauge(score) {
+        const canvas = document.getElementById('riskScoreGauge');
+        const ctx = canvas.getContext('2d');
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const radius = 45;
+
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Background circle
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = '#e9ecef';
+        ctx.lineWidth = 8;
+        ctx.stroke();
+
+        // Score arc
+        const scoreAngle = (score / 100) * 2 * Math.PI - Math.PI / 2;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, -Math.PI / 2, scoreAngle);
+        ctx.strokeStyle = score > 70 ? '#dc3545' : score > 40 ? '#ffc107' : '#28a745';
+        ctx.lineWidth = 8;
+        ctx.stroke();
+      }
+
+      function setupFilters() {
+        // Populate filter options
+        populateFilterOptions();
+
+        // Add event listeners for all filters
+        ['searchCustomer', 'filterVerification', 'filterRisk', 'filterType', 'filterDate'].forEach(id => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.addEventListener('change', applyFilters);
+            element.addEventListener('keyup', applyFilters);
+          }
+        });
+      }
+
+      function populateFilterOptions() {
+        // Populate verification filter
+        const verificationFilter = document.getElementById('filterVerification');
+        if (verificationFilter) {
+          verificationFilter.innerHTML = `
+            <option value="">All Verification Status</option>
+            <option value="verified">Verified</option>
+            <option value="pending">Pending</option>
+            <option value="rejected">Rejected</option>
+          `;
+        }
+
+        // Populate risk filter
+        const riskFilter = document.getElementById('filterRisk');
+        if (riskFilter) {
+          riskFilter.innerHTML = `
+            <option value="">All Risk Levels</option>
+            <option value="low">Low Risk</option>
+            <option value="medium">Medium Risk</option>
+            <option value="high">High Risk</option>
+          `;
+        }
+
+        // Populate type filter (customer categories)
+        const typeFilter = document.getElementById('filterType');
+        if (typeFilter) {
+          typeFilter.innerHTML = `
+            <option value="">All Customer Types</option>
+            <option value="regular">Regular Customer</option>
+            <option value="premium">Premium Customer</option>
+            <option value="corporate">Corporate Customer</option>
+            <option value="new">New Customer</option>
+          `;
+        }
+      }
+
+      function applyFilters() {
+        const searchTerm = document.getElementById('searchCustomer')?.value.toLowerCase() || '';
+        const verificationFilter = document.getElementById('filterVerification')?.value || '';
+        const riskFilter = document.getElementById('filterRisk')?.value || '';
+        const typeFilter = document.getElementById('filterType')?.value || '';
+        const dateFilter = document.getElementById('filterDate')?.value || '';
+
+        let filteredData = customerData.filter(customer => {
+          // Search filter - search across multiple fields
+          const matchesSearch = !searchTerm ||
+            customer.name.toLowerCase().includes(searchTerm) ||
+            customer.email.toLowerCase().includes(searchTerm) ||
+            customer.phone.toLowerCase().includes(searchTerm) ||
+            customer.license.number.toLowerCase().includes(searchTerm);
+
+          // Verification status filter
+          const matchesVerification = !verificationFilter || customer.verification === verificationFilter;
+
+          // Risk level filter
+          const matchesRisk = !riskFilter || customer.riskLevel === riskFilter;
+
+          // Customer type filter (based on rental history and spend)
+          let customerType = 'regular';
+          if (customer.totalSpent > 5000) customerType = 'premium';
+          if (customer.totalSpent > 10000) customerType = 'corporate';
+          if (customer.totalRentals === 0) customerType = 'new';
+
+          const matchesType = !typeFilter || customerType === typeFilter;
+
+          // Date filter (based on last activity)
+          let matchesDate = true;
+          if (dateFilter) {
+            const filterDate = new Date(dateFilter);
+            const customerDate = new Date(customer.lastActivity);
+            matchesDate = customerDate >= filterDate;
+          }
+
+          return matchesSearch && matchesVerification && matchesRisk && matchesType && matchesDate;
+        });
+
+        populateCustomerTableWithData(filteredData);
+
+        // Update results count
+        const resultsCount = document.getElementById('resultsCount');
+        if (resultsCount) {
+          resultsCount.textContent = `Showing ${filteredData.length} of ${customerData.length} customers`;
+        }
+      }
+
+      function populateCustomerTableWithData(data) {
+        const tbody = document.getElementById('customerTableBody');
+        if (!tbody) return;
+
+        tbody.innerHTML = '';
+
+        data.forEach(customer => {
+          const verificationBadge = getVerificationBadge(customer.verification);
+          const riskBadge = getRiskBadge(customer.riskLevel);
+
+          const row = `
+            <tr onclick="openCustomerDetail(${customer.id})" style="cursor: pointer;">
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="avatar avatar-sm me-3">
+                    <img src="${customer.avatar}" alt="Customer" class="avatar-img rounded-circle">
+                  </div>
+                  <div>
+                    <div class="fw-bold">${customer.name}</div>
+                    <small class="text-muted">${customer.email}</small>
+                    <div class="small text-muted">${customer.phone}</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                ${verificationBadge}
+                <div class="small text-muted">License: ${customer.license.verified ? 'Verified' : 'Pending'}</div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="risk-score-mini me-2">
+                    <div class="circular-progress" data-score="${customer.riskScore}">
+                      <span>${customer.riskScore}</span>
+                    </div>
+                  </div>
+                  ${riskBadge}
+                </div>
+              </td>
+              <td>
+                <div class="fw-bold">${customer.totalRentals}</div>
+                <small class="text-success">$${customer.totalSpent.toLocaleString()}</small>
+              </td>
+              <td>
+                <div>${new Date(customer.lastActivity).toLocaleDateString()}</div>
+                <small class="text-muted">Member since ${customer.memberSince}</small>
+              </td>
+              <td>
+                <div class="btn-group btn-group-sm" role="group">
+                  <button class="btn btn-outline-primary" onclick="event.stopPropagation(); openCustomerDetail(${customer.id})" title="View Profile">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-outline-success" onclick="event.stopPropagation(); quickVerify(${customer.id})" title="Quick Verify">
+                    <i class="fas fa-check"></i>
+                  </button>
+                  <button class="btn btn-outline-warning" onclick="event.stopPropagation(); adjustRisk(${customer.id})" title="Adjust Risk">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+
+        // If no results, show empty state
+        if (data.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="6" class="text-center py-4">
+                <i class="fas fa-users fa-3x text-muted mb-3"></i>
+                <p class="text-muted">No customers found matching your criteria</p>
+              </td>
+            </tr>
+          `;
+        }
+
+        // Initialize circular progress for risk scores
+        initializeCircularProgress();
+      }
+
+      function quickVerify(customerId) {
+        const customer = customerData.find(c => c.id === customerId);
+        if (customer) {
+          customer.verification = 'verified';
+          populateCustomerTable();
+          alert(`Customer ${customer.name} has been verified.`);
+        }
+      }
+
+      function adjustRisk(customerId) {
+        const customer = customerData.find(c => c.id === customerId);
+        if (customer) {
+          const newRisk = prompt(`Adjust risk level for ${customer.name}:\n1. Low\n2. Medium\n3. High\n\nEnter number:`);
+          const riskLevels = ['', 'low', 'medium', 'high'];
+          if (newRisk && riskLevels[newRisk]) {
+            customer.riskLevel = riskLevels[newRisk];
+            customer.riskScore = { 'low': 25, 'medium': 50, 'high': 85 }[riskLevels[newRisk]];
+            populateCustomerTable();
+            alert(`Risk level updated for ${customer.name}.`);
+          }
+        }
+      }
+
+      function flagCustomer() {
+        if (!currentCustomerId) return;
+
+        const customer = customerData.find(c => c.id === currentCustomerId);
+        if (!customer) return;
+
+        const reason = prompt(`Flag customer ${customer.name} for review?\n\nReason for flagging:\n1. Suspicious Activity\n2. Overdue Payments\n3. Document Issues\n4. Risk Assessment\n5. Other\n\nEnter number (1-5):`);
+
+        const flagReasons = {
+          '1': 'Suspicious Activity',
+          '2': 'Overdue Payments',
+          '3': 'Document Issues',
+          '4': 'Risk Assessment',
+          '5': 'Other'
+        };
+
+        if (reason && flagReasons[reason]) {
+          customer.flagged = true;
+          customer.flagReason = flagReasons[reason];
+          customer.flagDate = new Date().toISOString().split('T')[0];
+          customer.riskLevel = 'high'; // Auto-escalate risk when flagged
+          customer.riskScore = Math.min(customer.riskScore + 30, 100);
+
+          populateCustomerTable();
+          bootstrap.Modal.getInstance(document.getElementById('customerDetailModal')).hide();
+
+          alert(`Customer ${customer.name} has been flagged for review.\nReason: ${flagReasons[reason]}\nRisk level automatically increased to High.`);
+        }
+      }
+
+      function editCustomer() {
+        if (!currentCustomerId) return;
+
+        const customer = customerData.find(c => c.id === currentCustomerId);
+        if (!customer) return;
+
+        // Create edit customer modal
+        const modalHtml = `
+          <div class="modal fade" id="editCustomerModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Edit Customer - ${customer.name}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="editCustomerForm">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label class="form-label">Full Name</label>
+                          <input type="text" class="form-control" id="editName" value="${customer.name}" required>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Email</label>
+                          <input type="email" class="form-control" id="editEmail" value="${customer.email}" required>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Phone</label>
+                          <input type="tel" class="form-control" id="editPhone" value="${customer.phone}" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label class="form-label">License Number</label>
+                          <input type="text" class="form-control" id="editLicenseNumber" value="${customer.license.number}" required>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">License Expiry</label>
+                          <input type="date" class="form-control" id="editLicenseExpiry" value="${customer.license.expiry}" required>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Customer Type</label>
+                          <select class="form-select" id="editCustomerType">
+                            <option value="individual" ${customer.customerType === 'individual' ? 'selected' : ''}>Individual</option>
+                            <option value="corporate" ${customer.customerType === 'corporate' ? 'selected' : ''}>Corporate</option>
+                            <option value="premium" ${customer.customerType === 'premium' ? 'selected' : ''}>Premium</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label class="form-label">Verification Status</label>
+                          <select class="form-select" id="editVerification">
+                            <option value="pending" ${customer.verification === 'pending' ? 'selected' : ''}>Pending</option>
+                            <option value="verified" ${customer.verification === 'verified' ? 'selected' : ''}>Verified</option>
+                            <option value="rejected" ${customer.verification === 'rejected' ? 'selected' : ''}>Rejected</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label class="form-label">Risk Level</label>
+                          <select class="form-select" id="editRiskLevel">
+                            <option value="low" ${customer.riskLevel === 'low' ? 'selected' : ''}>Low</option>
+                            <option value="medium" ${customer.riskLevel === 'medium' ? 'selected' : ''}>Medium</option>
+                            <option value="high" ${customer.riskLevel === 'high' ? 'selected' : ''}>High</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-primary" onclick="saveCustomerEdits()">Save Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Remove existing modal if present
+        const existingModal = document.getElementById('editCustomerModal');
+        if (existingModal) existingModal.remove();
+
+        // Add new modal to body
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+        // Show modal
+        const modal = new bootstrap.Modal(document.getElementById('editCustomerModal'));
+        modal.show();
+      }
+
+      function saveCustomerEdits() {
+        if (!currentCustomerId) return;
+
+        const customer = customerData.find(c => c.id === currentCustomerId);
+        if (!customer) return;
+
+        // Get form values
+        const name = document.getElementById('editName').value.trim();
+        const email = document.getElementById('editEmail').value.trim();
+        const phone = document.getElementById('editPhone').value.trim();
+        const licenseNumber = document.getElementById('editLicenseNumber').value.trim();
+        const licenseExpiry = document.getElementById('editLicenseExpiry').value;
+        const customerType = document.getElementById('editCustomerType').value;
+        const verification = document.getElementById('editVerification').value;
+        const riskLevel = document.getElementById('editRiskLevel').value;
+
+        // Validate required fields
+        if (!name || !email || !phone || !licenseNumber || !licenseExpiry) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        // Check if email already exists (excluding current customer)
+        const existingCustomer = customerData.find(c => c.email.toLowerCase() === email.toLowerCase() && c.id !== currentCustomerId);
+        if (existingCustomer) {
+          alert('A customer with this email address already exists.');
+          return;
+        }
+
+        // Check if license already exists (excluding current customer)
+        const existingLicense = customerData.find(c => c.license.number === licenseNumber && c.id !== currentCustomerId);
+        if (existingLicense) {
+          alert('A customer with this license number already exists.');
+          return;
+        }
+
+        // Update customer data
+        customer.name = name;
+        customer.email = email;
+        customer.phone = phone;
+        customer.license.number = licenseNumber;
+        customer.license.expiry = licenseExpiry;
+        customer.customerType = customerType;
+        customer.verification = verification;
+        customer.riskLevel = riskLevel;
+
+        // Update risk score based on risk level
+        const riskScoreMap = { 'low': 25, 'medium': 50, 'high': 85 };
+        customer.riskScore = riskScoreMap[riskLevel] || 50;
+
+        // Update KYC status based on verification
+        if (verification === 'verified') {
+          customer.kyc.license = true;
+          customer.kyc.email = true;
+          customer.kyc.phone = true;
+          customer.license.verified = true;
+        }
+
+        // Refresh displays
+        populateCustomerTable();
+
+        // Close modal and update detail modal if open
+        bootstrap.Modal.getInstance(document.getElementById('editCustomerModal')).hide();
+        bootstrap.Modal.getInstance(document.getElementById('customerDetailModal')).hide();
+
+        alert(`Customer "${customer.name}" updated successfully!`);
+      }
+
+      function viewRiskDetails() {
+        if (!currentCustomerId) return;
+
+        const customer = customerData.find(c => c.id === currentCustomerId);
+        if (!customer) return;
+
+        // Calculate risk factors
+        const age = customer.dateOfBirth ? Math.floor((new Date() - new Date(customer.dateOfBirth)) / (365.25 * 24 * 60 * 60 * 1000)) : 'Unknown';
+        const membershipDuration = new Date().getFullYear() - parseInt(customer.memberSince);
+        const avgSpendPerRental = customer.totalRentals > 0 ? (customer.totalSpent / customer.totalRentals).toFixed(2) : 0;
+
+        // Risk factor analysis
+        let riskFactors = [];
+        if (customer.totalRentals === 0) riskFactors.push('New customer - no rental history');
+        if (customer.riskScore > 70) riskFactors.push('High risk score');
+        if (customer.verification !== 'verified') riskFactors.push('Unverified documentation');
+        if (customer.flagged) riskFactors.push(`Flagged: ${customer.flagReason}`);
+        if (age < 25 && age !== 'Unknown') riskFactors.push('Young driver (under 25)');
+        if (customer.totalSpent > customer.totalRentals * 100) riskFactors.push('Above average spending pattern');
+
+        // Create risk details modal
+        const modalHtml = `
+          <div class="modal fade" id="riskDetailsModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Risk Analysis - ${customer.name}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h6 class="fw-bold mb-3">Risk Overview</h6>
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="risk-score-large me-3">
+                          <div class="circular-progress" data-score="${customer.riskScore}">
+                            <span>${customer.riskScore}</span>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="fw-bold">Risk Score: ${customer.riskScore}/100</div>
+                          <div>Risk Level: ${getRiskBadge(customer.riskLevel)}</div>
+                        </div>
+                      </div>
+
+                      <h6 class="fw-bold mb-3">Customer Profile</h6>
+                      <p><strong>Age:</strong> ${age} years</p>
+                      <p><strong>Member Since:</strong> ${customer.memberSince} (${membershipDuration} years)</p>
+                      <p><strong>Total Rentals:</strong> ${customer.totalRentals}</p>
+                      <p><strong>Total Spent:</strong> $${customer.totalSpent.toLocaleString()}</p>
+                      <p><strong>Avg. Spend/Rental:</strong> $${avgSpendPerRental}</p>
+                      <p><strong>Verification Status:</strong> ${getVerificationBadge(customer.verification)}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                      <h6 class="fw-bold mb-3">Risk Factors</h6>
+                      ${riskFactors.length > 0 ?
+                        riskFactors.map(factor => `<div class="alert alert-warning py-2"><i class="fas fa-exclamation-triangle me-2"></i>${factor}</div>`).join('') :
+                        '<div class="alert alert-success py-2"><i class="fas fa-check-circle me-2"></i>No significant risk factors identified</div>'
+                      }
+
+                      <h6 class="fw-bold mb-3 mt-4">KYC Status</h6>
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" ${customer.kyc.license ? 'checked' : ''} disabled>
+                            <label class="form-check-label">License Verified</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" ${customer.kyc.email ? 'checked' : ''} disabled>
+                            <label class="form-check-label">Email Verified</label>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" ${customer.kyc.phone ? 'checked' : ''} disabled>
+                            <label class="form-check-label">Phone Verified</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" ${customer.kyc.id ? 'checked' : ''} disabled>
+                            <label class="form-check-label">ID Verified</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      ${customer.flagged ? `
+                        <div class="alert alert-danger mt-3">
+                          <h6 class="alert-heading"><i class="fas fa-flag me-2"></i>Customer Flagged</h6>
+                          <p class="mb-1"><strong>Reason:</strong> ${customer.flagReason}</p>
+                          <p class="mb-0"><strong>Date:</strong> ${customer.flagDate}</p>
+                        </div>
+                      ` : ''}
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-warning" onclick="adjustRisk(${customer.id}); bootstrap.Modal.getInstance(document.getElementById('riskDetailsModal')).hide();">Adjust Risk Level</button>
+                  ${!customer.flagged ? `<button type="button" class="btn btn-danger" onclick="flagCustomer(); bootstrap.Modal.getInstance(document.getElementById('riskDetailsModal')).hide();">Flag Customer</button>` : ''}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Remove existing modal if present
+        const existingModal = document.getElementById('riskDetailsModal');
+        if (existingModal) existingModal.remove();
+
+        // Add new modal to body
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+        // Show modal
+        const modal = new bootstrap.Modal(document.getElementById('riskDetailsModal'));
+        modal.show();
+
+        // Initialize circular progress for the large risk score display
+        setTimeout(() => initializeCircularProgress(), 100);
+      }
+
+      function createCustomer() {
+        // Get form values
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const licenseNumber = document.getElementById('licenseNumber').value.trim();
+        const licenseExpiry = document.getElementById('licenseExpiry').value;
+        const dateOfBirth = document.getElementById('dateOfBirth').value;
+        const customerType = document.getElementById('customerType').value;
+
+        // Validate required fields
+        if (!firstName || !lastName || !email || !phone || !licenseNumber || !licenseExpiry || !dateOfBirth) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+
+        // Validate phone format (basic check)
+        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+        if (!phoneRegex.test(phone.replace(/[-\s\(\)]/g, ''))) {
+          alert('Please enter a valid phone number.');
+          return;
+        }
+
+        // Check if email already exists
+        const existingCustomer = customerData.find(c => c.email.toLowerCase() === email.toLowerCase());
+        if (existingCustomer) {
+          alert('A customer with this email address already exists.');
+          return;
+        }
+
+        // Check if license already exists
+        const existingLicense = customerData.find(c => c.license.number === licenseNumber);
+        if (existingLicense) {
+          alert('A customer with this license number already exists.');
+          return;
+        }
+
+        // Validate license expiry date
+        const expiryDate = new Date(licenseExpiry);
+        const today = new Date();
+        if (expiryDate < today) {
+          alert('License expiry date cannot be in the past.');
+          return;
+        }
+
+        // Calculate age from date of birth
+        const birthDate = new Date(dateOfBirth);
+        const age = Math.floor((today - birthDate) / (365.25 * 24 * 60 * 60 * 1000));
+        if (age < 18) {
+          alert('Customer must be at least 18 years old.');
+          return;
+        }
+
+        // Generate new customer ID
+        const newId = Math.max(...customerData.map(c => c.id)) + 1;
+
+        // Create new customer object
+        const newCustomer = {
+          id: newId,
+          name: `${firstName} ${lastName}`,
+          email: email,
+          phone: phone,
+          avatar: 'assets/img/profile.jpg', // Default avatar
+          verification: 'pending',
+          riskLevel: 'medium', // Default risk level for new customers
+          riskScore: 50, // Default risk score
+          totalRentals: 0,
+          totalSpent: 0,
+          memberSince: new Date().getFullYear().toString(),
+          lastActivity: new Date().toISOString().split('T')[0],
+          license: {
+            number: licenseNumber,
+            expiry: licenseExpiry,
+            verified: false
+          },
+          kyc: {
+            license: false,
+            id: false,
+            phone: false,
+            email: false
+          },
+          customerType: customerType,
+          dateOfBirth: dateOfBirth
+        };
+
+        // Add to customerData
+        customerData.push(newCustomer);
+
+        // Refresh the table and filters
+        populateCustomerTable();
+        populateFilterOptions(); // Refresh filter options
+
+        // Close modal and show success message
+        bootstrap.Modal.getInstance(document.getElementById('newCustomerModal')).hide();
+        alert(`Customer "${newCustomer.name}" created successfully!\nCustomer ID: ${newId}\nVerification status: Pending`);
+
+        // Reset form
+        document.getElementById('newCustomerForm').reset();
+      }
+
+    </script>
+  </body>
+</html>
