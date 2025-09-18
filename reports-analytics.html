@@ -1,0 +1,2143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Reports & Analytics - LynxLite</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular", 
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/lynxlite.min.css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/css/unified-custom.css" />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+          <div class="logo-header" data-background-color="dark">
+            <a href="index2.html" class="logo">
+              <img src="assets/img/lynxlite/logo_light.svg" alt="LynxLite - Acacus" class="navbar-brand" height="45" />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar"><i class="gg-menu-right"></i></button>
+              <button class="btn btn-toggle sidenav-toggler"><i class="gg-menu-left"></i></button>
+            </div>
+            <button class="topbar-toggler more"><i class="gg-more-vertical-alt"></i></button>
+          </div>
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a href="index2.html"><i class="fas fa-home"></i><p>Dashboard (Overview)</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="fleet-management.html"><i class="fas fa-car"></i><p>Fleet Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="booking-management.html"><i class="fas fa-calendar-alt"></i><p>Booking Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="customer-management.html"><i class="fas fa-users"></i><p>Customer Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="billing-payments.html"><i class="fas fa-credit-card"></i><p>Billing & Payments</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="maintenance-compliance.html"><i class="fas fa-wrench"></i><p>Maintenance & Compliance</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="telematics-tracking.html"><i class="fas fa-map-marked-alt"></i><p>Telematics & Tracking</p></a>
+              </li>
+              <li class="nav-item active">
+                <a href="reports-analytics.html"><i class="fas fa-chart-line"></i><p>Reports & Analytics</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="branch-staff-management.html"><i class="fas fa-building"></i><p>Branch / Staff Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="#"><i class="fas fa-cogs"></i><p>System Settings</p></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+      
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <div class="logo-header" data-background-color="dark">
+              <a href="index2.html" class="logo">
+                <img src="assets/img/lynxlite/logo_light.svg" alt="LynxLite - Acacus" class="navbar-brand" height="20" />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar"><i class="gg-menu-right"></i></button>
+                <button class="btn btn-toggle sidenav-toggler"><i class="gg-menu-left"></i></button>
+              </div>
+              <button class="topbar-toggler more"><i class="gg-more-vertical-alt"></i></button>
+            </div>
+          </div>
+          <!-- Navbar Header -->
+          <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+            <div class="container-fluid">
+              <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-search pe-1">
+                      <i class="fa fa-search search-icon"></i>
+                    </button>
+                  </div>
+                  <input type="text" placeholder="Search reports..." class="form-control" id="globalSearch" />
+                </div>
+              </nav>
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li class="nav-item d-flex align-items-center">
+                  <div class="form-check form-switch mb-0 ms-2">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch" />
+                    <label class="form-check-label" for="darkModeSwitch" style="color:inherit;">Dark Mode</label>
+                  </div>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" aria-haspopup="true">
+                    <i class="fa fa-search"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-search animated fadeIn">
+                    <form class="navbar-left navbar-form nav-search">
+                      <div class="input-group">
+                        <input type="text" placeholder="Search reports..." class="form-control" />
+                      </div>
+                    </form>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
+                    <li>
+                      <div class="dropdown-title d-flex justify-content-between align-items-center">Messages <a href="#" class="small">Mark all as read</a></div>
+                    </li>
+                    <li>
+                      <div class="message-notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#"><div class="notif-img"><i class="fas fa-user-circle fa-2x"></i></div><div class="notif-content"><span class="subject">Report Ready</span><span class="block">Monthly revenue report generated</span><span class="time">5 minutes ago</span></div></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bell"></i><span class="notification">2</span>
+                  </a>
+                  <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+                    <li><div class="dropdown-title">You have 2 new notifications</div></li>
+                    <li>
+                      <div class="notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#" class="notif-item"><div class="notif-icon notif-warning"><i class="fas fa-wrench"></i></div><div class="notif-content"><span class="block">Predictive maintenance alert</span><span class="time">10 minutes ago</span></div></a>
+                          <a href="#" class="notif-item"><div class="notif-icon notif-success"><i class="fas fa-chart-line"></i></div><div class="notif-content"><span class="block">Revenue target achieved</span><span class="time">1 hour ago</span></div></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link" data-bs-toggle="dropdown" href="#" aria-expanded="false"><i class="fas fa-layer-group"></i></a>
+                  <div class="dropdown-menu quick-actions animated fadeIn">
+                    <div class="quick-actions-header"><span class="title mb-1">Quick Actions</span><span class="subtitle op-7">Shortcuts</span></div>
+                    <div class="quick-actions-scroll scrollbar-outer">
+                      <div class="quick-actions-items">
+                        <div class="row m-0">
+                          <a class="col-6 col-md-4 p-0" href="fleet-management.html"><div class="quick-actions-item"><div class="avatar-item bg-primary rounded-circle"><i class="fas fa-car"></i></div><span class="text">Fleet</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="booking-management.html"><div class="quick-actions-item"><div class="avatar-item bg-danger rounded-circle"><i class="far fa-calendar-alt"></i></div><span class="text">Bookings</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="customer-management.html"><div class="quick-actions-item"><div class="avatar-item bg-success rounded-circle"><i class="fas fa-users"></i></div><span class="text">Customers</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="billing-payments.html"><div class="quick-actions-item"><div class="avatar-item bg-warning rounded-circle"><i class="fas fa-credit-card"></i></div><span class="text">Payments</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="maintenance-compliance.html"><div class="quick-actions-item"><div class="avatar-item bg-info rounded-circle"><i class="fas fa-wrench"></i></div><span class="text">Maintenance</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="telematics-tracking.html"><div class="quick-actions-item"><div class="avatar-item bg-secondary rounded-circle"><i class="fas fa-map"></i></div><span class="text">Tracking</span></div></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item topbar-user dropdown hidden-caret">
+                  <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+                    <div class="avatar-sm"><i class="fas fa-user-circle fa-2x"></i></div>
+                    <span class="profile-username"><span class="op-7">Hi,</span> <span class="fw-bold">Admin</span></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg"><i class="fas fa-user-circle fa-3x"></i></div>
+                          <div class="u-text">
+                            <h4>Admin</h4>
+                            <p class="text-muted">hello@example.com</p>
+                            <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="#">My Balance</a>
+                        <a class="dropdown-item" href="#">Inbox</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Account Setting</a>
+                        <a class="dropdown-item" href="#">Logout</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          
+        </div>
+        
+        <!-- Reports & Analytics Content -->
+        <div class="container">
+          <div class="page-inner">
+            <!-- Time Period Filter -->
+            <div class="row mb-4">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0">Analytics Period</h5>
+                      <div class="d-flex gap-3">
+                        <select class="form-select" id="timePeriodFilter" onchange="updateAllReports()">
+                          <option value="7">Last 7 Days</option>
+                          <option value="30" selected>Last 30 Days</option>
+                          <option value="90">Last 3 Months</option>
+                          <option value="365">Last Year</option>
+                          <option value="custom">Custom Range</option>
+                        </select>
+                        <input type="date" class="form-control" id="startDate" style="display: none;">
+                        <input type="date" class="form-control" id="endDate" style="display: none;">
+                        <button class="btn btn-primary" onclick="exportReports()">
+                          <i class="fas fa-download"></i> Export
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Performance Indicators -->
+            <div class="row mb-4">
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-success bubble-shadow-small">
+                          <i class="fas fa-percentage"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Fleet Utilization</p>
+                          <h4 class="card-title">74.2%</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-info bubble-shadow-small">
+                          <i class="fas fa-dollar-sign"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Total Revenue</p>
+                          <h4 class="card-title">$284,573</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-primary bubble-shadow-small">
+                          <i class="fas fa-chart-line"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Profit Margin</p>
+                          <h4 class="card-title">34.8%</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-warning bubble-shadow-small">
+                          <i class="fas fa-wrench"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Maintenance Risk</p>
+                          <h4 class="card-title">8 Vehicles</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <ul class="nav nav-pills nav-pills-success" id="reportsTabs" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="utilization-tab" data-bs-toggle="pill" data-bs-target="#utilization" role="tab">
+                          <i class="fas fa-chart-pie me-2"></i>Fleet Utilization
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="revenue-tab" data-bs-toggle="pill" data-bs-target="#revenue" role="tab">
+                          <i class="fas fa-dollar-sign me-2"></i>Revenue & Profitability
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="seasonal-tab" data-bs-toggle="pill" data-bs-target="#seasonal" role="tab">
+                          <i class="fas fa-calendar-alt me-2"></i>Seasonal Analysis
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="customer-tab" data-bs-toggle="pill" data-bs-target="#customer" role="tab">
+                          <i class="fas fa-users me-2"></i>Customer Analytics
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="optimization-tab" data-bs-toggle="pill" data-bs-target="#optimization" role="tab">
+                          <i class="fas fa-cogs me-2"></i>Fleet Optimization
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="maintenance-tab" data-bs-toggle="pill" data-bs-target="#maintenance" role="tab">
+                          <i class="fas fa-wrench me-2"></i>Predictive Maintenance
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <!-- Fleet Utilization Tab -->
+              <div class="tab-pane fade show active" id="utilization" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-chart-line me-2"></i>Fleet Utilization Trends</h4>
+                          <div>
+                            <button class="btn btn-outline-primary btn-sm" onclick="toggleUtilizationView()">
+                              <i class="fas fa-exchange-alt"></i> Switch View
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="utilizationTrendChart" height="140"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <!-- Utilization by Branch -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-building me-2"></i>Utilization by Branch</h5>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="branchUtilizationChart" height="250"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Vehicle-Level Utilization -->
+                <div class="row mt-4">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-car me-2"></i>Vehicle Utilization Analysis</h4>
+                          <div>
+                            <select class="form-select form-select-sm" id="vehicleUtilizationFilter" onchange="filterVehicleUtilization()">
+                              <option value="all">All Vehicles</option>
+                              <option value="high">High Utilization (>80%)</option>
+                              <option value="medium">Medium Utilization (50-80%)</option>
+                              <option value="low">Low Utilization (<50%)</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Vehicle</th>
+                                <th>Utilization Rate</th>
+                                <th>Rental Days</th>
+                                <th>Idle Days</th>
+                                <th>Revenue</th>
+                                <th>Revenue/Day</th>
+                                <th>Status</th>
+                              </tr>
+                            </thead>
+                            <tbody id="vehicleUtilizationTable">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Utilization Insights -->
+                <div class="row mt-4">
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-lightbulb me-2"></i>Utilization Insights</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="insight-item mb-3">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <h6 class="mb-1">Peak Utilization Period</h6>
+                              <p class="text-muted mb-0">Weekends show 15% higher utilization</p>
+                            </div>
+                            <span class="badge bg-success">+15%</span>
+                          </div>
+                        </div>
+                        <div class="insight-item mb-3">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <h6 class="mb-1">Underutilized Assets</h6>
+                              <p class="text-muted mb-0">3 vehicles below 40% utilization</p>
+                            </div>
+                            <span class="badge bg-warning">Action Required</span>
+                          </div>
+                        </div>
+                        <div class="insight-item mb-3">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <h6 class="mb-1">Seasonal Trend</h6>
+                              <p class="text-muted mb-0">Summer months +22% utilization</p>
+                            </div>
+                            <span class="badge bg-info">Trending Up</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-calendar me-2"></i>Utilization Heatmap</h5>
+                      </div>
+                      <div class="card-body">
+                        <div id="utilizationHeatmap">
+                          <canvas id="heatmapChart" height="200"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Revenue & Profitability Tab -->
+              <div class="tab-pane fade" id="revenue" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-chart-area me-2"></i>Revenue & Cost Analysis</h4>
+                          <div>
+                            <select class="form-select form-select-sm" id="revenueViewFilter" onchange="updateRevenueChart()">
+                              <option value="daily">Daily</option>
+                              <option value="weekly" selected>Weekly</option>
+                              <option value="monthly">Monthly</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="revenueChart" height="80"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <!-- Revenue Breakdown -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-pie-chart me-2"></i>Revenue Breakdown</h5>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="revenueBreakdownChart" height="250"></canvas>
+                        <div class="mt-3">
+                          <div class="d-flex justify-content-between mb-2">
+                            <span>Vehicle Rentals</span>
+                            <strong>$198,450 (69.7%)</strong>
+                          </div>
+                          <div class="d-flex justify-content-between mb-2">
+                            <span>Insurance & Fees</span>
+                            <strong>$52,180 (18.3%)</strong>
+                          </div>
+                          <div class="d-flex justify-content-between mb-2">
+                            <span>Fuel Charges</span>
+                            <strong>$23,943 (8.4%)</strong>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <span>Other Services</span>
+                            <strong>$10,000 (3.6%)</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Branch & Vehicle Performance -->
+                <div class="row mt-4">
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-building me-2"></i>Revenue by Branch</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Branch</th>
+                                <th>Revenue</th>
+                                <th>Costs</th>
+                                <th>Profit</th>
+                                <th>Margin</th>
+                              </tr>
+                            </thead>
+                            <tbody id="branchRevenueTable">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-users me-2"></i>Revenue by Customer Segment</h5>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="customerSegmentChart" height="200"></canvas>
+                        <div class="mt-3">
+                          <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div>
+                              <span class="badge bg-primary">Corporate</span>
+                              <span class="ms-2">Long-term contracts</span>
+                            </div>
+                            <strong>$156,890</strong>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div>
+                              <span class="badge bg-success">Individual</span>
+                              <span class="ms-2">Personal rentals</span>
+                            </div>
+                            <strong>$98,245</strong>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <span class="badge bg-info">Tourist</span>
+                              <span class="ms-2">Vacation rentals</span>
+                            </div>
+                            <strong>$29,438</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Top Performing Vehicles -->
+                <div class="row mt-4">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-trophy me-2"></i>Top Performing Vehicles</h4>
+                          <div>
+                            <select class="form-select form-select-sm" id="performanceMetric" onchange="updatePerformanceTable()">
+                              <option value="revenue">Revenue</option>
+                              <option value="profit">Profit</option>
+                              <option value="margin">Margin %</option>
+                              <option value="utilization">Utilization</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Rank</th>
+                                <th>Vehicle</th>
+                                <th>Revenue</th>
+                                <th>Costs</th>
+                                <th>Profit</th>
+                                <th>Margin</th>
+                                <th>ROI</th>
+                                <th>Trend</th>
+                              </tr>
+                            </thead>
+                            <tbody id="vehiclePerformanceTable">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seasonal Analysis Tab -->
+              <div class="tab-pane fade" id="seasonal" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-chart-line me-2"></i>Seasonal Booking Patterns</h4>
+                          <div>
+                            <select class="form-select form-select-sm" id="seasonalViewFilter" onchange="updateSeasonalChart()">
+                              <option value="monthly">Monthly View</option>
+                              <option value="quarterly" selected>Quarterly View</option>
+                              <option value="yearly">Yearly Comparison</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="seasonalChart" height="80"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <!-- Holiday Impact -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-gift me-2"></i>Holiday Impact</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="holiday-item mb-3">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <h6 class="mb-1">Christmas Week</h6>
+                              <p class="text-muted mb-0">Dec 23-30</p>
+                            </div>
+                            <span class="badge bg-success">+45%</span>
+                          </div>
+                        </div>
+                        <div class="holiday-item mb-3">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <h6 class="mb-1">Thanksgiving</h6>
+                              <p class="text-muted mb-0">Nov 23-26</p>
+                            </div>
+                            <span class="badge bg-success">+32%</span>
+                          </div>
+                        </div>
+                        <div class="holiday-item mb-3">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <h6 class="mb-1">Summer Peak</h6>
+                              <p class="text-muted mb-0">Jul-Aug</p>
+                            </div>
+                            <span class="badge bg-info">+28%</span>
+                          </div>
+                        </div>
+                        <div class="holiday-item mb-3">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <h6 class="mb-1">Spring Break</h6>
+                              <p class="text-muted mb-0">Mar 15-30</p>
+                            </div>
+                            <span class="badge bg-warning">+22%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Weather Correlation -->
+                    <div class="card mt-3">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-cloud-sun me-2"></i>Weather Impact</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Sunny Days</span>
+                            <strong class="text-success">+15% bookings</strong>
+                          </div>
+                          <div class="progress mt-1" style="height: 6px;">
+                            <div class="progress-bar bg-success" style="width: 75%"></div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Rainy Days</span>
+                            <strong class="text-danger">-8% bookings</strong>
+                          </div>
+                          <div class="progress mt-1" style="height: 6px;">
+                            <div class="progress-bar bg-danger" style="width: 40%"></div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Snow Days</span>
+                            <strong class="text-warning">-25% bookings</strong>
+                          </div>
+                          <div class="progress mt-1" style="height: 6px;">
+                            <div class="progress-bar bg-warning" style="width: 25%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Customer Analytics Tab -->
+              <div class="tab-pane fade" id="customer" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title"><i class="fas fa-heart me-2"></i>Customer Lifetime Value</h4>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="customerLTVChart" height="120"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title"><i class="fas fa-redo me-2"></i>Customer Retention</h4>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="customerRetentionChart" height="120"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Customer Satisfaction & Analytics -->
+                <div class="row mt-4">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title"><i class="fas fa-star me-2"></i>Customer Satisfaction Analysis</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Customer Segment</th>
+                                <th>Avg Rating</th>
+                                <th>Total Reviews</th>
+                                <th>Repeat Rate</th>
+                                <th>Lifetime Value</th>
+                                <th>Satisfaction Trend</th>
+                              </tr>
+                            </thead>
+                            <tbody id="customerSatisfactionTable">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <!-- Top Customers -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-crown me-2"></i>Top Customers</h5>
+                      </div>
+                      <div class="card-body">
+                        <div id="topCustomersList">
+                          <!-- Populated by JavaScript -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fleet Optimization Tab -->
+              <div class="tab-pane fade" id="optimization" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-chart-area me-2"></i>Demand Forecasting</h4>
+                          <div>
+                            <button class="btn btn-outline-primary btn-sm" onclick="runDemandAnalysis()">
+                              <i class="fas fa-sync-alt"></i> Run Analysis
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="demandForecastChart" height="80"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <!-- Fleet Size Recommendations -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-calculator me-2"></i>Fleet Size Analysis</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Current Fleet</span>
+                            <strong>120 vehicles</strong>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Optimal Size</span>
+                            <strong class="text-success">135 vehicles</strong>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Recommendation</span>
+                            <strong class="text-info">+15 vehicles</strong>
+                          </div>
+                        </div>
+                        <div class="alert alert-info mt-3">
+                          <small><strong>ROI Impact:</strong> +$45k annually with 15 additional vehicles</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Real-Time Alerts -->
+                    <div class="card mt-3">
+                      <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <h5 class="card-title mb-0"><i class="fas fa-bell me-2"></i>Performance Alerts</h5>
+                          <button class="btn btn-outline-secondary btn-sm" onclick="configureAlerts()">
+                            <i class="fas fa-cog"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div id="performanceAlerts">
+                          <!-- Populated by JavaScript -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Vehicle Replacement Recommendations -->
+                <div class="row mt-4">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title"><i class="fas fa-exchange-alt me-2"></i>Vehicle Replacement Recommendations</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Vehicle</th>
+                                <th>Age</th>
+                                <th>Mileage</th>
+                                <th>Maintenance Cost</th>
+                                <th>Utilization</th>
+                                <th>Recommendation</th>
+                                <th>Priority</th>
+                                <th>Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody id="replacementRecommendationsTable">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Predictive Maintenance Tab -->
+              <div class="tab-pane fade" id="maintenance" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-chart-line me-2"></i>Maintenance Risk Prediction</h4>
+                          <div>
+                            <button class="btn btn-outline-success btn-sm" onclick="runMaintenanceAnalysis()">
+                              <i class="fas fa-sync-alt"></i> Run Analysis
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="maintenanceRiskChart" height="80"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <!-- Maintenance Score Distribution -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-gauge me-2"></i>Risk Score Distribution</h5>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="riskDistributionChart" height="200"></canvas>
+                        <div class="mt-3">
+                          <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                              <span>Low Risk (0-30)</span>
+                              <strong class="text-success">12 vehicles</strong>
+                            </div>
+                            <div class="progress mt-1" style="height: 6px;">
+                              <div class="progress-bar bg-success" style="width: 60%"></div>
+                            </div>
+                          </div>
+                          <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                              <span>Medium Risk (30-70)</span>
+                              <strong class="text-warning">5 vehicles</strong>
+                            </div>
+                            <div class="progress mt-1" style="height: 6px;">
+                              <div class="progress-bar bg-warning" style="width: 25%"></div>
+                            </div>
+                          </div>
+                          <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                              <span>High Risk (70-100)</span>
+                              <strong class="text-danger">3 vehicles</strong>
+                            </div>
+                            <div class="progress mt-1" style="height: 6px;">
+                              <div class="progress-bar bg-danger" style="width: 15%"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Maintenance Predictions Table -->
+                <div class="row mt-4">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-wrench me-2"></i>Maintenance Forecasting</h4>
+                          <div>
+                            <button class="btn btn-primary btn-sm" onclick="scheduleMaintenanceWorkflow()">
+                              <i class="fas fa-calendar-plus"></i> Schedule Maintenance
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Vehicle</th>
+                                <th>Risk Score</th>
+                                <th>Predicted Issue</th>
+                                <th>Forecast Date</th>
+                                <th>Confidence</th>
+                                <th>Estimated Cost</th>
+                                <th>Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody id="maintenancePredictionTable">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Predictive Factors -->
+                <div class="row mt-4">
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-cogs me-2"></i>Prediction Factors</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="factor-item mb-3">
+                          <div class="d-flex justify-content-between mb-1">
+                            <span>Mileage (Primary)</span>
+                            <span class="text-primary">45% weight</span>
+                          </div>
+                          <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" style="width: 45%"></div>
+                          </div>
+                        </div>
+                        <div class="factor-item mb-3">
+                          <div class="d-flex justify-content-between mb-1">
+                            <span>Vehicle Age</span>
+                            <span class="text-info">25% weight</span>
+                          </div>
+                          <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-info" style="width: 25%"></div>
+                          </div>
+                        </div>
+                        <div class="factor-item mb-3">
+                          <div class="d-flex justify-content-between mb-1">
+                            <span>Driving Behavior</span>
+                            <span class="text-warning">20% weight</span>
+                          </div>
+                          <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-warning" style="width: 20%"></div>
+                          </div>
+                        </div>
+                        <div class="factor-item mb-3">
+                          <div class="d-flex justify-content-between mb-1">
+                            <span>Service History</span>
+                            <span class="text-success">10% weight</span>
+                          </div>
+                          <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-success" style="width: 10%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-chart-bar me-2"></i>Cost Impact Analysis</h5>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="costImpactChart" height="250"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div class="modal fade" id="exportModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Export Reports</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Export Format</label>
+              <select class="form-select" id="exportFormat">
+                <option value="pdf">PDF Report</option>
+                <option value="excel">Excel Spreadsheet</option>
+                <option value="csv">CSV Data</option>
+                <option value="pptx">PowerPoint Presentation</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Include Sections</label>
+              <div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="includeUtilization" checked>
+                  <label class="form-check-label" for="includeUtilization">Fleet Utilization</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="includeRevenue" checked>
+                  <label class="form-check-label" for="includeRevenue">Revenue & Profitability</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="includeMaintenance" checked>
+                  <label class="form-check-label" for="includeMaintenance">Predictive Maintenance</label>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="includeCharts" checked>
+                <label class="form-check-label" for="includeCharts">Include charts and graphs</label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" onclick="processExport()">
+              <i class="fas fa-download"></i> Export
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/js/lynxlite.min.js"></script>
+    
+    <!-- Feedback System -->
+    <script src="assets/js/feedback-system.js"></script>
+
+    <script>
+      // Dark mode toggle logic
+      const darkModeSwitch = document.getElementById('darkModeSwitch');
+      function setDarkMode(enabled) {
+        if (enabled) {
+          document.body.classList.add('dark-mode');
+        } else {
+          document.body.classList.remove('dark-mode');
+        }
+      }
+      // On load, check localStorage
+      // On load, check localStorage
+      document.addEventListener('DOMContentLoaded', function() {
+        const darkPref = localStorage.getItem('darkMode') === 'true';
+        setDarkMode(darkPref);
+        if (darkModeSwitch) darkModeSwitch.checked = darkPref;
+        if (darkModeSwitch) {
+          darkModeSwitch.addEventListener('change', function() {
+            setDarkMode(this.checked);
+            localStorage.setItem('darkMode', this.checked);
+          });
+        }
+      });
+    </script>
+    
+    <script>
+      // Sample data for analytics
+      const vehicleUtilizationData = [
+        { vehicle: 'Toyota Camry - ABC123', utilization: 87.3, rentalDays: 26, idleDays: 4, revenue: 3150, revenuePerDay: 121.15, status: 'high' },
+        { vehicle: 'Honda CR-V - XYZ789', utilization: 74.2, rentalDays: 22, idleDays: 8, revenue: 2890, revenuePerDay: 131.36, status: 'medium' },
+        { vehicle: 'Ford Focus - DEF456', utilization: 65.8, rentalDays: 19, idleDays: 11, revenue: 2180, revenuePerDay: 114.74, status: 'medium' },
+        { vehicle: 'BMW X3 - GHI345', utilization: 92.1, rentalDays: 28, idleDays: 2, revenue: 4200, revenuePerDay: 150.00, status: 'high' },
+        { vehicle: 'Nissan Altima - JKL012', utilization: 45.2, rentalDays: 14, idleDays: 16, revenue: 1580, revenuePerDay: 112.86, status: 'low' }
+      ];
+
+      const branchRevenueData = [
+        { branch: 'Manhattan', revenue: 98450, costs: 64200, profit: 34250, margin: 34.8 },
+        { branch: 'Brooklyn', revenue: 76320, costs: 52800, profit: 23520, margin: 30.8 },
+        { branch: 'Queens', revenue: 65890, costs: 45600, profit: 20290, margin: 30.8 },
+        { branch: 'Bronx', revenue: 43913, costs: 31200, profit: 12713, margin: 28.9 }
+      ];
+
+      const vehiclePerformanceData = [
+        { rank: 1, vehicle: 'BMW X3 - GHI345', revenue: 4200, costs: 2680, profit: 1520, margin: 36.2, roi: 56.7, trend: 'up' },
+        { rank: 2, vehicle: 'Toyota Camry - ABC123', revenue: 3150, costs: 2100, profit: 1050, margin: 33.3, roi: 50.0, trend: 'up' },
+        { rank: 3, vehicle: 'Honda CR-V - XYZ789', revenue: 2890, costs: 1950, profit: 940, margin: 32.5, roi: 48.2, trend: 'stable' },
+        { rank: 4, vehicle: 'Ford Focus - DEF456', revenue: 2180, costs: 1520, profit: 660, margin: 30.3, roi: 43.4, trend: 'down' },
+        { rank: 5, vehicle: 'Nissan Altima - JKL012', revenue: 1580, costs: 1180, profit: 400, margin: 25.3, roi: 33.9, trend: 'down' }
+      ];
+
+      const maintenancePredictions = [
+        { vehicle: 'Ford Focus - DEF456', riskScore: 85, issue: 'Brake System', forecastDate: '2024-12-20', confidence: 92, cost: 450, priority: 'high' },
+        { vehicle: 'Nissan Altima - JKL012', riskScore: 78, issue: 'Transmission', forecastDate: '2024-12-25', confidence: 87, cost: 1200, priority: 'high' },
+        { vehicle: 'Honda CR-V - XYZ789', riskScore: 65, issue: 'Oil Change', forecastDate: '2025-01-05', confidence: 95, cost: 89, priority: 'medium' },
+        { vehicle: 'Toyota Camry - ABC123', riskScore: 52, issue: 'Tire Rotation', forecastDate: '2025-01-10', confidence: 78, cost: 65, priority: 'medium' },
+        { vehicle: 'BMW X3 - GHI345', riskScore: 28, issue: 'Inspection', forecastDate: '2025-01-15', confidence: 85, cost: 125, priority: 'low' }
+      ];
+
+      // Enhanced Analytics Data
+      const customerSatisfactionData = [
+        { segment: 'Corporate', avgRating: 4.7, totalReviews: 245, repeatRate: 89, lifetimeValue: 8450, trend: 'up' },
+        { segment: 'Individual', avgRating: 4.3, totalReviews: 892, repeatRate: 67, lifetimeValue: 2340, trend: 'stable' },
+        { segment: 'Tourist', avgRating: 4.1, totalReviews: 156, repeatRate: 23, lifetimeValue: 890, trend: 'down' }
+      ];
+
+      const topCustomersData = [
+        { name: 'TechCorp Inc.', totalSpent: 45200, rentals: 48, avgRating: 4.9, type: 'corporate' },
+        { name: 'Global Solutions', totalSpent: 38900, rentals: 42, avgRating: 4.8, type: 'corporate' },
+        { name: 'John Smith', totalSpent: 8450, rentals: 15, avgRating: 4.6, type: 'individual' },
+        { name: 'Sarah Johnson', totalSpent: 6780, rentals: 12, avgRating: 4.4, type: 'individual' },
+        { name: 'Tourism Agency', totalSpent: 12300, rentals: 28, avgRating: 4.2, type: 'tourist' }
+      ];
+
+      const replacementRecommendations = [
+        { vehicle: 'Ford Focus - DEF456', age: 8, mileage: 145000, maintenanceCost: 3200, utilization: 45, recommendation: 'Replace Soon', priority: 'high' },
+        { vehicle: 'Nissan Altima - JKL012', age: 7, mileage: 132000, maintenanceCost: 2800, utilization: 52, recommendation: 'Monitor Closely', priority: 'medium' },
+        { vehicle: 'Honda Civic - MNO345', age: 6, mileage: 98000, maintenanceCost: 1800, utilization: 68, recommendation: 'Continue Service', priority: 'low' },
+        { vehicle: 'Chevrolet Malibu - PQR678', age: 9, mileage: 167000, maintenanceCost: 4100, utilization: 38, recommendation: 'Replace Immediately', priority: 'critical' }
+      ];
+
+      const performanceAlertsData = [
+        { type: 'utilization', message: 'Manhattan branch utilization dropped below 70%', severity: 'warning', time: '2 hours ago' },
+        { type: 'maintenance', message: 'Maintenance costs exceeded budget by 15%', severity: 'danger', time: '4 hours ago' },
+        { type: 'revenue', message: 'Daily revenue target achieved', severity: 'success', time: '6 hours ago' },
+        { type: 'customer', message: 'Customer satisfaction score improved to 4.5', severity: 'info', time: '1 day ago' }
+      ];
+
+      let charts = {};
+
+      // Initialize page
+      document.addEventListener('DOMContentLoaded', function() {
+        setupDateFilters();
+        initializeCharts();
+        populateTables();
+        populateEnhancedAnalytics();
+        initializePerformanceAlerts();
+      });
+
+      function setupDateFilters() {
+        const timePeriodFilter = document.getElementById('timePeriodFilter');
+        const startDate = document.getElementById('startDate');
+        const endDate = document.getElementById('endDate');
+
+        timePeriodFilter.addEventListener('change', function() {
+          if (this.value === 'custom') {
+            startDate.style.display = 'block';
+            endDate.style.display = 'block';
+          } else {
+            startDate.style.display = 'none';
+            endDate.style.display = 'none';
+          }
+        });
+      }
+
+      function initializeCharts() {
+        initializeUtilizationCharts();
+        initializeRevenueCharts();
+        initializeSeasonalCharts();
+        initializeCustomerCharts();
+        initializeOptimizationCharts();
+        initializeMaintenanceCharts();
+      }
+
+      function initializeUtilizationCharts() {
+        // Utilization Trend Chart
+        const utilizationCtx = document.getElementById('utilizationTrendChart').getContext('2d');
+        charts.utilization = new Chart(utilizationCtx, {
+          type: 'line',
+          data: {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+            datasets: [{
+              label: 'Fleet Utilization %',
+              data: [68.5, 72.1, 76.8, 74.2],
+              borderColor: '#28a745',
+              backgroundColor: 'rgba(40, 167, 69, 0.1)',
+              tension: 0.4,
+              fill: true
+            }, {
+              label: 'Target Utilization %',
+              data: [75, 75, 75, 75],
+              borderColor: '#ffc107',
+              borderDash: [5, 5],
+              pointRadius: 0,
+              fill: false
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'top' }
+            },
+            scales: {
+              y: { beginAtZero: true, max: 100 }
+            }
+          }
+        });
+
+        // Branch Utilization Chart
+        const branchCtx = document.getElementById('branchUtilizationChart').getContext('2d');
+        charts.branchUtilization = new Chart(branchCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Manhattan', 'Brooklyn', 'Queens', 'Bronx'],
+            datasets: [{
+              data: [82.3, 78.1, 71.5, 65.2],
+              backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'bottom' }
+            }
+          }
+        });
+
+        // Heatmap Chart (simulated with bar chart)
+        const heatmapCtx = document.getElementById('heatmapChart').getContext('2d');
+        charts.heatmap = new Chart(heatmapCtx, {
+          type: 'bar',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+              label: 'Utilization %',
+              data: [65, 68, 72, 75, 78, 85, 82],
+              backgroundColor: function(context) {
+                const value = context.parsed.y;
+                if (value > 80) return '#dc3545';
+                if (value > 70) return '#ffc107';
+                return '#28a745';
+              }
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { display: false }
+            },
+            scales: {
+              y: { beginAtZero: true, max: 100 }
+            }
+          }
+        });
+      }
+
+      function initializeRevenueCharts() {
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        charts.revenue = new Chart(revenueCtx, {
+          type: 'line',
+          data: {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+            datasets: [{
+              label: 'Revenue',
+              data: [68450, 72180, 75920, 68023],
+              borderColor: '#007bff',
+              backgroundColor: 'rgba(0, 123, 255, 0.1)',
+              tension: 0.4,
+              fill: true
+            }, {
+              label: 'Costs',
+              data: [44200, 46800, 49100, 44200],
+              borderColor: '#dc3545',
+              backgroundColor: 'rgba(220, 53, 69, 0.1)',
+              tension: 0.4,
+              fill: true
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'top' }
+            },
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+
+        // Revenue Breakdown Chart
+        const revenueBreakdownCtx = document.getElementById('revenueBreakdownChart').getContext('2d');
+        charts.revenueBreakdown = new Chart(revenueBreakdownCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Vehicle Rentals', 'Insurance & Fees', 'Fuel Charges', 'Other Services'],
+            datasets: [{
+              data: [198450, 52180, 23943, 10000],
+              backgroundColor: ['#007bff', '#28a745', '#ffc107', '#6c757d']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'bottom' }
+            }
+          }
+        });
+
+        // Customer Segment Chart
+        const customerSegmentCtx = document.getElementById('customerSegmentChart').getContext('2d');
+        charts.customerSegment = new Chart(customerSegmentCtx, {
+          type: 'bar',
+          data: {
+            labels: ['Corporate', 'Individual', 'Tourist'],
+            datasets: [{
+              label: 'Revenue',
+              data: [156890, 98245, 29438],
+              backgroundColor: ['#007bff', '#28a745', '#17a2b8']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { display: false }
+            },
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+      }
+
+      function initializeMaintenanceCharts() {
+        // Maintenance Risk Chart
+        const maintenanceRiskCtx = document.getElementById('maintenanceRiskChart').getContext('2d');
+        charts.maintenanceRisk = new Chart(maintenanceRiskCtx, {
+          type: 'line',
+          data: {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+            datasets: [{
+              label: 'High Risk Vehicles',
+              data: [2, 3, 4, 3],
+              borderColor: '#dc3545',
+              backgroundColor: 'rgba(220, 53, 69, 0.1)',
+              tension: 0.4,
+              fill: true
+            }, {
+              label: 'Medium Risk Vehicles',
+              data: [4, 5, 6, 5],
+              borderColor: '#ffc107',
+              backgroundColor: 'rgba(255, 193, 7, 0.1)',
+              tension: 0.4,
+              fill: true
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'top' }
+            },
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+
+        // Risk Distribution Chart
+        const riskDistributionCtx = document.getElementById('riskDistributionChart').getContext('2d');
+        charts.riskDistribution = new Chart(riskDistributionCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Low Risk', 'Medium Risk', 'High Risk'],
+            datasets: [{
+              data: [12, 5, 3],
+              backgroundColor: ['#28a745', '#ffc107', '#dc3545']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'bottom' }
+            }
+          }
+        });
+
+        // Cost Impact Chart
+        const costImpactCtx = document.getElementById('costImpactChart').getContext('2d');
+        charts.costImpact = new Chart(costImpactCtx, {
+          type: 'bar',
+          data: {
+            labels: ['Preventive', 'Reactive', 'Emergency'],
+            datasets: [{
+              label: 'Average Cost',
+              data: [250, 850, 1500],
+              backgroundColor: ['#28a745', '#ffc107', '#dc3545']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { display: false }
+            },
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+      }
+
+      function initializeSeasonalCharts() {
+        // Seasonal Booking Patterns Chart
+        const seasonalCtx = document.getElementById('seasonalChart').getContext('2d');
+        charts.seasonal = new Chart(seasonalCtx, {
+          type: 'line',
+          data: {
+            labels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'],
+            datasets: [{
+              label: 'Bookings',
+              data: [1250, 1890, 2340, 1680],
+              borderColor: '#007bff',
+              backgroundColor: 'rgba(0, 123, 255, 0.1)',
+              tension: 0.4,
+              fill: true
+            }, {
+              label: 'Holiday Periods',
+              data: [1450, 1950, 2100, 2890],
+              borderColor: '#28a745',
+              backgroundColor: 'rgba(40, 167, 69, 0.1)',
+              tension: 0.4,
+              fill: true
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'top' }
+            },
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+      }
+
+      function initializeCustomerCharts() {
+        // Customer Lifetime Value Chart
+        const ltvCtx = document.getElementById('customerLTVChart').getContext('2d');
+        charts.customerLTV = new Chart(ltvCtx, {
+          type: 'bar',
+          data: {
+            labels: ['Corporate', 'Individual', 'Tourist'],
+            datasets: [{
+              label: 'Average LTV',
+              data: [8450, 2340, 890],
+              backgroundColor: ['#007bff', '#28a745', '#17a2b8']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { display: false }
+            },
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+
+        // Customer Retention Chart
+        const retentionCtx = document.getElementById('customerRetentionChart').getContext('2d');
+        charts.customerRetention = new Chart(retentionCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['New Customers', 'Returning Customers', 'Loyal Customers'],
+            datasets: [{
+              data: [35, 45, 20],
+              backgroundColor: ['#ffc107', '#28a745', '#007bff']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'bottom' }
+            }
+          }
+        });
+      }
+
+      function initializeOptimizationCharts() {
+        // Demand Forecast Chart
+        const demandCtx = document.getElementById('demandForecastChart').getContext('2d');
+        charts.demandForecast = new Chart(demandCtx, {
+          type: 'line',
+          data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+              label: 'Predicted Demand',
+              data: [85, 92, 110, 125, 140, 155],
+              borderColor: '#17a2b8',
+              backgroundColor: 'rgba(23, 162, 184, 0.1)',
+              tension: 0.4,
+              fill: true
+            }, {
+              label: 'Current Capacity',
+              data: [120, 120, 120, 120, 120, 120],
+              borderColor: '#ffc107',
+              borderDash: [5, 5],
+              pointRadius: 0,
+              fill: false
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'top' }
+            },
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+      }
+
+      function populateTables() {
+        populateVehicleUtilizationTable();
+        populateBranchRevenueTable();
+        populateVehiclePerformanceTable();
+        populateMaintenancePredictionTable();
+      }
+
+      function populateVehicleUtilizationTable() {
+        const tbody = document.getElementById('vehicleUtilizationTable');
+        tbody.innerHTML = '';
+
+        vehicleUtilizationData.forEach(vehicle => {
+          const utilizationBadge = getUtilizationBadge(vehicle.utilization);
+          
+          const row = `
+            <tr>
+              <td><strong>${vehicle.vehicle}</strong></td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="progress me-3" style="width: 100px; height: 8px;">
+                    <div class="progress-bar ${getUtilizationColor(vehicle.utilization)}" style="width: ${vehicle.utilization}%"></div>
+                  </div>
+                  <span>${vehicle.utilization}%</span>
+                </div>
+              </td>
+              <td><span class="badge bg-success">${vehicle.rentalDays}</span></td>
+              <td><span class="badge bg-warning">${vehicle.idleDays}</span></td>
+              <td><strong>$${vehicle.revenue.toLocaleString()}</strong></td>
+              <td>$${vehicle.revenuePerDay.toFixed(2)}</td>
+              <td>${utilizationBadge}</td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function populateBranchRevenueTable() {
+        const tbody = document.getElementById('branchRevenueTable');
+        tbody.innerHTML = '';
+
+        branchRevenueData.forEach(branch => {
+          const row = `
+            <tr>
+              <td><strong>${branch.branch}</strong></td>
+              <td><strong class="text-success">$${branch.revenue.toLocaleString()}</strong></td>
+              <td><span class="text-danger">$${branch.costs.toLocaleString()}</span></td>
+              <td><strong class="text-primary">$${branch.profit.toLocaleString()}</strong></td>
+              <td>
+                <span class="badge bg-${getMarginColor(branch.margin)}">${branch.margin}%</span>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function populateVehiclePerformanceTable() {
+        const tbody = document.getElementById('vehiclePerformanceTable');
+        tbody.innerHTML = '';
+
+        vehiclePerformanceData.forEach(vehicle => {
+          const trendIcon = getTrendIcon(vehicle.trend);
+          
+          const row = `
+            <tr>
+              <td>
+                <span class="badge bg-${getRankColor(vehicle.rank)} rounded-pill">#${vehicle.rank}</span>
+              </td>
+              <td><strong>${vehicle.vehicle}</strong></td>
+              <td><strong class="text-success">$${vehicle.revenue.toLocaleString()}</strong></td>
+              <td><span class="text-danger">$${vehicle.costs.toLocaleString()}</span></td>
+              <td><strong class="text-primary">$${vehicle.profit.toLocaleString()}</strong></td>
+              <td><span class="badge bg-${getMarginColor(vehicle.margin)}">${vehicle.margin}%</span></td>
+              <td><span class="badge bg-info">${vehicle.roi}%</span></td>
+              <td>${trendIcon}</td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function populateMaintenancePredictionTable() {
+        const tbody = document.getElementById('maintenancePredictionTable');
+        tbody.innerHTML = '';
+
+        maintenancePredictions.forEach(prediction => {
+          const riskBadge = getRiskBadge(prediction.riskScore);
+          const priorityBadge = getPriorityBadge(prediction.priority);
+          
+          const row = `
+            <tr>
+              <td><strong>${prediction.vehicle}</strong></td>
+              <td>${riskBadge}</td>
+              <td>
+                <div>
+                  <i class="fas ${getIssueIcon(prediction.issue)} me-2"></i>
+                  ${prediction.issue}
+                </div>
+              </td>
+              <td>${new Date(prediction.forecastDate).toLocaleDateString()}</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="progress me-2" style="width: 60px; height: 6px;">
+                    <div class="progress-bar bg-${getConfidenceColor(prediction.confidence)}" style="width: ${prediction.confidence}%"></div>
+                  </div>
+                  ${prediction.confidence}%
+                </div>
+              </td>
+              <td><strong>$${prediction.cost}</strong></td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <button class="btn btn-outline-primary" onclick="viewPredictionDetails('${prediction.vehicle}')" title="View Details">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-outline-success" onclick="schedulePreventiveMaintenance('${prediction.vehicle}')" title="Schedule">
+                    <i class="fas fa-calendar-plus"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      // Utility functions
+      function getUtilizationBadge(utilization) {
+        if (utilization >= 80) return '<span class="badge bg-success">High</span>';
+        if (utilization >= 50) return '<span class="badge bg-warning">Medium</span>';
+        return '<span class="badge bg-danger">Low</span>';
+      }
+
+      function getUtilizationColor(utilization) {
+        if (utilization >= 80) return 'bg-success';
+        if (utilization >= 50) return 'bg-warning';
+        return 'bg-danger';
+      }
+
+      function getMarginColor(margin) {
+        if (margin >= 35) return 'success';
+        if (margin >= 25) return 'warning';
+        return 'danger';
+      }
+
+      function getRankColor(rank) {
+        if (rank === 1) return 'warning';
+        if (rank <= 3) return 'success';
+        return 'primary';
+      }
+
+      function getTrendIcon(trend) {
+        const icons = {
+          up: '<i class="fas fa-arrow-up text-success"></i>',
+          down: '<i class="fas fa-arrow-down text-danger"></i>',
+          stable: '<i class="fas fa-minus text-info"></i>'
+        };
+        return icons[trend] || icons.stable;
+      }
+
+      function getRiskBadge(riskScore) {
+        if (riskScore >= 70) return `<span class="badge bg-danger">${riskScore}</span>`;
+        if (riskScore >= 30) return `<span class="badge bg-warning">${riskScore}</span>`;
+        return `<span class="badge bg-success">${riskScore}</span>`;
+      }
+
+      function getPriorityBadge(priority) {
+        const colors = {
+          high: 'danger',
+          medium: 'warning',
+          low: 'info'
+        };
+        return `<span class="badge bg-${colors[priority]}">${priority.toUpperCase()}</span>`;
+      }
+
+      function getIssueIcon(issue) {
+        const icons = {
+          'Brake System': 'fa-stop-circle',
+          'Transmission': 'fa-cogs',
+          'Oil Change': 'fa-tint',
+          'Tire Rotation': 'fa-circle',
+          'Inspection': 'fa-clipboard-check'
+        };
+        return icons[issue] || 'fa-wrench';
+      }
+
+      function getConfidenceColor(confidence) {
+        if (confidence >= 90) return 'success';
+        if (confidence >= 70) return 'info';
+        return 'warning';
+      }
+
+      // Action functions
+      function updateAllReports() {
+        console.log('Updating all reports for period:', document.getElementById('timePeriodFilter').value);
+        // In a real application, this would fetch new data and update charts
+      }
+
+      function exportReports() {
+        const modal = new bootstrap.Modal(document.getElementById('exportModal'));
+        modal.show();
+      }
+
+      function processExport() {
+        const format = document.getElementById('exportFormat').value;
+        alert(`Exporting reports in ${format.toUpperCase()} format...`);
+        bootstrap.Modal.getInstance(document.getElementById('exportModal')).hide();
+      }
+
+      function toggleUtilizationView() {
+        alert('Switching between vehicle-level and branch-level view');
+      }
+
+      function filterVehicleUtilization() {
+        const filter = document.getElementById('vehicleUtilizationFilter').value;
+        console.log('Filtering vehicles by utilization:', filter);
+        // Implementation would filter the table data
+      }
+
+      function updateRevenueChart() {
+        const view = document.getElementById('revenueViewFilter').value;
+        console.log('Updating revenue chart view:', view);
+        // Implementation would update chart with new time granularity
+      }
+
+      function updatePerformanceTable() {
+        const metric = document.getElementById('performanceMetric').value;
+        console.log('Updating performance table by:', metric);
+        // Implementation would resort table by selected metric
+      }
+
+      function runMaintenanceAnalysis() {
+        alert('Running predictive maintenance analysis...');
+        // Simulate loading and updating the maintenance data
+      }
+
+      function scheduleMaintenanceWorkflow() {
+        alert('Opening maintenance scheduling workflow...');
+      }
+
+      function viewPredictionDetails(vehicle) {
+        alert(`Viewing prediction details for ${vehicle}`);
+      }
+
+      function schedulePreventiveMaintenance(vehicle) {
+        alert(`Scheduling preventive maintenance for ${vehicle}`);
+      }
+
+      // Enhanced Analytics Functions
+      function populateEnhancedAnalytics() {
+        populateCustomerSatisfactionTable();
+        populateTopCustomersList();
+        populateReplacementRecommendationsTable();
+      }
+
+      function populateCustomerSatisfactionTable() {
+        const tbody = document.getElementById('customerSatisfactionTable');
+        tbody.innerHTML = '';
+
+        customerSatisfactionData.forEach(customer => {
+          const trendIcon = getTrendIcon(customer.trend);
+          const ratingStars = generateStarRating(customer.avgRating);
+          
+          const row = `
+            <tr>
+              <td><strong>${customer.segment}</strong></td>
+              <td>
+                <div class="d-flex align-items-center">
+                  ${ratingStars}
+                  <span class="ms-2">${customer.avgRating}</span>
+                </div>
+              </td>
+              <td><span class="badge bg-info">${customer.totalReviews}</span></td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="progress me-2" style="width: 60px; height: 6px;">
+                    <div class="progress-bar bg-${getRepeatRateColor(customer.repeatRate)}" style="width: ${customer.repeatRate}%"></div>
+                  </div>
+                  ${customer.repeatRate}%
+                </div>
+              </td>
+              <td><strong class="text-success">$${customer.lifetimeValue.toLocaleString()}</strong></td>
+              <td>${trendIcon}</td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function populateTopCustomersList() {
+        const container = document.getElementById('topCustomersList');
+        container.innerHTML = '';
+
+        topCustomersData.forEach((customer, index) => {
+          const typeIcon = getCustomerTypeIcon(customer.type);
+          const ratingStars = generateStarRating(customer.avgRating);
+          
+          const item = `
+            <div class="d-flex justify-content-between align-items-center mb-3 p-2 border rounded">
+              <div>
+                <div class="fw-bold">#${index + 1} ${customer.name}</div>
+                <small class="text-muted">${typeIcon} ${customer.rentals} rentals</small>
+                <div class="mt-1">${ratingStars}</div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bold text-success">$${customer.totalSpent.toLocaleString()}</div>
+                <small class="text-muted">Total Spent</small>
+              </div>
+            </div>
+          `;
+          container.innerHTML += item;
+        });
+      }
+
+      function populateReplacementRecommendationsTable() {
+        const tbody = document.getElementById('replacementRecommendationsTable');
+        tbody.innerHTML = '';
+
+        replacementRecommendations.forEach(vehicle => {
+          const priorityBadge = getReplacementPriorityBadge(vehicle.priority);
+          const utilizationBadge = getUtilizationBadge(vehicle.utilization);
+          
+          const row = `
+            <tr>
+              <td><strong>${vehicle.vehicle}</strong></td>
+              <td><span class="badge bg-secondary">${vehicle.age} years</span></td>
+              <td><span class="badge bg-info">${vehicle.mileage.toLocaleString()} mi</span></td>
+              <td><strong class="text-danger">$${vehicle.maintenanceCost.toLocaleString()}</strong></td>
+              <td>${utilizationBadge}</td>
+              <td><strong>${vehicle.recommendation}</strong></td>
+              <td>${priorityBadge}</td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <button class="btn btn-outline-primary" onclick="viewReplacementDetails('${vehicle.vehicle}')" title="View Details">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-outline-success" onclick="scheduleReplacement('${vehicle.vehicle}')" title="Schedule">
+                    <i class="fas fa-calendar-plus"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function initializePerformanceAlerts() {
+        populatePerformanceAlerts();
+        
+        // Simulate real-time alerts
+        setInterval(() => {
+          if (Math.random() > 0.95) { // 5% chance every 30 seconds
+            generateRandomAlert();
+          }
+        }, 30000);
+      }
+
+      function populatePerformanceAlerts() {
+        const container = document.getElementById('performanceAlerts');
+        container.innerHTML = '';
+
+        performanceAlertsData.forEach(alert => {
+          const alertIcon = getAlertIcon(alert.type);
+          const severityClass = getSeverityClass(alert.severity);
+          
+          const item = `
+            <div class="alert alert-${severityClass} alert-dismissible mb-2">
+              <div class="d-flex align-items-center">
+                <i class="fas ${alertIcon} me-2"></i>
+                <div class="flex-grow-1">
+                  <div class="fw-bold">${alert.message}</div>
+                  <small class="text-muted">${alert.time}</small>
+                </div>
+                <button type="button" class="btn-close" onclick="dismissAlert(this)"></button>
+              </div>
+            </div>
+          `;
+          container.innerHTML += item;
+        });
+      }
+
+      function generateRandomAlert() {
+        const alertTypes = [
+          { type: 'utilization', message: 'Brooklyn branch utilization dropped below 65%', severity: 'warning' },
+          { type: 'revenue', message: 'Daily revenue target missed by 8%', severity: 'danger' },
+          { type: 'maintenance', message: 'Maintenance costs trending above budget', severity: 'warning' },
+          { type: 'customer', message: 'Customer satisfaction improved in Queens', severity: 'success' }
+        ];
+        
+        const randomAlert = alertTypes[Math.floor(Math.random() * alertTypes.length)];
+        randomAlert.time = 'Just now';
+        
+        performanceAlertsData.unshift(randomAlert);
+        if (performanceAlertsData.length > 10) performanceAlertsData.pop();
+        
+        populatePerformanceAlerts();
+      }
+
+      // Enhanced Utility Functions
+      function generateStarRating(rating) {
+        const fullStars = Math.floor(rating);
+        const hasHalfStar = rating % 1 >= 0.5;
+        let stars = '';
+        
+        for (let i = 0; i < fullStars; i++) {
+          stars += '<i class="fas fa-star text-warning"></i>';
+        }
+        if (hasHalfStar) {
+          stars += '<i class="fas fa-star-half-alt text-warning"></i>';
+        }
+        const emptyStars = 5 - Math.ceil(rating);
+        for (let i = 0; i < emptyStars; i++) {
+          stars += '<i class="far fa-star text-muted"></i>';
+        }
+        
+        return stars;
+      }
+
+      function getRepeatRateColor(rate) {
+        if (rate >= 80) return 'success';
+        if (rate >= 60) return 'warning';
+        return 'danger';
+      }
+
+      function getCustomerTypeIcon(type) {
+        const icons = {
+          corporate: '<i class="fas fa-building text-primary"></i>',
+          individual: '<i class="fas fa-user text-success"></i>',
+          tourist: '<i class="fas fa-plane text-info"></i>'
+        };
+        return icons[type] || '<i class="fas fa-user"></i>';
+      }
+
+      function getReplacementPriorityBadge(priority) {
+        const colors = {
+          critical: 'danger',
+          high: 'warning',
+          medium: 'info',
+          low: 'success'
+        };
+        return `<span class="badge bg-${colors[priority]}">${priority.toUpperCase()}</span>`;
+      }
+
+      function getAlertIcon(type) {
+        const icons = {
+          utilization: 'fa-chart-pie',
+          maintenance: 'fa-wrench',
+          revenue: 'fa-dollar-sign',
+          customer: 'fa-users'
+        };
+        return icons[type] || 'fa-bell';
+      }
+
+      function getSeverityClass(severity) {
+        const classes = {
+          success: 'success',
+          info: 'info',
+          warning: 'warning',
+          danger: 'danger'
+        };
+        return classes[severity] || 'info';
+      }
+
+      // Enhanced Action Functions
+      function updateSeasonalChart() {
+        const view = document.getElementById('seasonalViewFilter').value;
+        console.log('Updating seasonal chart view:', view);
+        // Implementation would update chart with new time granularity
+      }
+
+      function runDemandAnalysis() {
+        alert('Running demand forecasting analysis...\n\nAnalyzing:\n• Historical booking patterns\n• Seasonal trends\n• Market conditions\n• Competitor analysis');
+      }
+
+      function configureAlerts() {
+        alert('Opening alert configuration panel...\n\nConfigure thresholds for:\n• Utilization alerts\n• Revenue targets\n• Maintenance cost limits\n• Customer satisfaction scores');
+      }
+
+      function viewReplacementDetails(vehicle) {
+        alert(`Viewing detailed replacement analysis for ${vehicle}\n\nIncludes:\n• Cost-benefit analysis\n• Depreciation schedule\n• Maintenance history\n• ROI projections`);
+      }
+
+      function scheduleReplacement(vehicle) {
+        alert(`Scheduling replacement for ${vehicle}\n\nNext steps:\n• Budget approval\n• Vendor selection\n• Timeline planning\n• Disposal of current vehicle`);
+      }
+
+      function dismissAlert(button) {
+        button.closest('.alert').remove();
+      }
+    </script>
+  </body>
+</html>

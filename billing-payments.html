@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Billing & Payments - LynxLite</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular", 
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/lynxlite.min.css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/css/unified-custom.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+          <div class="logo-header" data-background-color="dark">
+            <a href="index2.html" class="logo">
+              <img src="assets/img/lynxlite/logo_light.svg" alt="LynxLite - Acacus" class="navbar-brand" height="45" />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar"><i class="gg-menu-right"></i></button>
+              <button class="btn btn-toggle sidenav-toggler"><i class="gg-menu-left"></i></button>
+            </div>
+            <button class="topbar-toggler more"><i class="gg-more-vertical-alt"></i></button>
+          </div>
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a href="index2.html"><i class="fas fa-home"></i><p>Dashboard (Overview)</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="fleet-management.html"><i class="fas fa-car"></i><p>Fleet Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="booking-management.html"><i class="fas fa-calendar-alt"></i><p>Booking Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="customer-management.html"><i class="fas fa-users"></i><p>Customer Management</p></a>
+              </li>
+              <li class="nav-item active">
+                <a href="billing-payments.html"><i class="fas fa-credit-card"></i><p>Billing & Payments</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="maintenance-compliance.html"><i class="fas fa-wrench"></i><p>Maintenance & Compliance</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="telematics-tracking.html"><i class="fas fa-map-marked-alt"></i><p>Telematics & Tracking</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="reports-analytics.html"><i class="fas fa-chart-line"></i><p>Reports & Analytics</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="branch-staff-management.html"><i class="fas fa-building"></i><p>Branch / Staff Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="#"><i class="fas fa-cogs"></i><p>System Settings</p></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+      
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <div class="logo-header" data-background-color="dark">
+              <a href="index2.html" class="logo">
+                <img src="assets/img/lynxlite/logo_light.svg" alt="LynxLite - Acacus" class="navbar-brand" height="20" />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar"><i class="gg-menu-right"></i></button>
+                <button class="btn btn-toggle sidenav-toggler"><i class="gg-menu-left"></i></button>
+              </div>
+              <button class="topbar-toggler more"><i class="gg-more-vertical-alt"></i></button>
+            </div>
+          </div>
+          <!-- Navbar Header -->
+          <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+            <div class="container-fluid">
+              <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-search pe-1">
+                      <i class="fa fa-search search-icon"></i>
+                    </button>
+                  </div>
+                  <input type="text" placeholder="Search transactions..." class="form-control" id="globalSearch" />
+                </div>
+              </nav>
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li class="nav-item d-flex align-items-center">
+                  <div class="form-check form-switch mb-0 ms-2">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch" />
+                    <label class="form-check-label" for="darkModeSwitch" style="color:inherit;">Dark Mode</label>
+                  </div>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" aria-haspopup="true">
+                    <i class="fa fa-search"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-search animated fadeIn">
+                    <form class="navbar-left navbar-form nav-search">
+                      <div class="input-group">
+                        <input type="text" placeholder="Search transactions..." class="form-control" />
+                      </div>
+                    </form>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
+                    <li>
+                      <div class="dropdown-title d-flex justify-content-between align-items-center">Messages <a href="#" class="small">Mark all as read</a></div>
+                    </li>
+                    <li>
+                      <div class="message-notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#"><div class="notif-img"><i class="fas fa-user-circle fa-2x"></i></div><div class="notif-content"><span class="subject">Payment Received</span><span class="block">John Smith - $285.00</span><span class="time">5 minutes ago</span></div></a>
+                          <a href="#"><div class="notif-img"><i class="fas fa-user-circle fa-2x"></i></div><div class="notif-content"><span class="subject">Refund Processed</span><span class="block">Sarah Johnson - $150.00</span><span class="time">12 minutes ago</span></div></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bell"></i><span class="notification">4</span>
+                  </a>
+                  <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+                    <li><div class="dropdown-title">You have 4 new notifications</div></li>
+                    <li>
+                      <div class="notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#" class="notif-item"><div class="notif-icon notif-success"><i class="fas fa-dollar-sign"></i></div><div class="notif-content"><span class="block">Payment of $450.00 received</span><span class="time">2 minutes ago</span></div></a>
+                          <a href="#" class="notif-item"><div class="notif-icon notif-warning"><i class="fas fa-exclamation-triangle"></i></div><div class="notif-content"><span class="block">Payment failed - retry required</span><span class="time">1 hour ago</span></div></a>
+                          <a href="#" class="notif-item"><div class="notif-icon notif-danger"><i class="fas fa-ban"></i></div><div class="notif-content"><span class="block">Chargeback initiated</span><span class="time">3 hours ago</span></div></a>
+                          <a href="#" class="notif-item"><div class="notif-icon notif-info"><i class="fas fa-shield-alt"></i></div><div class="notif-content"><span class="block">Security deposit refunded</span><span class="time">5 hours ago</span></div></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link" data-bs-toggle="dropdown" href="#" aria-expanded="false"><i class="fas fa-layer-group"></i></a>
+                  <div class="dropdown-menu quick-actions animated fadeIn">
+                    <div class="quick-actions-header"><span class="title mb-1">Quick Actions</span><span class="subtitle op-7">Shortcuts</span></div>
+                    <div class="quick-actions-scroll scrollbar-outer">
+                      <div class="quick-actions-items">
+                        <div class="row m-0">
+                          <a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item"><div class="avatar-item bg-danger rounded-circle"><i class="far fa-calendar-alt"></i></div><span class="text">Calendar</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item"><div class="avatar-item bg-warning rounded-circle"><i class="fas fa-map"></i></div><span class="text">Maps</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item"><div class="avatar-item bg-info rounded-circle"><i class="fas fa-file-excel"></i></div><span class="text">Reports</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item"><div class="avatar-item bg-success rounded-circle"><i class="fas fa-envelope"></i></div><span class="text">Emails</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item"><div class="avatar-item bg-primary rounded-circle"><i class="fas fa-file-invoice-dollar"></i></div><span class="text">Invoice</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item"><div class="avatar-item bg-secondary rounded-circle"><i class="fas fa-credit-card"></i></div><span class="text">Payments</span></div></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item topbar-user dropdown hidden-caret">
+                  <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+                    <div class="avatar-sm"><i class="fas fa-user-circle fa-2x"></i></div>
+                    <span class="profile-username"><span class="op-7">Hi,</span> <span class="fw-bold">Admin</span></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg"><i class="fas fa-user-circle fa-3x"></i></div>
+                          <div class="u-text">
+                            <h4>Admin</h4>
+                            <p class="text-muted">hello@example.com</p>
+                            <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="#">My Balance</a>
+                        <a class="dropdown-item" href="#">Inbox</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Account Setting</a>
+                        <a class="dropdown-item" href="#">Logout</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          
+        </div>
+        
+        <!-- Billing & Payments Content -->
+        <div class="container">
+          <div class="page-inner">
+            <!-- Quick Stats Cards -->
+            <div class="row mb-4">
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-success bubble-shadow-small">
+                          <i class="fas fa-dollar-sign stats-icon"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Today's Revenue</p>
+                          <h4 class="card-title amount-display">$12,450</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-warning bubble-shadow-small">
+                          <i class="fas fa-clock stats-icon"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Pending Payments</p>
+                          <h4 class="card-title amount-display">$3,280</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-info bubble-shadow-small">
+                          <i class="fas fa-shield-alt stats-icon"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Security Deposits</p>
+                          <h4 class="card-title amount-display">$28,500</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-danger bubble-shadow-small">
+                          <i class="fas fa-exclamation-triangle stats-icon"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Active Disputes</p>
+                          <h4 class="card-title">7</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <ul class="nav nav-pills nav-pills-success" id="billingTabs" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="transactions-tab" data-bs-toggle="pill" data-bs-target="#transactions" role="tab">
+                          <i class="fas fa-receipt me-2"></i>Transactions
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="deposits-tab" data-bs-toggle="pill" data-bs-target="#deposits" role="tab">
+                          <i class="fas fa-shield-alt me-2"></i>Deposits & Refunds
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="disputes-tab" data-bs-toggle="pill" data-bs-target="#disputes" role="tab">
+                          <i class="fas fa-gavel me-2"></i>Disputes
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="analytics-tab" data-bs-toggle="pill" data-bs-target="#analytics" role="tab">
+                          <i class="fas fa-chart-line me-2"></i>Analytics
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <!-- Transactions Tab -->
+              <div class="tab-pane fade show active" id="transactions" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-receipt me-2"></i>Transaction History</h4>
+                          <div>
+                            <button class="btn btn-success btn-sm me-2" onclick="processManualPayment()">
+                              <i class="fas fa-plus"></i> Manual Payment
+                            </button>
+                            <button class="btn btn-info btn-sm" onclick="exportTransactions()">
+                              <i class="fas fa-download"></i> Export
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <!-- Transaction Filters -->
+                        <div class="row mb-4">
+                          <div class="col-md-2">
+                            <label class="form-label">Transaction ID</label>
+                            <input type="text" class="form-control" id="filterTransactionId" placeholder="TXN-001...">
+                          </div>
+                          <div class="col-md-3">
+                            <label class="form-label">Customer</label>
+                            <select class="form-select" id="filterCustomer">
+                              <option value="">All Customers</option>
+                              <option value="john-smith">John Smith</option>
+                              <option value="sarah-johnson">Sarah Johnson</option>
+                              <option value="mike-davis">Mike Davis</option>
+                              <option value="lisa-wong">Lisa Wong</option>
+                            </select>
+                          </div>
+                          <div class="col-md-2">
+                            <label class="form-label">Status</label>
+                            <select class="form-select" id="filterStatus">
+                              <option value="">All Status</option>
+                              <option value="completed">Completed</option>
+                              <option value="pending">Pending</option>
+                              <option value="failed">Failed</option>
+                              <option value="refunded">Refunded</option>
+                            </select>
+                          </div>
+                          <div class="col-md-2">
+                            <label class="form-label">Date From</label>
+                            <input type="date" class="form-control" id="filterDateFrom">
+                          </div>
+                          <div class="col-md-2">
+                            <label class="form-label">Date To</label>
+                            <input type="date" class="form-control" id="filterDateTo">
+                          </div>
+                          <div class="col-md-1">
+                            <label class="form-label">&nbsp;</label>
+                            <div>
+                              <button class="btn btn-primary w-100" onclick="applyTransactionFilters()">
+                                <i class="fas fa-search"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Transactions Table -->
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Transaction ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Payment Method</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody id="transactionsTableBody">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Deposits & Refunds Tab -->
+              <div class="tab-pane fade" id="deposits" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-shield-alt me-2"></i>Security Deposits & Refunds</h4>
+                          <div>
+                            <button class="btn btn-outline-success btn-sm me-2" onclick="processAutoRefunds()">
+                              <i class="fas fa-robot"></i> Auto Process
+                            </button>
+                            <button class="btn btn-success btn-sm" onclick="manualRefund()">
+                              <i class="fas fa-hand-holding-usd"></i> Manual Refund
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Customer</th>
+                                <th>Booking</th>
+                                <th>Deposit Amount</th>
+                                <th>Status</th>
+                                <th>Return Date</th>
+                                <th>Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody id="depositsTableBody">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <!-- Refund Analytics -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-chart-pie me-2"></i>Refund Analytics</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Total Deposits Held</span>
+                            <strong class="text-info">$28,500</strong>
+                          </div>
+                          <div class="progress mt-1" style="height: 8px;">
+                            <div class="progress-bar bg-info" style="width: 65%"></div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Pending Refunds</span>
+                            <strong class="text-warning">$12,200</strong>
+                          </div>
+                          <div class="progress mt-1" style="height: 8px;">
+                            <div class="progress-bar bg-warning" style="width: 45%"></div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Processed Today</span>
+                            <strong class="text-success">$8,750</strong>
+                          </div>
+                          <div class="progress mt-1" style="height: 8px;">
+                            <div class="progress-bar bg-success" style="width: 35%"></div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Withheld (Damages)</span>
+                            <strong class="text-danger">$2,150</strong>
+                          </div>
+                          <div class="progress mt-1" style="height: 8px;">
+                            <div class="progress-bar bg-danger" style="width: 15%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="card mt-3">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-bolt me-2"></i>Quick Actions</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="d-grid gap-2">
+                          <button class="btn btn-primary btn-sm" onclick="bulkProcessRefunds()">
+                            <i class="fas fa-layer-group"></i> Bulk Process Refunds
+                          </button>
+                          <button class="btn btn-info btn-sm" onclick="generateRefundReport()">
+                            <i class="fas fa-file-alt"></i> Generate Report
+                          </button>
+                          <button class="btn btn-warning btn-sm" onclick="reviewWithheldDeposits()">
+                            <i class="fas fa-eye"></i> Review Withheld
+                          </button>
+                          <button class="btn btn-secondary btn-sm" onclick="configureAutoRefund()">
+                            <i class="fas fa-cogs"></i> Auto-refund Settings
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Disputes Tab -->
+              <div class="tab-pane fade" id="disputes" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-gavel me-2"></i>Payment Disputes</h4>
+                          <button class="btn btn-warning" onclick="fileNewDispute()">
+                            <i class="fas fa-plus"></i> File Dispute
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Dispute ID</th>
+                                <th>Customer</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Filed Date</th>
+                                <th>Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody id="disputesTableBody">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Analytics Tab -->
+              <div class="tab-pane fade" id="analytics" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title"><i class="fas fa-chart-line me-2"></i>Revenue Analytics</h4>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="revenueChart" class="revenue-chart"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <!-- Payment Methods Breakdown -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-credit-card me-2"></i>Payment Methods</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="mb-3 d-flex justify-content-between align-items-center">
+                          <div class="d-flex align-items-center">
+                            <span class="payment-method-icon visa">VISA</span>
+                            <span>Visa</span>
+                          </div>
+                          <span class="fw-bold">45%</span>
+                        </div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center">
+                          <div class="d-flex align-items-center">
+                            <span class="payment-method-icon mastercard">MC</span>
+                            <span>Mastercard</span>
+                          </div>
+                          <span class="fw-bold">32%</span>
+                        </div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center">
+                          <div class="d-flex align-items-center">
+                            <span class="payment-method-icon amex">AMEX</span>
+                            <span>American Express</span>
+                          </div>
+                          <span class="fw-bold">15%</span>
+                        </div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center">
+                          <div class="d-flex align-items-center">
+                            <span class="payment-method-icon paypal">PP</span>
+                            <span>PayPal</span>
+                          </div>
+                          <span class="fw-bold">8%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="card mt-3">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-history me-2"></i>Recent Activity</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="billing-timeline">
+                          <div class="timeline-item">
+                            <div class="timeline-marker success"></div>
+                            <div class="timeline-content">
+                              <h6 class="mb-1">Payment Received</h6>
+                              <p class="text-muted mb-1">$450.00 from Lisa Wong</p>
+                              <small class="text-muted">2 minutes ago</small>
+                            </div>
+                          </div>
+                          <div class="timeline-item">
+                            <div class="timeline-marker info"></div>
+                            <div class="timeline-content">
+                              <h6 class="mb-1">Refund Processed</h6>
+                              <p class="text-muted mb-1">$150.00 to Mike Davis</p>
+                              <small class="text-muted">1 hour ago</small>
+                            </div>
+                          </div>
+                          <div class="timeline-item">
+                            <div class="timeline-marker warning"></div>
+                            <div class="timeline-content">
+                              <h6 class="mb-1">Payment Failed</h6>
+                              <p class="text-muted mb-1">$225.00 - Insufficient funds</p>
+                              <small class="text-muted">3 hours ago</small>
+                            </div>
+                          </div>
+                          <div class="timeline-item">
+                            <div class="timeline-marker danger"></div>
+                            <div class="timeline-content">
+                              <h6 class="mb-1">Dispute Filed</h6>
+                              <p class="text-muted mb-1">Chargeback - $300.00</p>
+                              <small class="text-muted">5 hours ago</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/js/lynxlite.min.js"></script>
+    
+    <!-- Feedback System -->
+    <script src="assets/js/feedback-system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+      // Sample data for the billing system
+      const transactionData = [
+        {
+          id: 'TXN-001234',
+          customer: 'John Smith',
+          customerEmail: 'john.smith@email.com',
+          bookingId: 'BK001',
+          vehicle: 'Toyota Camry - ABC123',
+          amount: 285.00,
+          paymentMethod: 'Visa ****1234',
+          status: 'completed',
+          date: '2024-12-10',
+          branch: 'Manhattan'
+        },
+        {
+          id: 'TXN-001235',
+          customer: 'Sarah Johnson',
+          customerEmail: 'sarah.j@email.com',
+          bookingId: 'BK002',
+          vehicle: 'Honda CR-V - XYZ789',
+          amount: 225.00,
+          paymentMethod: 'MC ****5678',
+          status: 'completed',
+          date: '2024-12-09',
+          branch: 'Brooklyn'
+        },
+        {
+          id: 'TXN-001236',
+          customer: 'Mike Davis',
+          customerEmail: 'mike.d@email.com',
+          bookingId: 'BK003',
+          vehicle: 'Ford Focus - DEF456',
+          amount: 150.00,
+          paymentMethod: 'Debit ****9012',
+          status: 'pending',
+          date: '2024-12-09',
+          branch: 'Queens'
+        },
+        {
+          id: 'TXN-001237',
+          customer: 'Lisa Wong',
+          customerEmail: 'lisa.wong@email.com',
+          bookingId: 'BK004',
+          vehicle: 'BMW X3 - GHI345',
+          amount: 450.00,
+          paymentMethod: 'Amex ****3456',
+          status: 'failed',
+          date: '2024-12-08',
+          branch: 'Manhattan'
+        }
+      ];
+
+      const depositsData = [
+        {
+          customer: 'John Smith',
+          bookingId: 'BK001',
+          depositAmount: 500.00,
+          status: 'pending-refund',
+          returnDate: '2024-12-11',
+          vehicleReturned: true
+        },
+        {
+          customer: 'Sarah Johnson',
+          bookingId: 'BK002',
+          depositAmount: 300.00,
+          status: 'refunded',
+          returnDate: '2024-12-08',
+          vehicleReturned: true
+        },
+        {
+          customer: 'Mike Davis',
+          bookingId: 'BK003',
+          depositAmount: 400.00,
+          status: 'held',
+          returnDate: '2024-12-09',
+          vehicleReturned: false
+        },
+        {
+          customer: 'Lisa Wong',
+          bookingId: 'BK004',
+          depositAmount: 600.00,
+          status: 'withheld',
+          returnDate: '2024-12-07',
+          vehicleReturned: true
+        }
+      ];
+
+      const disputesData = [
+        {
+          id: 'DSP-001',
+          customer: 'Mike Davis',
+          type: 'Vehicle Damage',
+          amount: 200.00,
+          status: 'under-review',
+          filedDate: '2024-12-08',
+          priority: 'high'
+        },
+        {
+          id: 'DSP-002',
+          customer: 'Lisa Wong',
+          type: 'Late Fee',
+          amount: 25.00,
+          status: 'resolved',
+          filedDate: '2024-12-05',
+          priority: 'low'
+        },
+        {
+          id: 'DSP-003',
+          customer: 'James Miller',
+          type: 'Overcharge',
+          amount: 75.00,
+          status: 'pending',
+          filedDate: '2024-12-09',
+          priority: 'medium'
+        }
+      ];
+
+      // Initialize page
+      document.addEventListener('DOMContentLoaded', function() {
+        populateTransactionsTable();
+        populateDepositsTable();
+        populateDisputesTable();
+        initializeRevenueChart();
+        setupDarkMode();
+      });
+
+      function populateTransactionsTable() {
+        const tbody = document.getElementById('transactionsTableBody');
+        tbody.innerHTML = '';
+
+        transactionData.forEach(transaction => {
+          const statusBadge = getTransactionStatusBadge(transaction.status);
+          const paymentMethodIcon = getPaymentMethodIcon(transaction.paymentMethod);
+          
+          const row = `
+            <tr onclick="openTransactionDetail('${transaction.id}')" style="cursor: pointer;">
+              <td>
+                <div class="fw-bold">${transaction.id}</div>
+                <small class="text-muted">${transaction.bookingId}</small>
+              </td>
+              <td>
+                <div class="fw-bold">${transaction.customer}</div>
+                <small class="text-muted">${transaction.customerEmail}</small>
+              </td>
+              <td>
+                <div class="fw-bold text-success amount-display">$${transaction.amount.toLocaleString()}</div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  ${paymentMethodIcon}
+                  <span>${transaction.paymentMethod}</span>
+                </div>
+              </td>
+              <td>${statusBadge}</td>
+              <td>
+                <div>${new Date(transaction.date).toLocaleDateString()}</div>
+                <small class="text-muted">${new Date(transaction.date).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</small>
+              </td>
+              <td>
+                <div class="btn-group btn-group-sm" role="group">
+                  <button class="btn btn-outline-primary" onclick="event.stopPropagation(); openTransactionDetail('${transaction.id}')" title="View Details">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-outline-info" onclick="event.stopPropagation(); generateInvoice('${transaction.id}')" title="Generate Invoice">
+                    <i class="fas fa-file-invoice"></i>
+                  </button>
+                  ${transaction.status === 'completed' ? `
+                    <button class="btn btn-outline-danger" onclick="event.stopPropagation(); initiateRefund('${transaction.id}')" title="Refund">
+                      <i class="fas fa-undo"></i>
+                    </button>
+                  ` : ''}
+                </div>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function populateDepositsTable() {
+        const tbody = document.getElementById('depositsTableBody');
+        tbody.innerHTML = '';
+
+        depositsData.forEach(deposit => {
+          const statusBadge = getDepositStatusBadge(deposit.status);
+          
+          const row = `
+            <tr>
+              <td>
+                <div class="fw-bold">${deposit.customer}</div>
+              </td>
+              <td>
+                <div class="fw-bold">${deposit.bookingId}</div>
+              </td>
+              <td><strong class="amount-display">$${deposit.depositAmount.toFixed(2)}</strong></td>
+              <td>${statusBadge}</td>
+              <td>
+                <div>${new Date(deposit.returnDate).toLocaleDateString()}</div>
+                <small class="text-muted">${deposit.vehicleReturned ? 'Vehicle Returned' : 'Not Returned'}</small>
+              </td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <button class="btn btn-outline-success" onclick="processRefund('${deposit.bookingId}')" title="Process Refund" ${deposit.status === 'refunded' ? 'disabled' : ''}>
+                    <i class="fas fa-hand-holding-usd"></i>
+                  </button>
+                  <button class="btn btn-outline-warning" onclick="withholdDeposit('${deposit.bookingId}')" title="Withhold">
+                    <i class="fas fa-ban"></i>
+                  </button>
+                  <button class="btn btn-outline-info" onclick="viewDepositDetails('${deposit.bookingId}')" title="Details">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function populateDisputesTable() {
+        const tbody = document.getElementById('disputesTableBody');
+        tbody.innerHTML = '';
+
+        disputesData.forEach(dispute => {
+          const statusBadge = getDisputeStatusBadge(dispute.status);
+          const priorityBadge = getPriorityBadge(dispute.priority);
+          
+          const row = `
+            <tr onclick="openDisputeDetail('${dispute.id}')" style="cursor: pointer;">
+              <td><strong>${dispute.id}</strong></td>
+              <td>${dispute.customer}</td>
+              <td>${dispute.type}</td>
+              <td><strong class="amount-display">$${dispute.amount.toFixed(2)}</strong></td>
+              <td>
+                ${statusBadge}
+                <div class="mt-1">${priorityBadge}</div>
+              </td>
+              <td>${new Date(dispute.filedDate).toLocaleDateString()}</td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <button class="btn btn-outline-primary" onclick="event.stopPropagation(); openDisputeDetail('${dispute.id}')" title="View Details">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-outline-success" onclick="event.stopPropagation(); resolveDispute('${dispute.id}')" title="Resolve">
+                    <i class="fas fa-check"></i>
+                  </button>
+                  <button class="btn btn-outline-warning" onclick="event.stopPropagation(); escalateDispute('${dispute.id}')" title="Escalate">
+                    <i class="fas fa-arrow-up"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function getTransactionStatusBadge(status) {
+        const badgeMap = {
+          'completed': 'bg-success',
+          'pending': 'bg-warning',
+          'failed': 'bg-danger',
+          'refunded': 'bg-info'
+        };
+        const text = status.charAt(0).toUpperCase() + status.slice(1);
+        return `<span class="badge ${badgeMap[status] || 'bg-secondary'} transaction-status">${text}</span>`;
+      }
+
+      function getDepositStatusBadge(status) {
+        const badgeMap = {
+          'pending-refund': { class: 'bg-warning', text: 'Pending Refund' },
+          'refunded': { class: 'bg-success', text: 'Refunded' },
+          'held': { class: 'bg-info', text: 'Held' },
+          'withheld': { class: 'bg-danger', text: 'Withheld' }
+        };
+        const info = badgeMap[status] || { class: 'bg-secondary', text: status };
+        return `<span class="badge ${info.class} transaction-status">${info.text}</span>`;
+      }
+
+      function getDisputeStatusBadge(status) {
+        const badgeMap = {
+          'pending': 'bg-warning',
+          'under-review': 'bg-info',
+          'resolved': 'bg-success',
+          'escalated': 'bg-danger'
+        };
+        const text = status.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+        return `<span class="badge ${badgeMap[status] || 'bg-secondary'} transaction-status">${text}</span>`;
+      }
+
+      function getPriorityBadge(priority) {
+        const badgeMap = {
+          'low': 'bg-success',
+          'medium': 'bg-warning',
+          'high': 'bg-danger'
+        };
+        const text = priority.charAt(0).toUpperCase() + priority.slice(1);
+        return `<span class="badge ${badgeMap[priority] || 'bg-secondary'}">${text} Priority</span>`;
+      }
+
+      function getPaymentMethodIcon(paymentMethod) {
+        const method = paymentMethod.toLowerCase();
+        if (method.includes('visa')) return '<span class="payment-method-icon visa">VISA</span>';
+        if (method.includes('mc') || method.includes('mastercard')) return '<span class="payment-method-icon mastercard">MC</span>';
+        if (method.includes('amex')) return '<span class="payment-method-icon amex">AMEX</span>';
+        if (method.includes('discover')) return '<span class="payment-method-icon discover">DISC</span>';
+        if (method.includes('paypal')) return '<span class="payment-method-icon paypal">PP</span>';
+        return '<span class="payment-method-icon stripe">CARD</span>';
+      }
+
+      function initializeRevenueChart() {
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+              label: 'Revenue',
+              data: [12000, 15000, 18000, 22000, 25000, 28000, 32000, 35000, 38000, 42000, 45000, 48000],
+              borderColor: '#177dff',
+              backgroundColor: 'rgba(23, 125, 255, 0.1)',
+              tension: 0.4,
+              fill: true
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  callback: function(value) {
+                    return '$' + value.toLocaleString();
+                  }
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // Manual Payment Processing
+      function processManualPayment() {
+        showManualPaymentModal();
+      }
+
+      function showManualPaymentModal() {
+        const modalHtml = `
+          <div class="modal fade" id="manualPaymentModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"><i class="fas fa-plus me-2"></i>Process Manual Payment</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="manualPaymentForm" novalidate>
+                    <div class="row">
+                      <!-- Customer Information -->
+                      <div class="col-md-6">
+                        <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-user me-2"></i>Customer Information</h6>
+                        
+                        <div class="mb-3">
+                          <label class="form-label">Customer Name <span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" id="customerName" required>
+                          <div class="invalid-feedback">Customer name is required</div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Customer Email <span class="text-danger">*</span></label>
+                          <input type="email" class="form-control" id="customerEmail" required>
+                          <div class="invalid-feedback">Valid email address is required</div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Phone Number</label>
+                          <input type="tel" class="form-control" id="customerPhone" placeholder="+1 (555) 123-4567">
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Customer ID</label>
+                          <input type="text" class="form-control" id="customerId" placeholder="CUST-001">
+                          <div class="form-text">Leave blank for new customers</div>
+                        </div>
+                      </div>
+
+                      <!-- Booking & Payment Details -->
+                      <div class="col-md-6">
+                        <h6 class="fw-bold mb-3 text-success"><i class="fas fa-credit-card me-2"></i>Payment Details</h6>
+                        
+                        <div class="mb-3">
+                          <label class="form-label">Booking ID <span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" id="bookingId" required placeholder="BK-001">
+                          <div class="invalid-feedback">Booking ID is required</div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Payment Amount <span class="text-danger">*</span></label>
+                          <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="paymentAmount" step="0.01" min="0.01" required>
+                            <div class="invalid-feedback">Valid payment amount is required</div>
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Payment Method <span class="text-danger">*</span></label>
+                          <select class="form-select" id="paymentMethod" required>
+                            <option value="">Select Payment Method</option>
+                            <option value="cash">Cash</option>
+                            <option value="check">Check</option>
+                            <option value="bank-transfer">Bank Transfer</option>
+                            <option value="money-order">Money Order</option>
+                            <option value="credit-card">Credit Card (Terminal)</option>
+                            <option value="debit-card">Debit Card (Terminal)</option>
+                            <option value="wire-transfer">Wire Transfer</option>
+                          </select>
+                          <div class="invalid-feedback">Payment method is required</div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Reference/Transaction Number</label>
+                          <input type="text" class="form-control" id="referenceNumber" placeholder="Check #, Transfer ID, etc.">
+                          <div class="form-text">Required for checks, transfers, and card payments</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="row mt-3">
+                      <div class="col-md-6">
+                        <h6 class="fw-bold mb-3 text-info"><i class="fas fa-info-circle me-2"></i>Additional Information</h6>
+                        
+                        <div class="mb-3">
+                          <label class="form-label">Vehicle Information</label>
+                          <input type="text" class="form-control" id="vehicleInfo" placeholder="Toyota Camry - ABC123">
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Branch Location <span class="text-danger">*</span></label>
+                          <select class="form-select" id="branchLocation" required>
+                            <option value="">Select Branch</option>
+                            <option value="manhattan">Manhattan</option>
+                            <option value="brooklyn">Brooklyn</option>
+                            <option value="queens">Queens</option>
+                            <option value="bronx">Bronx</option>
+                            <option value="staten-island">Staten Island</option>
+                          </select>
+                          <div class="invalid-feedback">Branch location is required</div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Payment Category</label>
+                          <select class="form-select" id="paymentCategory">
+                            <option value="rental-fee">Rental Fee</option>
+                            <option value="security-deposit">Security Deposit</option>
+                            <option value="late-fee">Late Fee</option>
+                            <option value="damage-fee">Damage Fee</option>
+                            <option value="fuel-charge">Fuel Charge</option>
+                            <option value="cleaning-fee">Cleaning Fee</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <h6 class="fw-bold mb-3 text-warning"><i class="fas fa-clipboard-check me-2"></i>Processing Requirements</h6>
+                        
+                        <div class="mb-3">
+                          <label class="form-label">Payment Notes</label>
+                          <textarea class="form-control" id="paymentNotes" rows="3" placeholder="Additional notes about this payment..."></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="verifyIdentity" required>
+                            <label class="form-check-label" for="verifyIdentity">
+                              <span class="text-danger">*</span> Customer identity verified (ID checked)
+                            </label>
+                            <div class="invalid-feedback">Identity verification is required</div>
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="authorizePayment" required>
+                            <label class="form-check-label" for="authorizePayment">
+                              <span class="text-danger">*</span> Payment authorized and funds verified
+                            </label>
+                            <div class="invalid-feedback">Payment authorization is required</div>
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="sendReceipt" checked>
+                            <label class="form-check-label" for="sendReceipt">
+                              Send receipt to customer email
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="updateBooking" checked>
+                            <label class="form-check-label" for="updateBooking">
+                              Update booking status automatically
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Processing Summary -->
+                    <div class="row mt-4">
+                      <div class="col-12">
+                        <div class="alert alert-info">
+                          <h6 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Processing Summary</h6>
+                          <div id="processingSummary">
+                            <p class="mb-1"><strong>Customer:</strong> <span id="summaryCustomer">-</span></p>
+                            <p class="mb-1"><strong>Amount:</strong> <span id="summaryAmount">$0.00</span></p>
+                            <p class="mb-1"><strong>Method:</strong> <span id="summaryMethod">-</span></p>
+                            <p class="mb-0"><strong>Booking:</strong> <span id="summaryBooking">-</span></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times"></i> Cancel
+                  </button>
+                  <button type="button" class="btn btn-primary" onclick="validateAndProcessPayment()">
+                    <i class="fas fa-credit-card"></i> Process Payment
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Remove existing modal if present
+        const existingModal = document.getElementById('manualPaymentModal');
+        if (existingModal) existingModal.remove();
+
+        // Add new modal to body
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+        // Initialize modal and show it
+        const modal = new bootstrap.Modal(document.getElementById('manualPaymentModal'));
+        modal.show();
+
+        // Setup validation and real-time updates
+        setupManualPaymentValidation();
+      }
+
+      function setupManualPaymentValidation() {
+        const form = document.getElementById('manualPaymentForm');
+        const inputs = form.querySelectorAll('input, select, textarea');
+
+        // Add event listeners for real-time validation and summary updates
+        inputs.forEach(input => {
+          input.addEventListener('input', updateProcessingSummary);
+          input.addEventListener('change', updateProcessingSummary);
+        });
+
+        // Payment method specific validation
+        document.getElementById('paymentMethod').addEventListener('change', function() {
+          const referenceField = document.getElementById('referenceNumber');
+          const method = this.value;
+          
+          if (['check', 'bank-transfer', 'wire-transfer', 'credit-card', 'debit-card'].includes(method)) {
+            referenceField.required = true;
+            referenceField.parentElement.querySelector('.form-text').classList.add('text-danger');
+          } else {
+            referenceField.required = false;
+            referenceField.parentElement.querySelector('.form-text').classList.remove('text-danger');
+          }
+        });
+      }
+
+      function updateProcessingSummary() {
+        const customerName = document.getElementById('customerName').value || '-';
+        const amount = document.getElementById('paymentAmount').value;
+        const method = document.getElementById('paymentMethod').selectedOptions[0]?.text || '-';
+        const booking = document.getElementById('bookingId').value || '-';
+
+        document.getElementById('summaryCustomer').textContent = customerName;
+        document.getElementById('summaryAmount').textContent = amount ? `$${parseFloat(amount).toFixed(2)}` : '$0.00';
+        document.getElementById('summaryMethod').textContent = method;
+        document.getElementById('summaryBooking').textContent = booking;
+      }
+
+      function validateAndProcessPayment() {
+        const form = document.getElementById('manualPaymentForm');
+        
+        // Bootstrap validation
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          
+          // Focus on first invalid field
+          const firstInvalid = form.querySelector(':invalid');
+          if (firstInvalid) {
+            firstInvalid.focus();
+            firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          
+          return;
+        }
+
+        // Additional custom validation
+        const paymentMethod = document.getElementById('paymentMethod').value;
+        const referenceNumber = document.getElementById('referenceNumber').value;
+        
+        if (['check', 'bank-transfer', 'wire-transfer', 'credit-card', 'debit-card'].includes(paymentMethod) && !referenceNumber.trim()) {
+          alert('Reference/Transaction number is required for this payment method.');
+          document.getElementById('referenceNumber').focus();
+          return;
+        }
+
+        // Verify required checkboxes
+        if (!document.getElementById('verifyIdentity').checked) {
+          alert('Customer identity verification is required before processing payment.');
+          return;
+        }
+
+        if (!document.getElementById('authorizePayment').checked) {
+          alert('Payment authorization confirmation is required.');
+          return;
+        }
+
+        // Process the payment
+        processValidatedPayment();
+      }
+
+      function processValidatedPayment() {
+        const formData = {
+          customerName: document.getElementById('customerName').value.trim(),
+          customerEmail: document.getElementById('customerEmail').value.trim(),
+          customerPhone: document.getElementById('customerPhone').value.trim(),
+          customerId: document.getElementById('customerId').value.trim(),
+          bookingId: document.getElementById('bookingId').value.trim(),
+          amount: parseFloat(document.getElementById('paymentAmount').value),
+          paymentMethod: document.getElementById('paymentMethod').value,
+          referenceNumber: document.getElementById('referenceNumber').value.trim(),
+          vehicleInfo: document.getElementById('vehicleInfo').value.trim(),
+          branchLocation: document.getElementById('branchLocation').value,
+          paymentCategory: document.getElementById('paymentCategory').value,
+          notes: document.getElementById('paymentNotes').value.trim(),
+          sendReceipt: document.getElementById('sendReceipt').checked,
+          updateBooking: document.getElementById('updateBooking').checked
+        };
+
+        // Show processing indicator
+        const processBtn = document.querySelector('#manualPaymentModal .btn-primary');
+        const originalText = processBtn.innerHTML;
+        processBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        processBtn.disabled = true;
+
+        // Simulate processing delay
+        setTimeout(() => {
+          // Generate transaction ID
+          const transactionId = 'TXN-' + Date.now().toString().substr(-6);
+          
+          // Create new transaction record
+          const newTransaction = {
+            id: transactionId,
+            customer: formData.customerName,
+            customerEmail: formData.customerEmail,
+            bookingId: formData.bookingId,
+            vehicle: formData.vehicleInfo || 'Manual Entry',
+            amount: formData.amount,
+            paymentMethod: getPaymentMethodDisplay(formData.paymentMethod, formData.referenceNumber),
+            status: 'completed',
+            date: new Date().toISOString().split('T')[0],
+            branch: formData.branchLocation,
+            type: 'manual',
+            category: formData.paymentCategory,
+            notes: formData.notes,
+            processedBy: 'Admin'
+          };
+
+          // Add to transaction data
+          transactionData.push(newTransaction);
+
+          // Refresh table
+          populateTransactionsTable();
+
+          // Close modal
+          bootstrap.Modal.getInstance(document.getElementById('manualPaymentModal')).hide();
+
+          // Show success message
+          alert(`Payment processed successfully!
+Transaction ID: ${transactionId}
+Amount: $${formData.amount.toFixed(2)}
+Customer: ${formData.customerName}
+
+${formData.sendReceipt ? 'Receipt sent to customer email.' : ''}
+${formData.updateBooking ? 'Booking status updated.' : ''}`);
+
+        }, 2000); // 2 second processing simulation
+      }
+
+      function getPaymentMethodDisplay(method, reference) {
+        const methodNames = {
+          'cash': 'Cash',
+          'check': 'Check',
+          'bank-transfer': 'Bank Transfer',
+          'money-order': 'Money Order',
+          'credit-card': 'Credit Card',
+          'debit-card': 'Debit Card',
+          'wire-transfer': 'Wire Transfer'
+        };
+        
+        let display = methodNames[method] || method;
+        if (reference) {
+          display += ` - ${reference}`;
+        }
+        return display;
+      }
+
+      function exportTransactions() {
+        alert('Export functionality would be implemented here');
+      }
+
+      function applyTransactionFilters() {
+        alert('Transaction filters would be applied here');
+      }
+
+      function openTransactionDetail(transactionId) {
+        alert(`Transaction detail modal for ${transactionId} would open here`);
+      }
+
+      function generateInvoice(transactionId) {
+        alert(`Invoice generation for ${transactionId} would be implemented here`);
+      }
+
+      function initiateRefund(transactionId) {
+        alert(`Refund process for ${transactionId} would be initiated here`);
+      }
+
+      function processRefund(bookingId) {
+        alert(`Refund processing for booking ${bookingId} would be implemented here`);
+      }
+
+      function withholdDeposit(bookingId) {
+        alert(`Deposit withholding for booking ${bookingId} would be implemented here`);
+      }
+
+      function viewDepositDetails(bookingId) {
+        alert(`Deposit details for booking ${bookingId} would be shown here`);
+      }
+
+      function processAutoRefunds() {
+        alert('Auto refund processing would be implemented here');
+      }
+
+      function manualRefund() {
+        alert('Manual refund modal would open here');
+      }
+
+      function bulkProcessRefunds() {
+        alert('Bulk refund processing would be implemented here');
+      }
+
+      function generateRefundReport() {
+        alert('Refund report generation would be implemented here');
+      }
+
+      function reviewWithheldDeposits() {
+        alert('Withheld deposits review would be implemented here');
+      }
+
+      function configureAutoRefund() {
+        alert('Auto-refund configuration would be implemented here');
+      }
+
+      function fileNewDispute() {
+        alert('New dispute filing modal would open here');
+      }
+
+      function openDisputeDetail(disputeId) {
+        alert(`Dispute detail modal for ${disputeId} would open here`);
+      }
+
+      function resolveDispute(disputeId) {
+        alert(`Dispute resolution for ${disputeId} would be implemented here`);
+      }
+
+      function escalateDispute(disputeId) {
+        alert(`Dispute escalation for ${disputeId} would be implemented here`);
+      }
+
+      function exportReports() {
+        alert('Report export functionality would be implemented here');
+      }
+
+      function billingSettings() {
+        alert('Billing settings modal would open here');
+      }
+
+      // Dark mode functionality
+      function setupDarkMode() {
+        const darkModeSwitch = document.getElementById('darkModeSwitch');
+        
+        // Check for saved dark mode preference
+        const darkMode = localStorage.getItem('darkMode') === 'true';
+        if (darkMode) {
+          document.body.classList.add('dark-mode');
+          darkModeSwitch.checked = true;
+        }
+
+        darkModeSwitch.addEventListener('change', function() {
+          if (this.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'true');
+          } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'false');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

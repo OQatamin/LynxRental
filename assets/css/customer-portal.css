@@ -1,0 +1,79 @@
+/* assets/css/customer-portal.css */
+
+/* General Layout */
+body {
+    overflow-x: hidden;
+}
+
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1030;
+    background-color: #1a2035;
+    transition: all 0.3s ease;
+}
+
+.sidebar_minimize .sidebar {
+    width: 70px;
+}
+
+.sidebar_minimize .sidebar .nav-item p {
+    display: none;
+}
+
+/* Main Panel */
+.main-panel {
+    margin-left: 250px;
+    transition: all 0.3s ease;
+    width: calc(100% - 250px);
+}
+
+.main-panel .container {
+    padding-top: 20px;
+}
+
+.main-header-content + .container {
+    margin-top: 20px !important;
+}
+
+.sidebar_minimize .main-panel {
+    margin-left: 70px;
+    width: calc(100% - 70px);
+}
+
+/* Header */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    right: 0;
+    height: 70px; /* Set a fixed height */
+    z-index: 1029;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.sidebar_minimize .main-header {
+    left: 70px;
+}
+
+/* Dark Mode */
+body.dark-mode .sidebar {
+    background-color: #242526;
+}
+
+body.dark-mode .main-header {
+    background-color: #3a3b3c;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}

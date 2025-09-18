@@ -1,0 +1,2550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Telematics & Tracking - LynxLite</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular", 
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/lynxlite.min.css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/css/unified-custom.css" />
+    <!-- OpenLayers CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css" type="text/css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+          <div class="logo-header" data-background-color="dark">
+            <a href="index2.html" class="logo">
+              <img src="assets/img/lynxlite/logo_light.svg" alt="LynxLite - Acacus" class="navbar-brand" height="45" />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar"><i class="gg-menu-right"></i></button>
+              <button class="btn btn-toggle sidenav-toggler"><i class="gg-menu-left"></i></button>
+            </div>
+            <button class="topbar-toggler more"><i class="gg-more-vertical-alt"></i></button>
+          </div>
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a href="index2.html"><i class="fas fa-home"></i><p>Dashboard (Overview)</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="fleet-management.html"><i class="fas fa-car"></i><p>Fleet Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="booking-management.html"><i class="fas fa-calendar-alt"></i><p>Booking Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="customer-management.html"><i class="fas fa-users"></i><p>Customer Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="billing-payments.html"><i class="fas fa-credit-card"></i><p>Billing & Payments</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="maintenance-compliance.html"><i class="fas fa-wrench"></i><p>Maintenance & Compliance</p></a>
+              </li>
+              <li class="nav-item active">
+                <a href="telematics-tracking.html"><i class="fas fa-map-marked-alt"></i><p>Telematics & Tracking</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="reports-analytics.html"><i class="fas fa-chart-line"></i><p>Reports & Analytics</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="branch-staff-management.html"><i class="fas fa-building"></i><p>Branch / Staff Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="#"><i class="fas fa-cogs"></i><p>System Settings</p></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+      
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <div class="logo-header" data-background-color="dark">
+              <a href="index2.html" class="logo">
+                <img src="assets/img/lynxlite/logo_light.svg" alt="LynxLite - Acacus" class="navbar-brand" height="20" />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar"><i class="gg-menu-right"></i></button>
+                <button class="btn btn-toggle sidenav-toggler"><i class="gg-menu-left"></i></button>
+              </div>
+              <button class="topbar-toggler more"><i class="gg-more-vertical-alt"></i></button>
+            </div>
+          </div>
+          <!-- Navbar Header -->
+          <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+            <div class="container-fluid">
+              <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-search pe-1">
+                      <i class="fa fa-search search-icon"></i>
+                    </button>
+                  </div>
+                  <input type="text" placeholder="Search vehicles..." class="form-control" id="globalSearch" />
+                </div>
+              </nav>
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li class="nav-item d-flex align-items-center">
+                  <div class="form-check form-switch mb-0 ms-2">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch" />
+                    <label class="form-check-label" for="darkModeSwitch" style="color:inherit;">Dark Mode</label>
+                  </div>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" aria-haspopup="true">
+                    <i class="fa fa-search"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-search animated fadeIn">
+                    <form class="navbar-left navbar-form nav-search">
+                      <div class="input-group">
+                        <input type="text" placeholder="Search vehicles..." class="form-control" />
+                      </div>
+                    </form>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
+                    <li>
+                      <div class="dropdown-title d-flex justify-content-between align-items-center">Messages <a href="#" class="small">Mark all as read</a></div>
+                    </li>
+                    <li>
+                      <div class="message-notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#"><div class="notif-img"><i class="fas fa-user-circle fa-2x"></i></div><div class="notif-content"><span class="subject">Geofence Alert</span><span class="block">BMW X3 (GHI345) left Manhattan zone</span><span class="time">3 minutes ago</span></div></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bell"></i><span class="notification">4</span>
+                  </a>
+                  <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+                    <li><div class="dropdown-title">You have 4 new notifications</div></li>
+                    <li>
+                      <div class="notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#" class="notif-item"><div class="notif-icon notif-danger"><i class="fas fa-exclamation-triangle"></i></div><div class="notif-content"><span class="block">Speeding alert - Honda CR-V</span><span class="time">1 minute ago</span></div></a>
+                          <a href="#" class="notif-item"><div class="notif-icon notif-warning"><i class="fas fa-clock"></i></div><div class="notif-content"><span class="block">Extended idle - Toyota Camry</span><span class="time">5 minutes ago</span></div></a>
+                          <a href="#" class="notif-item"><div class="notif-icon notif-info"><i class="fas fa-map-marker-alt"></i></div><div class="notif-content"><span class="block">Vehicle entered service zone</span><span class="time">10 minutes ago</span></div></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link" data-bs-toggle="dropdown" href="#" aria-expanded="false"><i class="fas fa-layer-group"></i></a>
+                  <div class="dropdown-menu quick-actions animated fadeIn">
+                    <div class="quick-actions-header"><span class="title mb-1">Quick Actions</span><span class="subtitle op-7">Shortcuts</span></div>
+                    <div class="quick-actions-scroll scrollbar-outer">
+                      <div class="quick-actions-items">
+                        <div class="row m-0">
+                          <a class="col-6 col-md-4 p-0" href="fleet-management.html"><div class="quick-actions-item"><div class="avatar-item bg-primary rounded-circle"><i class="fas fa-car"></i></div><span class="text">Fleet</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="booking-management.html"><div class="quick-actions-item"><div class="avatar-item bg-danger rounded-circle"><i class="far fa-calendar-alt"></i></div><span class="text">Bookings</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="customer-management.html"><div class="quick-actions-item"><div class="avatar-item bg-success rounded-circle"><i class="fas fa-users"></i></div><span class="text">Customers</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="billing-payments.html"><div class="quick-actions-item"><div class="avatar-item bg-warning rounded-circle"><i class="fas fa-credit-card"></i></div><span class="text">Payments</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="maintenance-compliance.html"><div class="quick-actions-item"><div class="avatar-item bg-info rounded-circle"><i class="fas fa-wrench"></i></div><span class="text">Maintenance</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="reports-analytics.html"><div class="quick-actions-item"><div class="avatar-item bg-secondary rounded-circle"><i class="fas fa-file-excel"></i></div><span class="text">Reports</span></div></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item topbar-user dropdown hidden-caret">
+                  <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+                    <div class="avatar-sm"><i class="fas fa-user-circle fa-2x"></i></div>
+                    <span class="profile-username"><span class="op-7">Hi,</span> <span class="fw-bold">Admin</span></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg"><i class="fas fa-user-circle fa-3x"></i></div>
+                          <div class="u-text">
+                            <h4>Admin</h4>
+                            <p class="text-muted">hello@example.com</p>
+                            <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="#">My Balance</a>
+                        <a class="dropdown-item" href="#">Inbox</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Account Setting</a>
+                        <a class="dropdown-item" href="#">Logout</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          
+        </div>
+
+        <!-- Telematics Content -->
+        <div class="container-fluid" style="padding-top: 80px;">
+          <div class="page-inner">
+            <!-- Enhanced Stats Cards -->
+            <div class="row mb-4">
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-success bubble-shadow-small">
+                          <i class="fas fa-car"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Active Vehicles</p>
+                          <h4 class="card-title" id="activeVehicleCount">108/120</h4>
+                          <small class="text-success">+3 since yesterday</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-warning bubble-shadow-small">
+                          <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Active Alerts</p>
+                          <h4 class="card-title" id="activeAlertsCount">8</h4>
+                          <small class="text-warning">2 critical</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-info bubble-shadow-small">
+                          <i class="fas fa-gas-pump"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Avg Fuel Efficiency</p>
+                          <h4 class="card-title" id="avgEfficiency">23.4 MPG</h4>
+                          <small class="text-info">$2.85/mile</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-primary bubble-shadow-small">
+                          <i class="fas fa-clock"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Avg Trip Duration</p>
+                          <h4 class="card-title" id="avgTripDuration">2.4 hrs</h4>
+                          <small class="text-primary">156 trips today</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Map and Controls -->
+            <div class="row mb-4">
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h4 class="card-title mb-0"><i class="fas fa-map-marked-alt me-2"></i>Vehicle Locations</h4>
+                      <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-success" onclick="refreshVehicleLocations()">
+                          <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                        <button class="btn btn-sm btn-primary" onclick="toggleFullscreen()">
+                          <i class="fas fa-expand"></i> Fullscreen
+                        </button>
+                        <div class="dropdown">
+                          <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-cog"></i> View
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" onclick="toggleClustering()">
+                              <i class="fas fa-layer-group me-2"></i>Group Nearby Vehicles
+                            </a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showOnlyRented()">
+                              <i class="fas fa-car me-2"></i>Show Only Rented
+                            </a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showOnlyAvailable()">
+                              <i class="fas fa-check-circle me-2"></i>Show Only Available
+                            </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Rental-Focused Quick Actions -->
+                    <div class="row mb-2">
+                      <div class="col-12">
+                        <div class="d-flex gap-2 flex-wrap">
+                          <button class="btn btn-outline-success btn-sm" onclick="filterAvailableNow()">
+                            <i class="fas fa-check-circle me-1"></i>Available for Rental
+                          </button>
+                          <button class="btn btn-outline-info btn-sm" onclick="filterCurrentRentals()">
+                            <i class="fas fa-car me-1"></i>Current Rentals
+                          </button>
+                          <button class="btn btn-outline-warning btn-sm" onclick="filterNeedsReturn()">
+                            <i class="fas fa-home me-1"></i>Due for Return
+                          </button>
+                          <button class="btn btn-outline-danger btn-sm" onclick="filterIssues()">
+                            <i class="fas fa-exclamation-triangle me-1"></i>Issues
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm" onclick="findNearestAvailable()">
+                            <i class="fas fa-search-location me-1"></i>Find Nearest
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Vehicle List Controls -->
+                    <div class="row mb-3">
+                      <div class="col-md-8">
+                        <!-- Simplified Rental Search -->
+                        <div class="d-flex gap-2 align-items-center">
+                          <div class="input-group input-group-sm" style="max-width: 300px;">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input type="text" class="form-control" id="vehicleSearch" placeholder="Search by vehicle, customer, booking..." onkeyup="enhancedSearch()">
+                            <button class="btn btn-outline-secondary" onclick="clearSearch()"><i class="fas fa-times"></i></button>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <input type="radio" class="btn-check" name="statusFilter" id="allVehicles" checked>
+                            <label class="btn btn-outline-primary btn-sm" for="allVehicles">All (<span id="allCount">120</span>)</label>
+                            <input type="radio" class="btn-check" name="statusFilter" id="rentedVehicles">
+                            <label class="btn btn-outline-success btn-sm" for="rentedVehicles">Rented (<span id="rentedFilterCount">65</span>)</label>
+                            <input type="radio" class="btn-check" name="statusFilter" id="availableVehicles">
+                            <label class="btn btn-outline-info btn-sm" for="availableVehicles">Available (<span id="availableFilterCount">35</span>)</label>
+                            <input type="radio" class="btn-check" name="statusFilter" id="issueVehicles">
+                            <label class="btn btn-outline-danger btn-sm" for="issueVehicles">Issues (<span id="issueFilterCount">8</span>)</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 text-end">
+                        <!-- Enhanced View Controls -->
+                        <div class="d-flex gap-1 justify-content-end">
+                          <button class="btn btn-outline-secondary btn-sm" id="compactViewToggle" onclick="toggleCompactView()" title="Toggle Compact View">
+                            <i class="fas fa-compress-alt"></i>
+                          </button>
+                          <div class="dropdown">
+                            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                              <i class="fas fa-sort"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#" onclick="sortVehicles('name')">Sort by Name</a></li>
+                              <li><a class="dropdown-item" href="#" onclick="sortVehicles('status')">Sort by Status</a></li>
+                              <li><a class="dropdown-item" href="#" onclick="sortVehicles('speed')">Sort by Speed</a></li>
+                              <li><a class="dropdown-item" href="#" onclick="sortVehicles('fuel')">Sort by Fuel Level</a></li>
+                              <li><a class="dropdown-item" href="#" onclick="sortVehicles('lastUpdate')">Sort by Last Update</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="map-container">
+                      <div id="telematicsMap" style="height: 600px; width: 100%;"></div>
+                    </div>
+                    <!-- Map Legend -->
+                    <div class="map-legend p-3 border-top">
+                      <div class="row">
+                        <div class="col-md-8">
+                          <div class="d-flex flex-wrap gap-3">
+                            <div class="d-flex align-items-center">
+                              <div class="map-marker-legend" style="width: 12px; height: 12px; background: #28a745; border-radius: 50%; margin-right: 5px;"></div>
+                              <small>Moving (<span id="movingCount">0</span>)</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                              <div class="map-marker-legend" style="width: 12px; height: 12px; background: #ffc107; border-radius: 50%; margin-right: 5px;"></div>
+                              <small>Idle (<span id="idleCount">0</span>)</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                              <div class="map-marker-legend" style="width: 12px; height: 12px; background: #6c757d; border-radius: 50%; margin-right: 5px;"></div>
+                              <small>Offline (<span id="offlineCount">0</span>)</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                              <div class="map-marker-legend" style="width: 12px; height: 12px; background: #dc3545; border-radius: 50%; margin-right: 5px;"></div>
+                              <small>Alert (<span id="alertCount">0</span>)</small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 text-end">
+                          <small class="text-muted">Last updated: <span id="lastUpdate">Just now</span></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-4">
+                <!-- Vehicle Status Panel -->
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title mb-0"><i class="fas fa-list me-2"></i>Vehicle Status</h5>
+                  </div>
+                  <div class="card-body">
+                    <!-- Vehicle List Container with Virtual Scrolling -->
+                    <div class="vehicle-list-container" style="height: 450px; overflow-y: auto;">
+                      <div class="vehicle-list" id="vehicleStatusList">
+                        <!-- Populated by JavaScript -->
+                      </div>
+                    </div>
+
+                    <!-- Pagination Controls -->
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                      <small class="text-muted">Showing <span id="showingCount">0</span> of <span id="totalCount">0</span> vehicles</small>
+                      <nav>
+                        <ul class="pagination pagination-sm mb-0">
+                          <li class="page-item" id="prevPage"><a class="page-link" href="#" onclick="changePage(-1)">‹</a></li>
+                          <li class="page-item active"><a class="page-link" href="#" id="currentPageBtn">1</a></li>
+                          <li class="page-item" id="nextPage"><a class="page-link" href="#" onclick="changePage(1)">›</a></li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Enhanced Live Alerts -->
+                <div class="card mt-3">
+                  <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="card-title mb-0"><i class="fas fa-bell me-2"></i>Live Alerts</h5>
+                      <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-danger btn-sm" onclick="filterAlerts('critical')" title="Critical Only">
+                          <i class="fas fa-exclamation-triangle"></i>
+                        </button>
+                        <button class="btn btn-outline-warning btn-sm" onclick="filterAlerts('warning')" title="Warnings">
+                          <i class="fas fa-exclamation"></i>
+                        </button>
+                        <button class="btn btn-outline-info btn-sm" onclick="filterAlerts('info')" title="Info">
+                          <i class="fas fa-info"></i>
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="filterAlerts('all')" title="All Alerts">
+                          <i class="fas fa-list"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="alerts-list" id="liveAlertsList">
+                      <!-- Populated by JavaScript -->
+                    </div>
+                    <div class="mt-3">
+                      <button class="btn btn-primary btn-sm w-100" onclick="generateInstantSummary()">
+                        <i class="fas fa-chart-line me-1"></i>Generate Instant Summary
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <!-- Driving Behavior Tab -->
+              <div class="tab-pane fade show active" id="behavior" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-tachometer-alt me-2"></i>Driving Performance Analytics</h4>
+                          <div>
+                            <select class="form-select form-select-sm" id="behaviorTimeFilter">
+                              <option value="today">Today</option>
+                              <option value="week">This Week</option>
+                              <option value="month" selected>This Month</option>
+                              <option value="quarter">This Quarter</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="row mb-4">
+                          <div class="col-md-4">
+                            <div class="text-center">
+                              <h3 class="text-primary">12</h3>
+                              <p class="text-muted mb-0">Speeding Events</p>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="text-center">
+                              <h3 class="text-warning">8</h3>
+                              <p class="text-muted mb-0">Harsh Braking</p>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="text-center">
+                              <h3 class="text-info">156</h3>
+                              <p class="text-muted mb-0">Idle Hours</p>
+                            </div>
+                          </div>
+                        </div>
+                        <canvas id="behaviorChart" height="100"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <!-- Driver Performance Rankings -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-trophy me-2"></i>Driver Rankings</h5>
+                      </div>
+                      <div class="card-body">
+                        <div id="driverRankings">
+                          <!-- Populated by JavaScript -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Behavior Metrics -->
+                    <div class="card mt-3">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-gauge me-2"></i>Performance Metrics</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Safe Driving Score</span>
+                            <strong class="text-success">87%</strong>
+                          </div>
+                          <div class="progress mt-1" style="height: 8px;">
+                            <div class="progress-bar bg-success" style="width: 87%"></div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>Fuel Efficiency</span>
+                            <strong class="text-info">23.4 MPG</strong>
+                          </div>
+                          <div class="progress mt-1" style="height: 8px;">
+                            <div class="progress-bar bg-info" style="width: 78%"></div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <span>On-Time Performance</span>
+                            <strong class="text-primary">94%</strong>
+                          </div>
+                          <div class="progress mt-1" style="height: 8px;">
+                            <div class="progress-bar bg-primary" style="width: 94%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Detailed Behavior Table -->
+                <div class="row mt-3">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-list me-2"></i>Recent Driving Events</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Vehicle</th>
+                                <th>Event Type</th>
+                                <th>Location</th>
+                                <th>Speed</th>
+                                <th>Time</th>
+                                <th>Severity</th>
+                                <th>Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody id="behaviorEventsTable">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Geofencing Tab -->
+              <div class="tab-pane fade" id="geofencing" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-draw-polygon me-2"></i>Geofence Management</h4>
+                          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createGeofenceModal">
+                            <i class="fas fa-plus"></i> Create Geofence
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Geofence Name</th>
+                                <th>Type</th>
+                                <th>Alerts</th>
+                                <th>Active Vehicles</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody id="geofenceTable">
+                              <!-- Populated by JavaScript -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <!-- Geofence Alerts -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-bell me-2"></i>Recent Geofence Alerts</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="timeline" id="geofenceAlerts">
+                          <!-- Populated by JavaScript -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Geofence Stats -->
+                    <div class="card mt-3">
+                      <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-chart-pie me-2"></i>Geofence Statistics</h5>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="geofenceStatsChart" height="200"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reports Tab -->
+              <div class="tab-pane fade" id="reports" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="card-title"><i class="fas fa-file-alt me-2"></i>Telematics Reports</h4>
+                          <button class="btn btn-primary" onclick="generateCustomReport()">
+                            <i class="fas fa-plus"></i> Custom Report
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="report-item p-3 border rounded mb-3">
+                              <h6><i class="fas fa-tachometer-alt text-primary me-2"></i>Driver Performance Report</h6>
+                              <p class="text-muted mb-2">Comprehensive analysis of driver behavior, speed events, and safety metrics</p>
+                              <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-outline-primary" onclick="generateReport('driver-performance')">Generate</button>
+                                <button class="btn btn-sm btn-outline-info" onclick="scheduleReport('driver-performance')">Schedule</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="report-item p-3 border rounded mb-3">
+                              <h6><i class="fas fa-route text-success me-2"></i>Route Optimization Report</h6>
+                              <p class="text-muted mb-2">Analysis of routes, fuel efficiency, and optimization recommendations</p>
+                              <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-outline-primary" onclick="generateReport('route-optimization')">Generate</button>
+                                <button class="btn btn-sm btn-outline-info" onclick="scheduleReport('route-optimization')">Schedule</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="report-item p-3 border rounded mb-3">
+                              <h6><i class="fas fa-draw-polygon text-warning me-2"></i>Geofence Activity Report</h6>
+                              <p class="text-muted mb-2">Detailed log of all geofence entries, exits, and violations</p>
+                              <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-outline-primary" onclick="generateReport('geofence-activity')">Generate</button>
+                                <button class="btn btn-sm btn-outline-info" onclick="scheduleReport('geofence-activity')">Schedule</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="report-item p-3 border rounded mb-3">
+                              <h6><i class="fas fa-gas-pump text-info me-2"></i>Fuel Consumption Report</h6>
+                              <p class="text-muted mb-2">Vehicle fuel efficiency analysis and cost optimization insights</p>
+                              <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-outline-primary" onclick="generateReport('fuel-consumption')">Generate</button>
+                                <button class="btn btn-sm btn-outline-info" onclick="scheduleReport('fuel-consumption')">Schedule</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Geofence Modal -->
+    <div class="modal fade" id="createGeofenceModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Create New Geofence</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form id="createGeofenceForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Geofence Name *</label>
+                    <input type="text" class="form-control" id="geofenceName" placeholder="e.g. Manhattan Branch" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Geofence Type *</label>
+                    <select class="form-select" id="geofenceType" required>
+                      <option value="">Select Type</option>
+                      <option value="branch">Branch/Office</option>
+                      <option value="service">Service Area</option>
+                      <option value="restricted">Restricted Zone</option>
+                      <option value="parking">Parking Area</option>
+                      <option value="customer">Customer Location</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Alert Triggers</label>
+                    <div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="alertEntry" checked>
+                        <label class="form-check-label" for="alertEntry">Entry Alert</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="alertExit" checked>
+                        <label class="form-check-label" for="alertExit">Exit Alert</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="alertDwell">
+                        <label class="form-check-label" for="alertDwell">Dwell Time Alert</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Center Latitude *</label>
+                    <input type="number" class="form-control" id="geofenceLat" placeholder="40.7589" step="any" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Center Longitude *</label>
+                    <input type="number" class="form-control" id="geofenceLng" placeholder="-73.9851" step="any" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Radius (meters) *</label>
+                    <input type="number" class="form-control" id="geofenceRadius" placeholder="500" min="50" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Active Hours</label>
+                    <select class="form-select" id="activeHours">
+                      <option value="24/7">24/7</option>
+                      <option value="business">Business Hours (9AM-5PM)</option>
+                      <option value="custom">Custom Hours</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea class="form-control" id="geofenceDescription" rows="2" placeholder="Optional description..."></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-success" onclick="createGeofence()">
+              <i class="fas fa-plus"></i> Create Geofence
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Settings Modal -->
+    <div class="modal fade" id="mapSettingsModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Map Settings</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Map Style</label>
+              <select class="form-select" id="mapStyle">
+                <option value="standard">Standard</option>
+                <option value="satellite">Satellite</option>
+                <option value="terrain">Terrain</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Update Interval</label>
+              <select class="form-select" id="updateInterval">
+                <option value="10">10 seconds</option>
+                <option value="30" selected>30 seconds</option>
+                <option value="60">1 minute</option>
+                <option value="300">5 minutes</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="showTrails" checked>
+                <label class="form-check-label" for="showTrails">Show vehicle trails</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="showSpeed" checked>
+                <label class="form-check-label" for="showSpeed">Show speed on markers</label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" onclick="saveMapSettings()">Save Settings</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/js/lynxlite.min.js"></script>
+    
+    <!-- Feedback System -->
+    <script src="assets/js/feedback-system.js"></script>
+    <!-- OpenLayers JS -->
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    
+    <script>
+      let map, vehicleLayer, clusterLayer, geofenceLayer, clusterSource;
+      let clusteringEnabled = false;
+      let geofenceDrawing = null;
+      let geofenceMode = false;
+
+      // Generate 120 vehicles with proper distribution
+      function generateVehicleData() {
+        function randomLatLon() {
+          const minLat = 31.90, maxLat = 32.05;
+          const minLon = 35.80, maxLon = 36.00;
+          return {
+            lat: +(Math.random() * (maxLat - minLat) + minLat).toFixed(6),
+            lon: +(Math.random() * (maxLon - minLon) + minLon).toFixed(6)
+          };
+        }
+
+        function randomPlate() {
+          const letters = () => String.fromCharCode(65 + Math.floor(Math.random() * 26));
+          return `${letters()}${letters()}${letters()}${Math.floor(100 + Math.random() * 900)}`;
+        }
+
+        const vehicles = [];
+        const carModels = ['Toyota Camry', 'Honda CR-V', 'Ford Focus', 'BMW X3', 'Mercedes C-Class', 'Audi A4', 'Nissan Altima', 'Hyundai Elantra'];
+        const driverNames = ['John Smith', 'Sarah Johnson', 'Mike Davis', 'Lisa Wong', 'David Brown', 'Emily Chen', 'Alex Rodriguez', 'Maria Garcia'];
+        let id = 1;
+
+        // 65 moving vehicles
+        for (let i = 0; i < 65; i++, id++) {
+          const pos = randomLatLon();
+          const model = carModels[Math.floor(Math.random() * carModels.length)];
+          const driver = driverNames[Math.floor(Math.random() * driverNames.length)];
+          const plate = randomPlate();
+          vehicles.push({
+            id: plate,
+            name: `${model} - ${plate}`,
+            lat: pos.lat,
+            lng: pos.lon,
+            speed: Math.floor(Math.random() * 60 + 10),
+            status: 'moving',
+            driver: driver,
+            heading: Math.floor(Math.random() * 360),
+            fuel: Math.floor(Math.random() * 50 + 30),
+            lastUpdate: new Date(),
+            booking: Math.random() > 0.3 ? `BK${String(id).padStart(3, '0')}` : null
+          });
+        }
+
+        // 35 idle vehicles
+        for (let i = 0; i < 35; i++, id++) {
+          const pos = randomLatLon();
+          const model = carModels[Math.floor(Math.random() * carModels.length)];
+          const driver = Math.random() > 0.4 ? driverNames[Math.floor(Math.random() * driverNames.length)] : null;
+          const plate = randomPlate();
+          vehicles.push({
+            id: plate,
+            name: `${model} - ${plate}`,
+            lat: pos.lat,
+            lng: pos.lon,
+            speed: 0,
+            status: 'idle',
+            driver: driver,
+            heading: 0,
+            fuel: Math.floor(Math.random() * 100 + 1),
+            lastUpdate: new Date(Date.now() - Math.random() * 1800000),
+            booking: driver ? `BK${String(id).padStart(3, '0')}` : null
+          });
+        }
+
+        // 12 offline vehicles
+        for (let i = 0; i < 12; i++, id++) {
+          const pos = randomLatLon();
+          const model = carModels[Math.floor(Math.random() * carModels.length)];
+          const driver = Math.random() > 0.6 ? driverNames[Math.floor(Math.random() * driverNames.length)] : null;
+          const plate = randomPlate();
+          vehicles.push({
+            id: plate,
+            name: `${model} - ${plate}`,
+            lat: pos.lat,
+            lng: pos.lon,
+            speed: 0,
+            status: 'offline',
+            driver: driver,
+            heading: 0,
+            fuel: Math.floor(Math.random() * 100 + 1),
+            lastUpdate: new Date(Date.now() - Math.random() * 3600000 - 1800000),
+            booking: driver ? `BK${String(id).padStart(3, '0')}` : null
+          });
+        }
+
+        // 8 alert vehicles
+        for (let i = 0; i < 8; i++, id++) {
+          const pos = randomLatLon();
+          const model = carModels[Math.floor(Math.random() * carModels.length)];
+          const driver = driverNames[Math.floor(Math.random() * driverNames.length)];
+          const plate = randomPlate();
+          vehicles.push({
+            id: plate,
+            name: `${model} - ${plate}`,
+            lat: pos.lat,
+            lng: pos.lon,
+            speed: Math.random() > 0.5 ? Math.floor(Math.random() * 80 + 20) : 0,
+            status: 'alert',
+            driver: driver,
+            heading: Math.floor(Math.random() * 360),
+            fuel: Math.floor(Math.random() * 100 + 1),
+            lastUpdate: new Date(),
+            booking: `BK${String(id).padStart(3, '0')}`
+          });
+        }
+
+        return vehicles;
+      }
+
+      const vehicleData = generateVehicleData();
+
+      // Sample geofence data
+      const geofenceData = [
+        {
+          id: 'GF001',
+          name: 'Manhattan Branch',
+          type: 'branch',
+          lat: 40.7589,
+          lng: -73.9851,
+          radius: 500,
+          alerts: ['entry', 'exit'],
+          activeVehicles: 2,
+          status: 'active',
+          color: '#28a745'
+        },
+        {
+          id: 'GF002',
+          name: 'JFK Airport',
+          type: 'service',
+          lat: 40.6413,
+          lng: -73.7781,
+          radius: 1000,
+          alerts: ['entry'],
+          activeVehicles: 0,
+          status: 'active',
+          color: '#007bff'
+        },
+        {
+          id: 'GF003',
+          name: 'Restricted Zone',
+          type: 'restricted',
+          lat: 40.7505,
+          lng: -73.9934,
+          radius: 300,
+          alerts: ['entry', 'exit'],
+          activeVehicles: 1,
+          status: 'active',
+          color: '#dc3545'
+        }
+      ];
+
+      // Sample behavior events data
+      const behaviorEvents = [
+        {
+          vehicle: 'Honda CR-V - XYZ789',
+          eventType: 'Speeding',
+          location: 'FDR Drive, Manhattan',
+          speed: '65 mph',
+          time: '2 minutes ago',
+          severity: 'high'
+        },
+        {
+          vehicle: 'Toyota Camry - ABC123',
+          eventType: 'Harsh Braking',
+          location: '5th Ave & 42nd St',
+          speed: '35 mph',
+          time: '8 minutes ago',
+          severity: 'medium'
+        },
+        {
+          vehicle: 'Ford Focus - DEF456',
+          eventType: 'Extended Idle',
+          location: 'Times Square',
+          speed: '0 mph',
+          time: '15 minutes ago',
+          severity: 'low'
+        },
+        {
+          vehicle: 'BMW X3 - GHI345',
+          eventType: 'Rapid Acceleration',
+          location: 'Brooklyn Bridge',
+          speed: '45 mph',
+          time: '22 minutes ago',
+          severity: 'medium'
+        }
+      ];
+
+      // Initialize page
+      document.addEventListener('DOMContentLoaded', function() {
+        initializeMap();
+        populateVehicleStatusList();
+        initializeEnhancedAlerts();
+        populateLiveAlerts();
+        populateGeofenceTable();
+        populateGeofenceAlerts();
+        populateBehaviorEventsTable();
+        populateDriverRankings();
+        initializeCharts();
+        setupFilters();
+        startRealTimeUpdates();
+        updateEnhancedMetrics();
+      });
+
+      function initializeEnhancedAlerts() {
+        // Initialize with some sample alerts
+        allAlerts = [
+          { vehicle: 'Honda CR-V - XYZ789', message: 'Speeding detected - 65 mph', time: '2 min ago', severity: 'high', type: 'violation' },
+          { vehicle: 'Ford Focus - DEF456', message: 'Extended idle time', time: '15 min ago', severity: 'medium', type: 'efficiency' },
+          { vehicle: 'BMW X3 - GHI345', message: 'Left Manhattan geofence', time: '22 min ago', severity: 'info', type: 'geofence' },
+          { vehicle: 'Toyota Camry - ABC123', message: 'Harsh braking event', time: '8 min ago', severity: 'medium', type: 'safety' },
+          { vehicle: 'Mercedes C-Class - JKL901', message: 'Low fuel warning - 12%', time: '35 min ago', severity: 'warning', type: 'maintenance' }
+        ];
+        updateLiveAlerts();
+      }
+
+      function updateEnhancedMetrics() {
+        // Update metrics with real calculations
+        const activeCount = vehicleData.filter(v => v.status !== 'offline').length;
+        const totalCount = vehicleData.length;
+        const criticalAlerts = allAlerts.filter(a => a.severity === 'critical' || a.severity === 'high').length;
+        const avgEfficiency = (Math.random() * 5 + 20).toFixed(1);
+        const avgTripDuration = (Math.random() * 2 + 1.5).toFixed(1);
+        const tripsToday = Math.floor(Math.random() * 50 + 120);
+
+        document.getElementById('activeVehicleCount').textContent = `${activeCount}/${totalCount}`;
+        document.getElementById('activeAlertsCount').textContent = allAlerts.length;
+        document.getElementById('avgEfficiency').textContent = `${avgEfficiency} MPG`;
+        document.getElementById('avgTripDuration').textContent = `${avgTripDuration} hrs`;
+        
+        // Update small text with dynamic data
+        const alertsCard = document.getElementById('activeAlertsCount').parentElement;
+        alertsCard.querySelector('small').textContent = `${criticalAlerts} critical`;
+        
+        const efficiencyCard = document.getElementById('avgEfficiency').parentElement;
+        efficiencyCard.querySelector('small').textContent = `$${(Math.random() * 2 + 2).toFixed(2)}/mile`;
+        
+        const durationCard = document.getElementById('avgTripDuration').parentElement;
+        durationCard.querySelector('small').textContent = `${tripsToday} trips today`;
+      }
+
+      function initializeMap() {
+        // Vehicle layers setup
+        const vectorSource = new ol.source.Vector();
+        vehicleLayer = new ol.layer.Vector({
+          source: vectorSource,
+          style: createVehicleStyle
+        });
+
+        // Cluster layer setup
+        clusterSource = new ol.source.Cluster({
+          distance: 40,
+          source: vectorSource
+        });
+        clusterLayer = new ol.layer.Vector({
+          source: clusterSource,
+          style: function(feature) {
+            const size = feature.get('features').length;
+            if (size === 1) {
+              return createVehicleStyle(feature.get('features')[0]);
+            }
+            return new ol.style.Style({
+              image: new ol.style.Circle({
+                radius: 14,
+                fill: new ol.style.Fill({ color: '#6666ff' }),
+                stroke: new ol.style.Stroke({ color: '#fff', width: 2 })
+              }),
+              text: new ol.style.Text({
+                text: size.toString(),
+                fill: new ol.style.Fill({ color: '#fff' }),
+                font: 'bold 14px Arial, sans-serif'
+              })
+            });
+          }
+        });
+
+        // Geofence layer setup
+        const geofenceSource = new ol.source.Vector();
+        geofenceLayer = new ol.layer.Vector({
+          source: geofenceSource,
+          style: function(feature) {
+            return new ol.style.Style({
+              stroke: new ol.style.Stroke({
+                color: feature.get('color') || '#28a745',
+                width: 2
+              }),
+              fill: new ol.style.Fill({
+                color: (feature.get('color') || '#28a745') + '20'
+              })
+            });
+          }
+        });
+
+        // Map initialization
+        map = new ol.Map({
+          target: 'telematicsMap',
+          layers: [
+            new ol.layer.Tile({ source: new ol.source.OSM() }),
+            geofenceLayer,
+            vehicleLayer
+          ],
+          view: new ol.View({
+            center: ol.proj.fromLonLat([35.9106, 31.9632]),
+            zoom: 12
+          })
+        });
+
+        // Map interactions
+        setupMapInteractions();
+        updateVehicleMarkers();
+        updateGeofenceMarkers();
+        updateLegendCounts();
+      }
+
+      function createVehicleStyle(vehicle) {
+        const vehicleData = vehicle.get ? vehicle.get('vehicle') : vehicle;
+        const statusColors = {
+          moving: '#28a745',
+          idle: '#ffc107',
+          offline: '#6c757d',
+          alert: '#dc3545'
+        };
+
+        return new ol.style.Style({
+          image: new ol.style.Circle({
+            radius: 8,
+            fill: new ol.style.Fill({ color: statusColors[vehicleData.status] }),
+            stroke: new ol.style.Stroke({ color: '#ffffff', width: 2 })
+          }),
+          text: new ol.style.Text({
+            text: vehicleData.speed + ' mph',
+            offsetY: -25,
+            font: '12px Arial, sans-serif',
+            fill: new ol.style.Fill({ color: '#000' }),
+            stroke: new ol.style.Stroke({ color: '#fff', width: 2 })
+          })
+        });
+      }
+
+      function setupMapInteractions() {
+        map.on('click', function(evt) {
+          if (clusteringEnabled) {
+            const clusterFeature = map.forEachFeatureAtPixel(evt.pixel, function(f) { return f; });
+            if (clusterFeature && clusterFeature.get('features')) {
+              const features = clusterFeature.get('features');
+              if (features.length === 1) {
+                showVehicleInfo(features[0].get('vehicle'));
+              } else if (features.length > 1) {
+                const extent = ol.extent.createEmpty();
+                features.forEach(function(f) {
+                  ol.extent.extend(extent, f.getGeometry().getExtent());
+                });
+                map.getView().fit(extent, { duration: 500, maxZoom: 18, padding: [40, 40, 40, 40] });
+              }
+            }
+          } else {
+            const feature = map.forEachFeatureAtPixel(evt.pixel, function(f) { return f; });
+            if (feature && feature.get('vehicle')) {
+              showVehicleInfo(feature.get('vehicle'));
+            }
+          }
+        });
+
+        map.on('pointermove', function(evt) {
+          const hit = map.hasFeatureAtPixel(evt.pixel);
+          map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+        });
+      }
+
+      function showVehicleInfo(vehicle) {
+        const driverText = vehicle.driver ? `Driver: ${vehicle.driver}` : 'No driver assigned';
+        const bookingText = vehicle.booking ? `Booking: ${vehicle.booking}` : 'No active booking';
+        alert(`${vehicle.name}\nStatus: ${vehicle.status.charAt(0).toUpperCase() + vehicle.status.slice(1)}\n${driverText}\n${bookingText}\nFuel: ${vehicle.fuel}%\nSpeed: ${vehicle.speed} mph`);
+      }
+
+      function updateVehicleMarkers() {
+        const source = vehicleLayer.getSource();
+        source.clear();
+
+        vehicleData.forEach(vehicle => {
+          const coordinates = ol.proj.fromLonLat([vehicle.lng, vehicle.lat]);
+
+          const feature = new ol.Feature({
+            geometry: new ol.geom.Point(coordinates),
+            vehicle: vehicle
+          });
+
+          source.addFeature(feature);
+        });
+        updateLegendCounts();
+      }
+
+      function updateLegendCounts() {
+        const counts = { moving: 0, idle: 0, offline: 0, alert: 0 };
+        vehicleData.forEach(vehicle => {
+          counts[vehicle.status]++;
+        });
+
+        document.getElementById('movingCount').textContent = counts.moving;
+        document.getElementById('idleCount').textContent = counts.idle;
+        document.getElementById('offlineCount').textContent = counts.offline;
+        document.getElementById('alertCount').textContent = counts.alert;
+
+        // Update last refresh time
+        const now = new Date();
+        document.getElementById('lastUpdate').textContent = now.toLocaleTimeString();
+      }
+
+      // Clustering functions
+      function toggleClustering() {
+        clusteringEnabled = !clusteringEnabled;
+        const btn = document.getElementById('toggleClusterBtn');
+
+        function hasLayer(layer) {
+          return map.getLayers().getArray().includes(layer);
+        }
+
+        if (clusteringEnabled) {
+          if (hasLayer(vehicleLayer)) map.removeLayer(vehicleLayer);
+          if (!hasLayer(clusterLayer)) map.addLayer(clusterLayer);
+          btn.classList.add('active');
+          btn.innerHTML = '<i class="fas fa-layer-group"></i> Clustering On';
+        } else {
+          if (hasLayer(clusterLayer)) map.removeLayer(clusterLayer);
+          if (!hasLayer(vehicleLayer)) map.addLayer(vehicleLayer);
+          btn.classList.remove('active');
+          btn.innerHTML = '<i class="fas fa-layer-group"></i> Clustering';
+        }
+      }
+
+      // Geofence drawing functions
+      function toggleGeofenceDrawing() {
+        geofenceMode = !geofenceMode;
+        const btn = document.getElementById('toggleGeofenceBtn');
+
+        if (geofenceMode) {
+          btn.classList.add('active');
+          enableGeofenceDrawing();
+        } else {
+          btn.classList.remove('active');
+          if (geofenceDrawing) map.removeInteraction(geofenceDrawing);
+        }
+      }
+
+      function enableGeofenceDrawing() {
+        if (geofenceDrawing) map.removeInteraction(geofenceDrawing);
+        geofenceDrawing = new ol.interaction.Draw({
+          source: geofenceLayer.getSource(),
+          type: 'Polygon'
+        });
+        map.addInteraction(geofenceDrawing);
+
+        geofenceDrawing.on('drawend', function(evt) {
+          setTimeout(() => map.removeInteraction(geofenceDrawing), 100);
+          geofenceMode = false;
+          document.getElementById('toggleGeofenceBtn').classList.remove('active');
+          showGeofenceRulesPopup(evt.feature);
+        });
+      }
+
+      function showGeofenceRulesPopup(feature) {
+        let modal = document.getElementById('geofenceRulesModal');
+        if (!modal) {
+          modal = document.createElement('div');
+          modal.id = 'geofenceRulesModal';
+          modal.innerHTML = `
+            <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:9999;display:flex;align-items:center;justify-content:center;">
+              <div style="background:#fff;padding:24px 32px;border-radius:8px;min-width:320px;max-width:90vw;box-shadow:0 2px 16px #0002;">
+                <h5 class="mb-3">Geofence Rules</h5>
+                <form id="geofenceRulesForm">
+                  <div class="mb-2">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" required placeholder="Geofence name">
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-label">Type</label>
+                    <select class="form-control" name="type">
+                      <option value="branch">Branch/Office</option>
+                      <option value="service">Service Area</option>
+                      <option value="restricted">Restricted Zone</option>
+                      <option value="parking">Parking Area</option>
+                    </select>
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-label">Alert on Entry?</label>
+                    <select class="form-control" name="alertEntry">
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-label">Alert on Exit?</label>
+                    <select class="form-control" name="alertExit">
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                  <div class="d-flex justify-content-end gap-2 mt-3">
+                    <button type="button" class="btn btn-secondary" id="geofenceRulesCancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          `;
+          document.body.appendChild(modal);
+        } else {
+          modal.style.display = 'flex';
+        }
+
+        document.getElementById('geofenceRulesCancel').onclick = function() {
+          modal.style.display = 'none';
+          geofenceLayer.getSource().removeFeature(feature);
+        };
+
+        document.getElementById('geofenceRulesForm').onsubmit = function(e) {
+          e.preventDefault();
+          const data = Object.fromEntries(new FormData(this).entries());
+          feature.set('name', data.name);
+          feature.set('type', data.type);
+          feature.set('color', getTypeColor(data.type));
+          modal.style.display = 'none';
+          alert(`Geofence "${data.name}" created successfully!`);
+        };
+      }
+
+      function getTypeColor(type) {
+        const colors = {
+          branch: '#28a745',
+          service: '#007bff',
+          restricted: '#dc3545',
+          parking: '#6c757d'
+        };
+        return colors[type] || '#28a745';
+      }
+
+      // Fullscreen function
+      function toggleFullscreen() {
+        const mapContainer = document.querySelector('.map-container');
+        if (!document.fullscreenElement) {
+          mapContainer.requestFullscreen().then(() => {
+            setTimeout(() => map.updateSize(), 100);
+          });
+        } else {
+          document.exitFullscreen().then(() => {
+            setTimeout(() => map.updateSize(), 100);
+          });
+        }
+      }
+
+      function updateGeofenceMarkers() {
+        const source = geofenceLayer.getSource();
+        source.clear();
+
+        geofenceData.forEach(geofence => {
+          const center = ol.proj.fromLonLat([geofence.lng, geofence.lat]);
+          const circle = new ol.geom.Circle(center, geofence.radius);
+          
+          const feature = new ol.Feature({
+            geometry: circle,
+            geofence: geofence,
+            color: geofence.color
+          });
+
+          source.addFeature(feature);
+        });
+      }
+
+      // Enhanced vehicle list management
+      let currentPage = 1;
+      let itemsPerPage = 12;
+      let currentSort = 'name';
+      let sortDirection = 'asc';
+      let currentFilter = 'all';
+      let searchQuery = '';
+      let compactView = false;
+      let filteredVehicles = [...vehicleData];
+
+      function populateVehicleStatusList() {
+        applyFiltersAndSort();
+        renderVehicleList();
+        updatePaginationInfo();
+      }
+
+      function applyFiltersAndSort() {
+        // Start with all vehicles
+        let vehicles = [...vehicleData];
+
+        // Apply search filter
+        if (searchQuery) {
+          vehicles = vehicles.filter(vehicle =>
+            vehicle.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (vehicle.driver && vehicle.driver.toLowerCase().includes(searchQuery.toLowerCase())) ||
+            vehicle.id.toLowerCase().includes(searchQuery.toLowerCase())
+          );
+        }
+
+        // Apply status filter
+        if (currentFilter !== 'all') {
+          vehicles = vehicles.filter(vehicle => vehicle.status === currentFilter);
+        }
+
+        // Apply sorting
+        vehicles.sort((a, b) => {
+          let aValue, bValue;
+          switch (currentSort) {
+            case 'name':
+              aValue = a.name.toLowerCase();
+              bValue = b.name.toLowerCase();
+              break;
+            case 'status':
+              aValue = a.status;
+              bValue = b.status;
+              break;
+            case 'speed':
+              aValue = a.speed;
+              bValue = b.speed;
+              break;
+            case 'fuel':
+              aValue = a.fuel;
+              bValue = b.fuel;
+              break;
+            case 'lastUpdate':
+              aValue = a.lastUpdate;
+              bValue = b.lastUpdate;
+              break;
+            default:
+              aValue = a.name.toLowerCase();
+              bValue = b.name.toLowerCase();
+          }
+
+          if (sortDirection === 'desc') {
+            return aValue > bValue ? -1 : (aValue < bValue ? 1 : 0);
+          }
+          return aValue < bValue ? -1 : (aValue > bValue ? 1 : 0);
+        });
+
+        filteredVehicles = vehicles;
+      }
+
+      function renderVehicleList() {
+        const list = document.getElementById('vehicleStatusList');
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const pageVehicles = filteredVehicles.slice(startIndex, endIndex);
+
+        list.innerHTML = '';
+
+        pageVehicles.forEach(vehicle => {
+          const statusIcon = getStatusIcon(vehicle.status);
+          const timeSince = getTimeSince(vehicle.lastUpdate);
+          const priorityClass = vehicle.status === 'alert' ? 'border-danger' : '';
+
+          if (compactView) {
+            const item = `
+              <div class="vehicle-status-item vehicle-compact d-flex justify-content-between align-items-center p-1 mb-1 border rounded ${priorityClass}" 
+                   data-vehicle-id="${vehicle.id}" onclick="showVehicleTooltip(vehicleData.find(v => v.id === '${vehicle.id}'))">
+                <div class="flex-grow-1">
+                  <div class="fw-bold small">${vehicle.name}</div>
+                </div>
+                <div class="text-end">
+                  ${statusIcon}
+                  <small class="text-muted">${vehicle.speed}mph</small>
+                  <div class="progress mt-1" style="height: 3px; width: 40px;">
+                    <div class="progress-bar bg-${vehicle.fuel > 50 ? 'success' : vehicle.fuel > 25 ? 'warning' : 'danger'}" 
+                         style="width: ${vehicle.fuel}%" title="Fuel: ${vehicle.fuel}%"></div>
+                  </div>
+                </div>
+              </div>
+            `;
+            list.innerHTML += item;
+          } else {
+            const item = `
+              <div class="vehicle-status-item d-flex justify-content-between align-items-center p-2 mb-2 border rounded ${priorityClass}" 
+                   data-vehicle-id="${vehicle.id}" onclick="showVehicleTooltip(vehicleData.find(v => v.id === '${vehicle.id}'))">
+                <div class="flex-grow-1">
+                  <div class="fw-bold">${vehicle.name}</div>
+                  <small class="text-muted">${vehicle.driver || 'No driver'} • ${vehicle.speed} mph • ${timeSince}</small>
+                  <div class="progress mt-1" style="height: 4px;">
+                    <div class="progress-bar bg-${vehicle.fuel > 50 ? 'success' : vehicle.fuel > 25 ? 'warning' : 'danger'}" 
+                         style="width: ${vehicle.fuel}%" title="Fuel: ${vehicle.fuel}%"></div>
+                  </div>
+                </div>
+                <div class="text-end">
+                  ${statusIcon}
+                  <div class="small text-muted">${vehicle.fuel}% fuel</div>
+                  ${vehicle.booking ? `<div class="badge bg-info badge-sm">${vehicle.booking}</div>` : ''}
+                  <div class="small text-muted">${(Math.random() * 10 + 20).toFixed(1)} MPG</div>
+                </div>
+              </div>
+            `;
+            list.innerHTML += item;
+          }
+        });
+      }
+
+      function updatePaginationInfo() {
+        const totalItems = filteredVehicles.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        const startIndex = (currentPage - 1) * itemsPerPage + 1;
+        const endIndex = Math.min(currentPage * itemsPerPage, totalItems);
+
+        document.getElementById('showingCount').textContent = totalItems > 0 ? `${startIndex}-${endIndex}` : '0';
+        document.getElementById('totalCount').textContent = totalItems;
+        document.getElementById('currentPageBtn').textContent = currentPage;
+
+        // Update pagination buttons
+        document.getElementById('prevPage').classList.toggle('disabled', currentPage === 1);
+        document.getElementById('nextPage').classList.toggle('disabled', currentPage === totalPages || totalPages === 0);
+
+        // Update filter counts
+        updateFilterCounts();
+      }
+
+      function updateFilterCounts() {
+        const counts = { 
+          all: vehicleData.length,
+          rented: vehicleData.filter(v => v.booking && v.driver).length,
+          available: vehicleData.filter(v => v.status === 'idle' && !v.booking && v.fuel > 25).length,
+          issues: vehicleData.filter(v => v.status === 'alert' || v.fuel < 15 || v.status === 'offline').length
+        };
+
+        document.getElementById('allCount').textContent = counts.all;
+        document.getElementById('rentedFilterCount').textContent = counts.rented;
+        document.getElementById('availableFilterCount').textContent = counts.available;
+        document.getElementById('issueFilterCount').textContent = counts.issues;
+      }
+
+      function populateLiveAlerts() {
+        const alerts = [
+          { vehicle: 'Honda CR-V - XYZ789', message: 'Speeding detected - 65 mph', time: '2 min ago', severity: 'high' },
+          { vehicle: 'Ford Focus - DEF456', message: 'Extended idle time', time: '15 min ago', severity: 'medium' },
+          { vehicle: 'BMW X3 - GHI345', message: 'Left Manhattan geofence', time: '22 min ago', severity: 'low' },
+          { vehicle: 'Toyota Camry - ABC123', message: 'Harsh braking event', time: '8 min ago', severity: 'medium' }
+        ];
+
+        const list = document.getElementById('liveAlertsList');
+        list.innerHTML = alerts.map(alert => `
+          <div class="alert-item d-flex justify-content-between align-items-start p-2 mb-2 border-start border-3 border-${getSeverityColor(alert.severity)}">
+            <div class="flex-grow-1">
+              <div class="fw-bold">${alert.vehicle}</div>
+              <div class="text-muted small">${alert.message}</div>
+              <div class="text-muted small">${alert.time}</div>
+            </div>
+            <button class="btn btn-outline-primary btn-sm">View</button>
+          </div>
+        `).join('');
+      }
+
+      function populateGeofenceTable() {
+        const tbody = document.getElementById('geofenceTable');
+        tbody.innerHTML = '';
+
+        geofenceData.forEach(geofence => {
+          const alertsText = geofence.alerts.join(', ');
+          const statusBadge = `<span class="badge bg-${geofence.status === 'active' ? 'success' : 'secondary'}">${geofence.status}</span>`;
+          
+          const row = `
+            <tr onclick="focusOnGeofence('${geofence.id}')" style="cursor: pointer;">
+              <td>
+                <div class="fw-bold">${geofence.name}</div>
+                <small class="text-muted">${geofence.radius}m radius</small>
+              </td>
+              <td>
+                <span class="badge bg-light text-dark">${geofence.type}</span>
+              </td>
+              <td>${alertsText}</td>
+              <td>
+                <span class="badge bg-info">${geofence.activeVehicles}</span>
+              </td>
+              <td>${statusBadge}</td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <button class="btn btn-outline-primary" onclick="event.stopPropagation(); editGeofence('${geofence.id}')" title="Edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn btn-outline-warning" onclick="event.stopPropagation(); toggleGeofence('${geofence.id}')" title="Toggle">
+                    <i class="fas fa-power-off"></i>
+                  </button>
+                  <button class="btn btn-outline-danger" onclick="event.stopPropagation(); deleteGeofence('${geofence.id}')" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function populateGeofenceAlerts() {
+        const alerts = [
+          { event: 'Vehicle Entry', vehicle: 'Toyota Camry', geofence: 'Manhattan Branch', time: '5 min ago', type: 'entry' },
+          { event: 'Vehicle Exit', vehicle: 'BMW X3', geofence: 'Manhattan Branch', time: '22 min ago', type: 'exit' },
+          { event: 'Unauthorized Entry', vehicle: 'Ford Focus', geofence: 'Restricted Zone', time: '1 hour ago', type: 'violation' }
+        ];
+
+        const timeline = document.getElementById('geofenceAlerts');
+        timeline.innerHTML = alerts.map(alert => `
+          <div class="timeline-item">
+            <div class="timeline-marker bg-${getAlertTypeColor(alert.type)}"></div>
+            <div class="timeline-content">
+              <h6 class="mb-1">${alert.event}</h6>
+              <p class="text-muted mb-1">${alert.vehicle} - ${alert.geofence}</p>
+              <small class="text-muted">${alert.time}</small>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function populateBehaviorEventsTable() {
+        const tbody = document.getElementById('behaviorEventsTable');
+        tbody.innerHTML = '';
+
+        behaviorEvents.forEach(event => {
+          const severityBadge = `<span class="badge bg-${getSeverityColor(event.severity)}">${event.severity}</span>`;
+          
+          const row = `
+            <tr>
+              <td>${event.vehicle}</td>
+              <td>
+                <i class="fas ${getEventIcon(event.eventType)} me-2"></i>
+                ${event.eventType}
+              </td>
+              <td>${event.location}</td>
+              <td>${event.speed}</td>
+              <td>${event.time}</td>
+              <td>${severityBadge}</td>
+              <td>
+                <button class="btn btn-outline-primary btn-sm" onclick="viewEventDetails('${event.vehicle}', '${event.eventType}')">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function populateDriverRankings() {
+        const rankings = [
+          { name: 'John Smith', score: 94, vehicle: 'Toyota Camry' },
+          { name: 'Sarah Johnson', score: 87, vehicle: 'Honda CR-V' },
+          { name: 'Mike Davis', score: 82, vehicle: 'Ford Focus' },
+          { name: 'Lisa Wong', score: 76, vehicle: 'BMW X3' }
+        ];
+
+        const container = document.getElementById('driverRankings');
+        container.innerHTML = rankings.map((driver, index) => `
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <div class="fw-bold">#${index + 1} ${driver.name}</div>
+              <small class="text-muted">${driver.vehicle}</small>
+            </div>
+            <div class="text-end">
+              <div class="fw-bold text-${getScoreColor(driver.score)}">${driver.score}%</div>
+              <div class="small text-muted">Safety Score</div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function initializeCharts() {
+        // Behavior Chart
+        const behaviorCtx = document.getElementById('behaviorChart').getContext('2d');
+        new Chart(behaviorCtx, {
+          type: 'line',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+              label: 'Speeding Events',
+              data: [3, 2, 5, 1, 4, 2, 3],
+              borderColor: '#dc3545',
+              backgroundColor: 'rgba(220, 53, 69, 0.1)',
+              tension: 0.4
+            }, {
+              label: 'Harsh Braking',
+              data: [2, 1, 3, 0, 2, 1, 2],
+              borderColor: '#ffc107',
+              backgroundColor: 'rgba(255, 193, 7, 0.1)',
+              tension: 0.4
+            }, {
+              label: 'Idle Hours',
+              data: [25, 20, 30, 15, 28, 22, 26],
+              borderColor: '#17a2b8',
+              backgroundColor: 'rgba(23, 162, 184, 0.1)',
+              tension: 0.4
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+        // Geofence Stats Chart
+        const geofenceCtx = document.getElementById('geofenceStatsChart').getContext('2d');
+        new Chart(geofenceCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Branch Zones', 'Service Areas', 'Restricted Zones', 'Parking Areas'],
+            datasets: [{
+              data: [8, 5, 3, 4],
+              backgroundColor: ['#28a745', '#007bff', '#dc3545', '#6c757d']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        });
+      }
+
+      function setupFilters() {
+        document.querySelectorAll('input[name="statusFilter"]').forEach(radio => {
+          radio.addEventListener('change', filterVehiclesByStatus);
+        });
+
+        document.getElementById('behaviorTimeFilter').addEventListener('change', function() {
+          console.log('Behavior time filter changed to:', this.value);
+        });
+      }
+
+      // New control functions for enhanced vehicle list
+      function searchVehicles() {
+        searchQuery = document.getElementById('vehicleSearch').value;
+        currentPage = 1; // Reset to first page when searching
+        populateVehicleStatusList();
+      }
+
+      function clearSearch() {
+        document.getElementById('vehicleSearch').value = '';
+        searchQuery = '';
+        currentPage = 1;
+        populateVehicleStatusList();
+      }
+
+      function sortVehicles(sortBy) {
+        if (currentSort === sortBy) {
+          sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+          currentSort = sortBy;
+          sortDirection = 'asc';
+        }
+        currentPage = 1;
+        populateVehicleStatusList();
+      }
+
+      function toggleCompactView() {
+        compactView = !compactView;
+        const btn = document.getElementById('compactViewToggle');
+        
+        if (compactView) {
+          btn.classList.add('active');
+          btn.innerHTML = '<i class="fas fa-expand-alt"></i>';
+          btn.title = 'Switch to Normal View';
+        } else {
+          btn.classList.remove('active');
+          btn.innerHTML = '<i class="fas fa-compress-alt"></i>';
+          btn.title = 'Switch to Compact View';
+        }
+
+        // Adjust items per page for compact view
+        itemsPerPage = compactView ? 20 : 12;
+        currentPage = 1;
+        populateVehicleStatusList();
+      }
+
+      function changePage(direction) {
+        const totalPages = Math.ceil(filteredVehicles.length / itemsPerPage);
+        currentPage += direction;
+
+        if (currentPage < 1) currentPage = 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        populateVehicleStatusList();
+      }
+
+      function filterVehiclesByStatus() {
+        const selectedFilter = document.querySelector('input[name="statusFilter"]:checked').id;
+
+        switch(selectedFilter) {
+          case 'allVehicles':
+            filteredVehicles = [...vehicleData];
+            break;
+          case 'rentedVehicles':
+            filteredVehicles = vehicleData.filter(v => v.booking && v.driver);
+            break;
+          case 'availableVehicles':
+            filteredVehicles = vehicleData.filter(v => v.status === 'idle' && !v.booking && v.fuel > 25);
+            break;
+          case 'issueVehicles':
+            filteredVehicles = vehicleData.filter(v => v.status === 'alert' || v.fuel < 15 || v.status === 'offline');
+            break;
+          default:
+            filteredVehicles = [...vehicleData];
+        }
+
+        currentPage = 1; // Reset to first page when filtering
+        renderVehicleList();
+        updatePaginationInfo();
+      }
+
+      function startRealTimeUpdates() {
+        setInterval(() => {
+          updateVehicleData();
+          updateVehicleMarkers();
+          populateVehicleStatusList();
+        }, 30000); // Update every 30 seconds
+      }
+
+      function updateVehicleData() {
+        vehicleData.forEach(vehicle => {
+          if (vehicle.status === 'moving') {
+            // Simulate movement
+            vehicle.lat += (Math.random() - 0.5) * 0.001;
+            vehicle.lng += (Math.random() - 0.5) * 0.001;
+            vehicle.speed = Math.round(Math.random() * 50 + 10);
+            vehicle.lastUpdate = new Date();
+          }
+        });
+      }
+
+      // Enhanced functionality for prototype
+      
+      // Rental-Focused Filter Functions
+      function filterAvailableNow() {
+        const available = vehicleData.filter(v => 
+          v.status === 'idle' && !v.booking && v.fuel > 25
+        );
+        highlightVehiclesOnMap(available);
+        showFilterResults('Available for Rental', available);
+      }
+
+      function filterCurrentRentals() {
+        const rented = vehicleData.filter(v => v.booking && v.driver);
+        highlightVehiclesOnMap(rented);
+        showFilterResults('Current Rentals', rented);
+      }
+
+      function filterNeedsReturn() {
+        const needsReturn = vehicleData.filter(v => 
+          v.booking && (v.status === 'idle' || (new Date() - v.lastUpdate) > 3600000) // 1 hour
+        );
+        highlightVehiclesOnMap(needsReturn);
+        showFilterResults('Due for Return', needsReturn);
+      }
+
+      function filterIssues() {
+        const issues = vehicleData.filter(v => 
+          v.status === 'alert' || v.fuel < 15 || v.status === 'offline'
+        );
+        highlightVehiclesOnMap(issues);
+        showFilterResults('Vehicles with Issues', issues);
+      }
+
+      function showOnlyRented() {
+        filterCurrentRentals();
+      }
+
+      function showOnlyAvailable() {
+        filterAvailableNow();
+      }
+
+      function findNearestAvailable() {
+        // Simulate finding nearest to Manhattan center
+        const manhattanCenter = { lat: 40.7589, lng: -73.9851 };
+        const available = vehicleData.filter(v => v.status === 'idle' && !v.booking);
+        
+        if (available.length > 0) {
+          const nearest = available[0]; // Simplified for demo
+          focusOnVehicle(nearest.id);
+          showVehicleTooltip(nearest, 'Nearest Available Vehicle');
+        } else {
+          alert('No available vehicles found');
+        }
+      }
+
+      function emergencyMode() {
+        const emergencyVehicles = vehicleData.filter(v => 
+          v.status === 'alert' || v.fuel < 15
+        );
+        
+        // Flash all critical vehicles
+        emergencyVehicles.forEach(vehicle => {
+          const element = document.querySelector(`[data-vehicle-id="${vehicle.id}"]`);
+          if (element) {
+            element.style.animation = 'pulse 1s infinite';
+            element.classList.add('border-danger', 'bg-danger', 'bg-opacity-10');
+          }
+        });
+        
+        alert(`Emergency Mode Activated!\n${emergencyVehicles.length} vehicles require immediate attention`);
+        
+        // Reset after 10 seconds
+        setTimeout(() => {
+          document.querySelectorAll('[data-vehicle-id]').forEach(el => {
+            el.style.animation = '';
+            el.classList.remove('border-danger', 'bg-danger', 'bg-opacity-10');
+          });
+        }, 10000);
+      }
+
+      // Enhanced Search Functions
+      function enhancedSearch() {
+        const query = document.getElementById('vehicleSearch').value.toLowerCase();
+        searchQuery = query;
+        
+        if (query.length > 0) {
+          const results = vehicleData.filter(vehicle =>
+            vehicle.name.toLowerCase().includes(query) ||
+            (vehicle.driver && vehicle.driver.toLowerCase().includes(query)) ||
+            vehicle.id.toLowerCase().includes(query) ||
+            (vehicle.booking && vehicle.booking.toLowerCase().includes(query))
+          );
+          
+          highlightVehiclesOnMap(results);
+          filteredVehicles = results;
+        } else {
+          filteredVehicles = [...vehicleData];
+        }
+        
+        currentPage = 1;
+        renderVehicleList();
+        updatePaginationInfo();
+      }
+
+      function quickSearch(type) {
+        let results = [];
+        let searchTerm = '';
+        
+        switch(type) {
+          case 'low fuel':
+            results = vehicleData.filter(v => v.fuel < 25);
+            searchTerm = 'Low Fuel Vehicles';
+            break;
+          case 'speeding':
+            results = vehicleData.filter(v => v.speed > 55);
+            searchTerm = 'Speeding Vehicles';
+            break;
+          case 'idle 30':
+            results = vehicleData.filter(v => 
+              v.status === 'idle' && (new Date() - v.lastUpdate) > 1800000
+            );
+            searchTerm = 'Idle >30 Minutes';
+            break;
+          case 'maintenance due':
+            results = vehicleData.filter(v => Math.random() > 0.8); // Demo data
+            searchTerm = 'Maintenance Due';
+            break;
+        }
+        
+        document.getElementById('vehicleSearch').value = searchTerm;
+        highlightVehiclesOnMap(results);
+        showFilterResults(searchTerm, results);
+      }
+
+
+      // Interactive Vehicle Details
+      function showVehicleTooltip(vehicle, title = 'Vehicle Details') {
+        const tooltip = document.createElement('div');
+        tooltip.id = 'vehicleTooltip';
+        tooltip.className = 'position-fixed bg-white border rounded shadow-lg p-3';
+        tooltip.style.cssText = 'top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; min-width: 350px;';
+        
+        tooltip.innerHTML = `
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="mb-0">${title}</h6>
+            <button class="btn-close" onclick="closeVehicleTooltip()"></button>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <p class="mb-1"><strong>Vehicle:</strong> ${vehicle.name}</p>
+              <p class="mb-1"><strong>Driver:</strong> ${vehicle.driver || 'Unassigned'}</p>
+              <p class="mb-1"><strong>Status:</strong> <span class="badge bg-${getStatusColor(vehicle.status)}">${vehicle.status}</span></p>
+              <p class="mb-1"><strong>Speed:</strong> ${vehicle.speed} mph</p>
+            </div>
+            <div class="col-6">
+              <p class="mb-1"><strong>Fuel:</strong> ${vehicle.fuel}%</p>
+              <p class="mb-1"><strong>Booking:</strong> ${vehicle.booking || 'None'}</p>
+              <p class="mb-1"><strong>Last Update:</strong> ${getTimeSince(vehicle.lastUpdate)}</p>
+              <p class="mb-1"><strong>Efficiency:</strong> ${(Math.random() * 10 + 20).toFixed(1)} MPG</p>
+            </div>
+          </div>
+          <div class="mt-3 d-flex gap-2">
+            <button class="btn btn-primary btn-sm" onclick="sendMessageToDriver('${vehicle.id}')">
+              <i class="fas fa-comment"></i> Message
+            </button>
+            <button class="btn btn-warning btn-sm" onclick="requestReturn('${vehicle.id}')">
+              <i class="fas fa-home"></i> Request Return
+            </button>
+            <button class="btn btn-info btn-sm" onclick="scheduleMaintenance('${vehicle.id}')">
+              <i class="fas fa-wrench"></i> Maintenance
+            </button>
+          </div>
+        `;
+        
+        document.body.appendChild(tooltip);
+        
+        // Add backdrop
+        const backdrop = document.createElement('div');
+        backdrop.id = 'tooltipBackdrop';
+        backdrop.className = 'position-fixed bg-dark bg-opacity-25';
+        backdrop.style.cssText = 'top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9998;';
+        backdrop.onclick = closeVehicleTooltip;
+        document.body.appendChild(backdrop);
+      }
+
+      function closeVehicleTooltip() {
+        const tooltip = document.getElementById('vehicleTooltip');
+        const backdrop = document.getElementById('tooltipBackdrop');
+        if (tooltip) tooltip.remove();
+        if (backdrop) backdrop.remove();
+      }
+
+      // Enhanced Alert System
+      let allAlerts = [];
+      let currentAlertFilter = 'all';
+
+      function addNewAlert(alert) {
+        allAlerts.unshift(alert); // Add to beginning
+        if (allAlerts.length > 50) allAlerts.pop(); // Keep only last 50
+        
+        updateLiveAlerts();
+        
+        // Show notification for critical alerts
+        if (alert.severity === 'critical' || alert.type === 'emergency') {
+          showEmergencyNotification(alert);
+        }
+      }
+
+      function updateLiveAlerts() {
+        const filteredAlerts = currentAlertFilter === 'all' ? 
+          allAlerts : allAlerts.filter(a => a.severity === currentAlertFilter);
+        
+        const list = document.getElementById('liveAlertsList');
+        list.innerHTML = filteredAlerts.slice(0, 10).map(alert => `
+          <div class="alert-item d-flex justify-content-between align-items-start p-2 mb-2 border-start border-3 border-${getSeverityColor(alert.severity)} ${alert.type === 'emergency' ? 'bg-danger bg-opacity-10' : ''}">
+            <div class="flex-grow-1">
+              <div class="fw-bold">${alert.vehicle}</div>
+              <div class="text-muted small">${alert.message}</div>
+              <div class="text-muted small">${alert.time}</div>
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <button class="btn btn-outline-primary btn-sm" onclick="focusOnVehicleByName('${alert.vehicle}')">View</button>
+              ${alert.type === 'emergency' ? '<button class="btn btn-danger btn-sm">Respond</button>' : ''}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function filterAlerts(type) {
+        currentAlertFilter = type;
+        updateLiveAlerts();
+        
+        // Update button states
+        document.querySelectorAll('.card-header .btn-group button').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+      }
+
+      function generateInstantSummary() {
+        const summary = {
+          totalVehicles: vehicleData.length,
+          activeVehicles: vehicleData.filter(v => v.status !== 'offline').length,
+          criticalAlerts: allAlerts.filter(a => a.severity === 'critical').length,
+          lowFuelVehicles: vehicleData.filter(v => v.fuel < 25).length,
+          availableVehicles: vehicleData.filter(v => v.status === 'idle' && !v.booking).length,
+          avgFuelLevel: Math.round(vehicleData.reduce((sum, v) => sum + v.fuel, 0) / vehicleData.length),
+          avgSpeed: Math.round(vehicleData.filter(v => v.status === 'moving').reduce((sum, v) => sum + v.speed, 0) / vehicleData.filter(v => v.status === 'moving').length)
+        };
+        
+        showInstantSummaryModal(summary);
+      }
+
+      function showInstantSummaryModal(summary) {
+        const modalHtml = `
+          <div class="modal fade" id="summaryModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                  <h5 class="modal-title"><i class="fas fa-chart-line me-2"></i>Instant Fleet Summary</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h6 class="text-primary">Fleet Status</h6>
+                      <p><strong>Total Vehicles:</strong> ${summary.totalVehicles}</p>
+                      <p><strong>Active:</strong> <span class="text-success">${summary.activeVehicles}</span></p>
+                      <p><strong>Available:</strong> <span class="text-info">${summary.availableVehicles}</span></p>
+                      <p><strong>Need Fuel:</strong> <span class="text-warning">${summary.lowFuelVehicles}</span></p>
+                    </div>
+                    <div class="col-md-6">
+                      <h6 class="text-warning">Performance</h6>
+                      <p><strong>Critical Alerts:</strong> <span class="text-danger">${summary.criticalAlerts}</span></p>
+                      <p><strong>Avg Fuel Level:</strong> ${summary.avgFuelLevel}%</p>
+                      <p><strong>Avg Speed:</strong> ${summary.avgSpeed} mph</p>
+                      <p><strong>Efficiency:</strong> <span class="text-success">Good</span></p>
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <div class="alert alert-info">
+                      <h6><i class="fas fa-lightbulb me-2"></i>Recommendations</h6>
+                      <ul class="mb-0">
+                        ${summary.lowFuelVehicles > 5 ? '<li>Schedule fuel refill for low fuel vehicles</li>' : ''}
+                        ${summary.criticalAlerts > 0 ? '<li>Address critical alerts immediately</li>' : ''}
+                        ${summary.availableVehicles < 10 ? '<li>Consider increasing fleet availability</li>' : ''}
+                        <li>Overall fleet performance is ${summary.avgFuelLevel > 50 ? 'excellent' : 'good'}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="exportSummaryReport()">
+                    <i class="fas fa-download"></i> Export Report
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        const existingModal = document.getElementById('summaryModal');
+        if (existingModal) existingModal.remove();
+        
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+        new bootstrap.Modal(document.getElementById('summaryModal')).show();
+      }
+
+      // Helper Functions for Enhanced Features
+      function highlightVehiclesOnMap(vehicles) {
+        // Clear previous highlights
+        document.querySelectorAll('.vehicle-highlighted').forEach(el => {
+          el.classList.remove('vehicle-highlighted');
+        });
+        
+        // Highlight selected vehicles
+        vehicles.forEach(vehicle => {
+          const element = document.querySelector(`[data-vehicle-id="${vehicle.id}"]`);
+          if (element) {
+            element.classList.add('vehicle-highlighted');
+          }
+        });
+      }
+
+      function showFilterResults(filterName, results) {
+        const toast = document.createElement('div');
+        toast.className = 'position-fixed top-0 end-0 m-3 alert alert-success alert-dismissible';
+        toast.style.zIndex = '9999';
+        toast.innerHTML = `
+          <strong>${filterName}</strong><br>
+          Found ${results.length} vehicles
+          <button type="button" class="btn-close" onclick="this.parentElement.remove()"></button>
+        `;
+        
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 5000);
+        
+        // Update vehicle list
+        filteredVehicles = results;
+        currentPage = 1;
+        renderVehicleList();
+        updatePaginationInfo();
+      }
+
+      function showEmergencyNotification(vehicle) {
+        const notification = document.createElement('div');
+        notification.className = 'position-fixed top-0 start-50 translate-middle-x alert alert-danger alert-dismissible shadow-lg';
+        notification.style.cssText = 'z-index: 9999; min-width: 400px; animation: shake 0.5s;';
+        notification.innerHTML = `
+          <h6 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>EMERGENCY ALERT</h6>
+          <p class="mb-1"><strong>Vehicle:</strong> ${vehicle.name || vehicle.vehicle}</p>
+          <p class="mb-0"><strong>Issue:</strong> ${vehicle.message || 'Emergency situation detected'}</p>
+          <div class="mt-2">
+            <button class="btn btn-light btn-sm me-2" onclick="respondToEmergency('${vehicle.id || vehicle.vehicle}')">Respond</button>
+            <button class="btn btn-outline-light btn-sm" onclick="this.parentElement.parentElement.remove()">Dismiss</button>
+          </div>
+        `;
+        
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 15000);
+      }
+
+      function focusOnVehicleByName(vehicleName) {
+        const vehicle = vehicleData.find(v => v.name === vehicleName);
+        if (vehicle) {
+          focusOnVehicle(vehicle.id);
+          showVehicleTooltip(vehicle);
+        }
+      }
+
+      function getStatusColor(status) {
+        const colors = {
+          moving: 'success',
+          idle: 'warning',
+          offline: 'secondary',
+          alert: 'danger'
+        };
+        return colors[status] || 'secondary';
+      }
+
+      // Quick Action Functions
+      function sendMessageToDriver(vehicleId) {
+        const vehicle = vehicleData.find(v => v.id === vehicleId);
+        if (vehicle && vehicle.driver) {
+          const message = prompt(`Send message to ${vehicle.driver}:`, 'Please contact dispatch when convenient');
+          if (message) {
+            alert(`Message sent to ${vehicle.driver}: "${message}"`);
+            closeVehicleTooltip();
+          }
+        } else {
+          alert('No driver assigned to this vehicle');
+        }
+      }
+
+      function requestReturn(vehicleId) {
+        const vehicle = vehicleData.find(v => v.id === vehicleId);
+        if (vehicle) {
+          if (confirm(`Request ${vehicle.name} to return to base?`)) {
+            alert(`Return request sent to ${vehicle.driver || 'vehicle'}`);
+            closeVehicleTooltip();
+          }
+        }
+      }
+
+      function scheduleMaintenance(vehicleId) {
+        const vehicle = vehicleData.find(v => v.id === vehicleId);
+        if (vehicle) {
+          const maintenanceType = prompt('Maintenance type:', 'Routine inspection');
+          if (maintenanceType) {
+            alert(`Maintenance scheduled for ${vehicle.name}: ${maintenanceType}`);
+            closeVehicleTooltip();
+          }
+        }
+      }
+
+      function respondToEmergency(vehicleId) {
+        alert(`Emergency response dispatched to vehicle ${vehicleId}`);
+      }
+
+      function exportSummaryReport() {
+        alert('Summary report exported to downloads folder');
+        bootstrap.Modal.getInstance(document.getElementById('summaryModal')).hide();
+      }
+
+      // Update the original showVehicleInfo function to use tooltips
+      function showVehicleInfo(vehicle) {
+        showVehicleTooltip(vehicle);
+      }
+
+      // Utility functions
+      function getStatusIcon(status) {
+        const icons = {
+          moving: '<i class="fas fa-circle text-success"></i>',
+          idle: '<i class="fas fa-circle text-warning"></i>',
+          offline: '<i class="fas fa-circle text-secondary"></i>'
+        };
+        return icons[status] || icons.offline;
+      }
+
+      function getTimeSince(date) {
+        const seconds = Math.floor((new Date() - date) / 1000);
+        if (seconds < 60) return `${seconds}s ago`;
+        const minutes = Math.floor(seconds / 60);
+        if (minutes < 60) return `${minutes}m ago`;
+        const hours = Math.floor(minutes / 60);
+        return `${hours}h ago`;
+      }
+
+      function getSeverityColor(severity) {
+        const colors = {
+          high: 'danger',
+          medium: 'warning',
+          low: 'info'
+        };
+        return colors[severity] || 'secondary';
+      }
+
+      function getAlertTypeColor(type) {
+        const colors = {
+          entry: 'success',
+          exit: 'info',
+          violation: 'danger'
+        };
+        return colors[type] || 'secondary';
+      }
+
+      function getEventIcon(eventType) {
+        const icons = {
+          'Speeding': 'fa-tachometer-alt',
+          'Harsh Braking': 'fa-exclamation-triangle',
+          'Extended Idle': 'fa-clock',
+          'Rapid Acceleration': 'fa-arrow-up'
+        };
+        return icons[eventType] || 'fa-exclamation';
+      }
+
+      function getScoreColor(score) {
+        if (score >= 90) return 'success';
+        if (score >= 70) return 'warning';
+        return 'danger';
+      }
+
+      // Action functions
+      function focusOnVehicle(vehicleId) {
+        const vehicle = vehicleData.find(v => v.id === vehicleId);
+        if (vehicle) {
+          map.getView().animate({
+            center: ol.proj.fromLonLat([vehicle.lng, vehicle.lat]),
+            zoom: 15,
+            duration: 1000
+          });
+        }
+      }
+
+      function focusOnGeofence(geofenceId) {
+        const geofence = geofenceData.find(g => g.id === geofenceId);
+        if (geofence) {
+          map.getView().animate({
+            center: ol.proj.fromLonLat([geofence.lng, geofence.lat]),
+            zoom: 14,
+            duration: 1000
+          });
+        }
+      }
+
+      function filterVehiclesByStatus() {
+        const selectedStatus = document.querySelector('input[name="statusFilter"]:checked').id;
+        console.log('Filtering vehicles by status:', selectedStatus);
+        // Implementation would filter the vehicle list and map markers
+      }
+
+      function toggleGeofences() {
+        geofenceLayer.setVisible(!geofenceLayer.getVisible());
+      }
+
+      function refreshVehicleLocations() {
+        updateVehicleData();
+        updateVehicleMarkers();
+        populateVehicleStatusList();
+        updateLegendCounts();
+        alert('Vehicle locations refreshed!');
+      }
+
+      function createGeofence() {
+        const name = document.getElementById('geofenceName').value;
+        const type = document.getElementById('geofenceType').value;
+        
+        if (name && type) {
+          alert(`Geofence "${name}" created successfully!`);
+          bootstrap.Modal.getInstance(document.getElementById('createGeofenceModal')).hide();
+          populateGeofenceTable();
+        }
+      }
+
+      function saveMapSettings() {
+        alert('Map settings saved!');
+        bootstrap.Modal.getInstance(document.getElementById('mapSettingsModal')).hide();
+      }
+
+      function editGeofence(id) {
+        alert(`Editing geofence ${id}`);
+      }
+
+      function toggleGeofence(id) {
+        alert(`Toggling geofence ${id}`);
+      }
+
+      function deleteGeofence(id) {
+        if (confirm(`Delete geofence ${id}?`)) {
+          alert(`Geofence ${id} deleted!`);
+          populateGeofenceTable();
+        }
+      }
+
+      function viewEventDetails(vehicle, eventType) {
+        alert(`Viewing details for ${eventType} event on ${vehicle}`);
+      }
+
+      function generateReport(type) {
+        alert(`Generating ${type} report...`);
+      }
+
+      function scheduleReport(type) {
+        alert(`Scheduling ${type} report...`);
+      }
+
+      function generateCustomReport() {
+        alert('Custom report builder would open here.');
+      }
+
+
+      // Dark mode toggle logic
+      const darkModeSwitch = document.getElementById('darkModeSwitch');
+      function setDarkMode(enabled) {
+        if (enabled) {
+          document.body.classList.add('dark-mode');
+        } else {
+          document.body.classList.remove('dark-mode');
+        }
+      }
+      // On load, check localStorage
+      document.addEventListener('DOMContentLoaded', function() {
+        const darkPref = localStorage.getItem('darkMode') === 'true';
+        setDarkMode(darkPref);
+        if (darkModeSwitch) darkModeSwitch.checked = darkPref;
+        if (darkModeSwitch) {
+          darkModeSwitch.addEventListener('change', function() {
+            setDarkMode(this.checked);
+            localStorage.setItem('darkMode', this.checked);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

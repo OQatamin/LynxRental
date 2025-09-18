@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Fleet Management - LynxLite</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/lynxlite.min.css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/css/unified-custom.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+          <div class="logo-header" data-background-color="dark">
+            <a href="index2.html" class="logo">
+              <img src="assets/img/lynxlite/logo_light.svg" alt="LynxLite - Acacus" class="navbar-brand" height="45" />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar"><i class="gg-menu-right"></i></button>
+              <button class="btn btn-toggle sidenav-toggler"><i class="gg-menu-left"></i></button>
+            </div>
+            <button class="topbar-toggler more"><i class="gg-more-vertical-alt"></i></button>
+          </div>
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a href="index2.html"><i class="fas fa-home"></i><p>Dashboard (Overview)</p></a>
+              </li>
+              <li class="nav-item active">
+                <a href="fleet-management.html"><i class="fas fa-car"></i><p>Fleet Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="booking-management.html"><i class="fas fa-calendar-alt"></i><p>Booking Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="customer-management.html"><i class="fas fa-users"></i><p>Customer Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="billing-payments.html"><i class="fas fa-credit-card"></i><p>Billing & Payments</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="maintenance-compliance.html"><i class="fas fa-wrench"></i><p>Maintenance & Compliance</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="telematics-tracking.html"><i class="fas fa-map-marked-alt"></i><p>Telematics & Tracking</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="reports-analytics.html"><i class="fas fa-chart-line"></i><p>Reports & Analytics</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="branch-staff-management.html"><i class="fas fa-building"></i><p>Branch / Staff Management</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="#"><i class="fas fa-cogs"></i><p>System Settings</p></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+      
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <div class="logo-header" data-background-color="dark">
+              <a href="index2.html" class="logo">
+                <img src="assets/img/lynxlite/logo_light.svg" alt="LynxLite - Acacus" class="navbar-brand" height="20" />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar"><i class="gg-menu-right"></i></button>
+                <button class="btn btn-toggle sidenav-toggler"><i class="gg-menu-left"></i></button>
+              </div>
+              <button class="topbar-toggler more"><i class="gg-more-vertical-alt"></i></button>
+            </div>
+          </div>
+          <!-- Navbar Header -->
+          <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+            <div class="container-fluid">
+              <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-search pe-1">
+                      <i class="fa fa-search search-icon"></i>
+                    </button>
+                  </div>
+                  <input type="text" placeholder="Search vehicles..." class="form-control" />
+                </div>
+              </nav>
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li class="nav-item d-flex align-items-center">
+                  <div class="form-check form-switch mb-0 ms-2">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch" />
+                    <label class="form-check-label" for="darkModeSwitch" style="color:inherit;">Dark Mode</label>
+                  </div>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" aria-haspopup="true">
+                    <i class="fa fa-search"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-search animated fadeIn">
+                    <form class="navbar-left navbar-form nav-search">
+                      <div class="input-group">
+                        <input type="text" placeholder="Search vehicles..." class="form-control" />
+                      </div>
+                    </form>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
+                    <li>
+                      <div class="dropdown-title d-flex justify-content-between align-items-center">Messages <a href="#" class="small">Mark all as read</a></div>
+                    </li>
+                    <li>
+                      <div class="message-notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#"><div class="notif-img"><img src="assets/img/jm_denis.jpg" alt="Img Profile" /></div><div class="notif-content"><span class="subject">Jimmy Denis</span><span class="block"> How are you ? </span><span class="time">5 minutes ago</span></div></a>
+                          <a href="#"><div class="notif-img"><img src="assets/img/chadengle.jpg" alt="Img Profile" /></div><div class="notif-content"><span class="subject">Chad</span><span class="block"> Ok, Thanks ! </span><span class="time">12 minutes ago</span></div></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bell"></i><span class="notification">2</span>
+                  </a>
+                  <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+                    <li><div class="dropdown-title">You have 2 new notifications</div></li>
+                    <li>
+                      <div class="notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#" class="notif-item"><div class="notif-icon notif-warning"><i class="fas fa-car"></i></div><div class="notif-content"><span class="block">Vehicle ABC123 needs maintenance</span><span class="time">5 minutes ago</span></div></a>
+                          <a href="#" class="notif-item"><div class="notif-icon notif-success"><i class="fas fa-plus"></i></div><div class="notif-content"><span class="block">New vehicle added to fleet</span><span class="time">12 minutes ago</span></div></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link" data-bs-toggle="dropdown" href="#" aria-expanded="false"><i class="fas fa-layer-group"></i></a>
+                  <div class="dropdown-menu quick-actions animated fadeIn">
+                    <div class="quick-actions-header"><span class="title mb-1">Quick Actions</span><span class="subtitle op-7">Shortcuts</span></div>
+                    <div class="quick-actions-scroll scrollbar-outer">
+                      <div class="quick-actions-items">
+                        <div class="row m-0">
+                          <a class="col-6 col-md-4 p-0" href="booking-management.html"><div class="quick-actions-item"><div class="avatar-item bg-danger rounded-circle"><i class="far fa-calendar-alt"></i></div><span class="text">Bookings</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="telematics-tracking.html"><div class="quick-actions-item"><div class="avatar-item bg-warning rounded-circle"><i class="fas fa-map"></i></div><span class="text">Tracking</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="reports-analytics.html"><div class="quick-actions-item"><div class="avatar-item bg-info rounded-circle"><i class="fas fa-file-excel"></i></div><span class="text">Reports</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="customer-management.html"><div class="quick-actions-item"><div class="avatar-item bg-success rounded-circle"><i class="fas fa-users"></i></div><span class="text">Customers</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="billing-payments.html"><div class="quick-actions-item"><div class="avatar-item bg-primary rounded-circle"><i class="fas fa-file-invoice-dollar"></i></div><span class="text">Billing</span></div></a>
+                          <a class="col-6 col-md-4 p-0" href="maintenance-compliance.html"><div class="quick-actions-item"><div class="avatar-item bg-secondary rounded-circle"><i class="fas fa-wrench"></i></div><span class="text">Maintenance</span></div></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item topbar-user dropdown hidden-caret">
+                  <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+                    <div class="avatar-sm"><i class="fas fa-user-circle fa-2x"></i></div>
+                    <span class="profile-username"><span class="op-7">Hi,</span> <span class="fw-bold">Admin</span></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg"><i class="fas fa-user-circle fa-3x"></i></div>
+                          <div class="u-text">
+                            <h4>Admin</h4>
+                            <p class="text-muted">hello@example.com</p>
+                            <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="#">My Balance</a>
+                        <a class="dropdown-item" href="#">Inbox</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Account Setting</a>
+                        <a class="dropdown-item" href="#">Logout</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          
+        </div>
+        
+        <!-- Fleet Management Content -->
+        <div class="container">
+          <div class="page-inner">
+            <!-- Quick Stats Cards -->
+            <div class="row">
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-success bubble-shadow-small">
+                          <i class="fas fa-car"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Total Vehicles</p>
+                          <h4 class="card-title">120</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-primary bubble-shadow-small">
+                          <i class="fas fa-check-circle"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Available</p>
+                          <h4 class="card-title">42</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-info bubble-shadow-small">
+                          <i class="fas fa-calendar-alt"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">Rented</p>
+                          <h4 class="card-title">47</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div class="icon-big text-center icon-warning bubble-shadow-small">
+                          <i class="fas fa-wrench"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3">
+                        <div class="numbers">
+                          <p class="card-category">In Service</p>
+                          <h4 class="card-title">8</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Add/Edit Vehicle Section -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="d-flex align-items-center">
+                      <h4 class="card-title"><i class="fas fa-plus-circle me-2"></i>Add / Edit Vehicle</h4>
+                      <div class="ms-auto">
+                        <button class="btn btn-success btn-sm me-2" data-bs-toggle="modal" data-bs-target="#bulkUploadModal">
+                          <i class="fas fa-file-upload"></i> Bulk Upload
+                        </button>
+                        <button class="btn btn-primary btn-sm" onclick="resetVehicleForm()">
+                          <i class="fas fa-plus"></i> New Vehicle
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <form id="vehicleForm" class="row g-3">
+                      <div class="col-md-6">
+                        <label for="vin" class="form-label">VIN Number *</label>
+                        <input type="text" class="form-control" id="vin" placeholder="Enter 17-character VIN" maxlength="17" required>
+                        <div class="form-text">Vehicle Identification Number</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="plateNumber" class="form-label">License Plate *</label>
+                        <input type="text" class="form-control" id="plateNumber" placeholder="ABC123" required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="make" class="form-label">Make *</label>
+                        <select class="form-select" id="make" required>
+                          <option value="">Select Make</option>
+                          <option value="Toyota">Toyota</option>
+                          <option value="Honda">Honda</option>
+                          <option value="Ford">Ford</option>
+                          <option value="Chevrolet">Chevrolet</option>
+                          <option value="Nissan">Nissan</option>
+                          <option value="BMW">BMW</option>
+                          <option value="Mercedes-Benz">Mercedes-Benz</option>
+                          <option value="Audi">Audi</option>
+                          <option value="Volkswagen">Volkswagen</option>
+                          <option value="Hyundai">Hyundai</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="model" class="form-label">Model *</label>
+                        <input type="text" class="form-control" id="model" placeholder="Camry, Civic, etc." required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="year" class="form-label">Year *</label>
+                        <select class="form-select" id="year" required>
+                          <option value="">Select Year</option>
+                          <option value="2024">2024</option>
+                          <option value="2023">2023</option>
+                          <option value="2022">2022</option>
+                          <option value="2021">2021</option>
+                          <option value="2020">2020</option>
+                          <option value="2019">2019</option>
+                          <option value="2018">2018</option>
+                          <option value="2017">2017</option>
+                          <option value="2016">2016</option>
+                          <option value="2015">2015</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="mileage" class="form-label">Current Mileage</label>
+                        <input type="number" class="form-control" id="mileage" placeholder="50000">
+                      </div>
+                      <div class="col-md-4">
+                        <label for="fuelType" class="form-label">Fuel Type *</label>
+                        <select class="form-select" id="fuelType" required>
+                          <option value="">Select Fuel Type</option>
+                          <option value="Gasoline">Gasoline</option>
+                          <option value="Diesel">Diesel</option>
+                          <option value="Hybrid">Hybrid</option>
+                          <option value="Electric">Electric</option>
+                          <option value="Plug-in Hybrid">Plug-in Hybrid</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="vehicleClass" class="form-label">Vehicle Class *</label>
+                        <select class="form-select" id="vehicleClass" required>
+                          <option value="">Select Class</option>
+                          <option value="Economy">Economy</option>
+                          <option value="Compact">Compact</option>
+                          <option value="Mid-size">Mid-size</option>
+                          <option value="Full-size">Full-size</option>
+                          <option value="SUV">SUV</option>
+                          <option value="Luxury">Luxury</option>
+                          <option value="Van">Van</option>
+                          <option value="Truck">Truck</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="insuranceExpiry" class="form-label">Insurance Expiry Date *</label>
+                        <input type="date" class="form-control" id="insuranceExpiry" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="branch" class="form-label">Branch Location *</label>
+                        <select class="form-select" id="branch" required>
+                          <option value="">Select Branch</option>
+                          <option value="Manhattan">Manhattan</option>
+                          <option value="Brooklyn">Brooklyn</option>
+                          <option value="Queens">Queens</option>
+                          <option value="Bronx">Bronx</option>
+                          <option value="Staten Island">Staten Island</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="gpsDeviceId" class="form-label">GPS Device ID</label>
+                        <input type="text" class="form-control" id="gpsDeviceId" placeholder="GPS-001234">
+                        <div class="form-text">Leave empty if not assigned</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="vehicleStatus" class="form-label">Status *</label>
+                        <select class="form-select" id="vehicleStatus" required>
+                          <option value="Available">Available</option>
+                          <option value="Rented">Rented</option>
+                          <option value="Maintenance">Under Maintenance</option>
+                          <option value="Out of Service">Out of Service</option>
+                        </select>
+                      </div>
+                      <div class="col-md-12">
+                        <label for="vehicleImages" class="form-label">Vehicle Photos</label>
+                        <input type="file" class="form-control" id="vehicleImages" multiple accept="image/*">
+                        <div class="form-text">Upload multiple photos (front, back, interior, etc.)</div>
+                        <div id="imagePreview" class="mt-3 d-flex flex-wrap gap-2"></div>
+                      </div>
+                      <div class="col-md-12">
+                        <label for="notes" class="form-label">Notes</label>
+                        <textarea class="form-control" id="notes" rows="3" placeholder="Additional notes about the vehicle..."></textarea>
+                      </div>
+                      <div class="col-12">
+                        <hr>
+                        <button type="submit" class="btn btn-primary">
+                          <i class="fas fa-save"></i> Save Vehicle
+                        </button>
+                        <button type="button" class="btn btn-secondary ms-2" onclick="resetVehicleForm()">
+                          <i class="fas fa-times"></i> Cancel
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vehicle Status Table -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="d-flex align-items-center">
+                      <h4 class="card-title"><i class="fas fa-list me-2"></i>Vehicle Status</h4>
+                      <div class="ms-auto">
+                        <div class="dropdown me-2">
+                          <button class="btn btn-outline-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fas fa-download"></i> Export
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="exportFleetData('csv')"><i class="fas fa-file-csv me-2"></i>Export CSV</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="exportFleetData('excel')"><i class="fas fa-file-excel me-2"></i>Export Excel</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="exportFleetData('pdf')"><i class="fas fa-file-pdf me-2"></i>Export PDF</a></li>
+                          </ul>
+                        </div>
+                        <button class="btn btn-warning btn-sm me-2" onclick="bulkStatusUpdate()">
+                          <i class="fas fa-edit"></i> Bulk Update
+                        </button>
+                        <button class="btn btn-success btn-sm" onclick="resetVehicleForm()">
+                          <i class="fas fa-plus"></i> Add Vehicle
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <!-- Search and Filter Controls -->
+                    <div class="row mb-4">
+                      <div class="col-md-3">
+                        <label for="vehicleSearch" class="form-label">Search Vehicles</label>
+                        <input type="text" class="form-control" id="vehicleSearch" placeholder="VIN, Plate, Make, Model...">
+                      </div>
+                      <div class="col-md-2">
+                        <label for="statusFilter" class="form-label">Status</label>
+                        <select class="form-select" id="statusFilter">
+                          <option value="">All Status</option>
+                          <!-- Options populated by JS -->
+                        </select>
+                      </div>
+                      <div class="col-md-2">
+                        <label for="classFilter" class="form-label">Class</label>
+                        <select class="form-select" id="classFilter">
+                          <option value="">All Classes</option>
+                          <!-- Options populated by JS -->
+                        </select>
+                      </div>
+                      <div class="col-md-2">
+                        <label for="branchFilter" class="form-label">Branch</label>
+                        <select class="form-select" id="branchFilter">
+                          <option value="">All Branches</option>
+                          <!-- Options populated by JS -->
+                        </select>
+                      </div>
+                      <div class="col-md-3 d-flex align-items-end">
+                        <div class="w-100">
+                          <label class="form-label">Results</label>
+                          <div class="form-control-plaintext fw-bold text-primary" id="searchResults">Loading...</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Vehicle Table -->
+                    <div class="table-responsive">
+                      <table class="table table-hover" id="vehicleTable">
+                        <thead>
+                          <tr>
+                            <th width="40">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="selectAll" onchange="toggleSelectAll()">
+                              </div>
+                            </th>
+                            <th>Vehicle</th>
+                            <th>VIN</th>
+                            <th>Plate</th>
+                            <th>Class</th>
+                            <th>Branch</th>
+                            <th>Status</th>
+                            <th>GPS</th>
+                            <th width="180">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody id="vehicleTableBody">
+                          <!-- Sample data will be populated by JavaScript -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Telematics Assignment Section -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title"><i class="fas fa-satellite-dish me-2"></i>Telematics Assignment</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="telematicsVehicle" class="form-label">Select Vehicle</label>
+                        <select class="form-select" id="telematicsVehicle">
+                          <option value="">Choose vehicle...</option>
+                          <!-- Will be populated by JavaScript -->
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="telematicsDevice" class="form-label">GPS Device</label>
+                        <select class="form-select" id="telematicsDevice">
+                          <option value="">Select Device...</option>
+                          <option value="GPS-001234">GPS-001234 (Online)</option>
+                          <option value="GPS-001235">GPS-001235 (Online)</option>
+                          <option value="GPS-001236">GPS-001236 (Offline)</option>
+                          <option value="GPS-001237">GPS-001237 (Online)</option>
+                        </select>
+                      </div>
+                      <div class="col-md-2">
+                        <label class="form-label">&nbsp;</label>
+                        <div>
+                          <button class="btn btn-primary" onclick="assignTelematics()">
+                            <i class="fas fa-link"></i> Assign
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Device Status Grid -->
+                    <div class="row mt-4">
+                      <div class="col-12">
+                        <h6>Device Status Overview</h6>
+                        <div class="row" id="deviceStatusGrid">
+                          <!-- Will be populated by JavaScript -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bulk Upload Modal -->
+    <div class="modal fade" id="bulkUploadModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Bulk Vehicle Upload</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="bulkFile" class="form-label">Select CSV/Excel File</label>
+              <input type="file" class="form-control" id="bulkFile" accept=".csv,.xlsx,.xls">
+            </div>
+            <div class="alert alert-info">
+              <strong>Required columns:</strong> VIN, PlateNumber, Make, Model, Year, FuelType, VehicleClass, Branch, InsuranceExpiry
+            </div>
+            <div class="mb-3">
+              <a href="#" class="btn btn-outline-secondary btn-sm">
+                <i class="fas fa-download"></i> Download Template
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" onclick="uploadBulkVehicles()">
+              <i class="fas fa-upload"></i> Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/js/lynxlite.min.js"></script>
+    
+    <!-- Feedback System -->
+    <script src="assets/js/feedback-system.js"></script>
+    
+    <script>
+      // Dark mode toggle logic
+      function setDarkMode(enabled) {
+        if (enabled) {
+          document.body.classList.add('dark-mode');
+        } else {
+          document.body.classList.remove('dark-mode');
+        }
+      }
+      // Dark mode initialization function
+      function initializeDarkMode() {
+        const darkModeSwitch = document.getElementById('darkModeSwitch');
+        const darkPref = localStorage.getItem('darkMode') === 'true';
+        setDarkMode(darkPref);
+        if (darkModeSwitch) darkModeSwitch.checked = darkPref;
+        if (darkModeSwitch) {
+          darkModeSwitch.addEventListener('change', function() {
+            setDarkMode(this.checked);
+            localStorage.setItem('darkMode', this.checked);
+          });
+        }
+      }
+
+      // Sample vehicle data
+      const vehicleData = [
+        {
+          id: 1,
+          vin: '1HGBH41JXMN109186',
+          plate: 'ABC123',
+          make: 'Toyota',
+          model: 'Camry',
+          year: 2023,
+          class: 'Mid-size',
+          branch: 'Manhattan',
+          status: 'available',
+          gps: 'GPS-001234',
+          gpsStatus: 'online',
+          mileage: 15000,
+          fuelType: 'Gasoline',
+          insuranceExpiry: '2024-12-31',
+          notes: 'Well maintained vehicle'
+        },
+        {
+          id: 2,
+          vin: '2T1BURHE4KC123456',
+          plate: 'XYZ789',
+          make: 'Honda',
+          model: 'CR-V',
+          year: 2022,
+          class: 'SUV',
+          branch: 'Brooklyn',
+          status: 'rented',
+          gps: 'GPS-001235',
+          gpsStatus: 'online',
+          mileage: 22000,
+          fuelType: 'Gasoline',
+          insuranceExpiry: '2024-11-15',
+          notes: 'Current rental until next week'
+        },
+        {
+          id: 3,
+          vin: '3FA6P0HD5DR123789',
+          plate: 'DEF456',
+          make: 'Ford',
+          model: 'Focus',
+          year: 2021,
+          class: 'Compact',
+          branch: 'Queens',
+          status: 'maintenance',
+          gps: 'GPS-001236',
+          gpsStatus: 'offline',
+          mileage: 35000,
+          fuelType: 'Gasoline',
+          insuranceExpiry: '2024-10-20',
+          notes: 'Scheduled maintenance - brake service'
+        },
+        {
+          id: 4,
+          vin: '5NPE34AF4FH123456',
+          plate: 'GHI012',
+          make: 'Hyundai',
+          model: 'Elantra',
+          year: 2024,
+          class: 'Compact',
+          branch: 'Manhattan',
+          status: 'available',
+          gps: null,
+          gpsStatus: null,
+          mileage: 5000,
+          fuelType: 'Hybrid',
+          insuranceExpiry: '2025-06-30',
+          notes: 'New addition to fleet'
+        }
+      ];
+
+      // Initialize page
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize dark mode first
+        initializeDarkMode();
+
+        updateFleetStats();
+        populateVehicleTable();
+        populateVehicleDropdown();
+        populateDeviceStatus();
+        initializeFilters();
+        initializeImageUpload();
+        initializeSearch();
+
+        // Initialize enhanced features
+        initializeEnhancedFeatures();
+      });
+
+      function populateVehicleTable(data = vehicleData) {
+        const tbody = document.getElementById('vehicleTableBody');
+        tbody.innerHTML = '';
+
+        data.forEach(vehicle => {
+          const statusBadge = getStatusBadge(vehicle.status);
+          const gpsStatus = vehicle.gps ?
+            `<span class="badge bg-${vehicle.gpsStatus === 'online' ? 'success' : 'danger'}">${vehicle.gps}</span>` :
+            '<span class="text-muted">Not assigned</span>';
+
+          const row = `
+            <tr>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input vehicle-checkbox" type="checkbox" name="vehicleSelect" value="${vehicle.id}">
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="avatar avatar-sm me-3">
+                    <div class="bg-light border rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;">
+                      <i class="fas fa-car text-muted"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="fw-bold">${vehicle.make} ${vehicle.model}</div>
+                    <small class="text-muted">${vehicle.year}</small>
+                  </div>
+                </div>
+              </td>
+              <td><small class="font-monospace">${vehicle.vin}</small></td>
+              <td><strong>${vehicle.plate}</strong></td>
+              <td>${vehicle.class}</td>
+              <td>${vehicle.branch}</td>
+              <td>${statusBadge}</td>
+              <td>${gpsStatus}</td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <button class="btn btn-outline-info" onclick="viewVehicleDetails(${vehicle.id})" title="View Details">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-outline-primary" onclick="editVehicle(${vehicle.id})" title="Edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <div class="btn-group">
+                    <button class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" title="Change Status">
+                      <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#" onclick="changeVehicleStatus(${vehicle.id}, 'available')"><i class="fas fa-check-circle text-success me-2"></i>Available</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="changeVehicleStatus(${vehicle.id}, 'rented')"><i class="fas fa-car text-primary me-2"></i>Rented</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="changeVehicleStatus(${vehicle.id}, 'maintenance')"><i class="fas fa-wrench text-warning me-2"></i>Maintenance</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="changeVehicleStatus(${vehicle.id}, 'out-of-service')"><i class="fas fa-times-circle text-danger me-2"></i>Out of Service</a></li>
+                    </ul>
+                  </div>
+                  <button class="btn btn-outline-danger" onclick="deleteVehicle(${vehicle.id})" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      }
+
+      function getStatusBadge(status) {
+        const statusMap = {
+          'Available': 'success',
+          'Rented': 'primary',
+          'Maintenance': 'warning',
+          'Out of Service': 'danger'
+        };
+        return `<span class="badge bg-${statusMap[status] || 'secondary'}">${status}</span>`;
+      }
+
+      function populateVehicleDropdown() {
+        const select = document.getElementById('telematicsVehicle');
+        select.innerHTML = '<option value="">Choose vehicle...</option>';
+        
+        vehicleData.forEach(vehicle => {
+          const option = `<option value="${vehicle.id}">${vehicle.make} ${vehicle.model} (${vehicle.plate})</option>`;
+          select.innerHTML += option;
+        });
+      }
+
+      function populateDeviceStatus() {
+        const devices = [
+          { id: 'GPS-001234', status: 'online', vehicle: 'Toyota Camry - ABC123' },
+          { id: 'GPS-001235', status: 'online', vehicle: 'Honda CR-V - XYZ789' },
+          { id: 'GPS-001236', status: 'offline', vehicle: 'Ford Focus - DEF456' },
+          { id: 'GPS-001237', status: 'online', vehicle: 'Unassigned' },
+          { id: 'GPS-001238', status: 'online', vehicle: 'Unassigned' }
+        ];
+
+        const grid = document.getElementById('deviceStatusGrid');
+        grid.innerHTML = '';
+
+        devices.forEach(device => {
+          const card = `
+            <div class="col-md-4 col-sm-6 mb-3">
+              <div class="card border-${device.status === 'online' ? 'success' : 'danger'}">
+                <div class="card-body p-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h6 class="mb-1">${device.id}</h6>
+                      <small class="text-muted">${device.vehicle}</small>
+                    </div>
+                    <span class="badge bg-${device.status === 'online' ? 'success' : 'danger'}">
+                      ${device.status}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          grid.innerHTML += card;
+        });
+      }
+
+      function initializeFilters() {
+        // Check if elements exist before adding event listeners
+        const filterElements = ['vehicleSearch', 'statusFilter', 'classFilter', 'branchFilter'];
+
+        filterElements.forEach(id => {
+          const element = document.getElementById(id);
+          if (element) {
+            if (element.type === 'text' || element.type === 'search') {
+              element.addEventListener('input', performSearchAndFilter);
+              element.addEventListener('keyup', performSearchAndFilter);
+            } else {
+              element.addEventListener('change', performSearchAndFilter);
+            }
+          }
+        });
+      }
+
+      function performSearchAndFilter() {
+        const searchTerm = document.getElementById('vehicleSearch')?.value.toLowerCase() || '';
+        const statusValue = document.getElementById('statusFilter')?.value || '';
+        const classValue = document.getElementById('classFilter')?.value || '';
+        const branchValue = document.getElementById('branchFilter')?.value || '';
+
+        const filteredData = vehicleData.filter(vehicle => {
+          const matchesSearch = !searchTerm ||
+            vehicle.plate.toLowerCase().includes(searchTerm) ||
+            vehicle.make.toLowerCase().includes(searchTerm) ||
+            vehicle.model.toLowerCase().includes(searchTerm) ||
+            vehicle.vin.toLowerCase().includes(searchTerm);
+
+          const matchesStatus = !statusValue || vehicle.status === statusValue;
+          const matchesClass = !classValue || vehicle.class === classValue;
+          const matchesBranch = !branchValue || vehicle.branch === branchValue;
+
+          return matchesSearch && matchesStatus && matchesClass && matchesBranch;
+        });
+
+        populateVehicleTable(filteredData);
+        updateSearchResults(filteredData.length);
+      }
+
+      function updateSearchResults(count) {
+        const resultsElement = document.getElementById('searchResults');
+        if (resultsElement) {
+          resultsElement.textContent = `Showing ${count} of ${vehicleData.length} vehicles`;
+        }
+      }
+
+      function initializeImageUpload() {
+        document.getElementById('vehicleImages').addEventListener('change', function(e) {
+          const preview = document.getElementById('imagePreview');
+          preview.innerHTML = '';
+          
+          Array.from(e.target.files).forEach((file, index) => {
+            if (file.type.startsWith('image/')) {
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.className = 'img-thumbnail';
+                img.style.width = '100px';
+                img.style.height = '80px';
+                img.style.objectFit = 'cover';
+                preview.appendChild(img);
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+        });
+      }
+
+
+
+      function changeStatus(id, newStatus) {
+        const vehicle = vehicleData.find(v => v.id === id);
+        if (vehicle) {
+          vehicle.status = newStatus;
+          populateVehicleTable();
+
+          // Show success message
+          showNotification(`Vehicle status changed to: ${newStatus}`, 'success');
+        }
+      }
+
+      function deleteVehicle(id) {
+        if (confirm('Are you sure you want to delete this vehicle?')) {
+          const index = vehicleData.findIndex(v => v.id === id);
+          if (index > -1) {
+            vehicleData.splice(index, 1);
+            populateVehicleTable();
+            populateVehicleDropdown();
+          }
+        }
+      }
+
+      function resetVehicleForm() {
+        document.getElementById('vehicleForm').reset();
+        document.getElementById('imagePreview').innerHTML = '';
+      }
+
+      function assignTelematics() {
+        const vehicleId = document.getElementById('telematicsVehicle').value;
+        const deviceId = document.getElementById('telematicsDevice').value;
+        
+        if (!vehicleId || !deviceId) {
+          alert('Please select both vehicle and device');
+          return;
+        }
+
+        // Update vehicle data
+        const vehicle = vehicleData.find(v => v.id == vehicleId);
+        if (vehicle) {
+          vehicle.gps = deviceId;
+          vehicle.gpsStatus = 'online';
+          populateVehicleTable();
+          populateDeviceStatus();
+          
+          alert(`GPS device ${deviceId} assigned successfully!`);
+        }
+      }
+
+      function uploadBulkVehicles() {
+        const fileInput = document.getElementById('bulkFile');
+        if (!fileInput.files.length) {
+          alert('Please select a file to upload');
+          return;
+        }
+        
+        // Simulate upload process
+        alert('Bulk upload started. This may take a few minutes...');
+        // In real implementation, this would handle file parsing and API calls
+      }
+
+      // Form submission
+      document.getElementById('vehicleForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Collect form data
+        const formData = {
+          vin: document.getElementById('vin').value,
+          plate: document.getElementById('plateNumber').value,
+          make: document.getElementById('make').value,
+          model: document.getElementById('model').value,
+          year: document.getElementById('year').value,
+          mileage: document.getElementById('mileage').value,
+          fuelType: document.getElementById('fuelType').value,
+          vehicleClass: document.getElementById('vehicleClass').value,
+          insuranceExpiry: document.getElementById('insuranceExpiry').value,
+          branch: document.getElementById('branch').value,
+          gpsDeviceId: document.getElementById('gpsDeviceId').value,
+          status: document.getElementById('vehicleStatus').value,
+          notes: document.getElementById('notes').value
+        };
+        
+        // Add the new vehicle to our data
+        const newVehicle = {
+          id: Date.now(), // Simple ID generation
+          vin: formData.vin,
+          plate: formData.plate,
+          make: formData.make,
+          model: formData.model,
+          year: parseInt(formData.year),
+          class: formData.vehicleClass,
+          branch: formData.branch,
+          status: formData.status,
+          mileage: parseInt(formData.mileage),
+          fuelType: formData.fuelType,
+          insuranceExpiry: formData.insuranceExpiry,
+          gps: formData.gpsDeviceId,
+          gpsStatus: formData.gpsDeviceId ? 'online' : 'offline',
+          notes: formData.notes
+        };
+
+        vehicleData.push(newVehicle);
+        populateVehicleTable();
+        updateFleetStats();
+        populateVehicleDropdown();
+
+        showNotification('Vehicle saved successfully!', 'success');
+        resetVehicleForm();
+
+        // Close modal if open (check if modal exists first)
+        const modalElement = document.getElementById('addVehicleModal');
+        if (modalElement) {
+          const modal = bootstrap.Modal.getInstance(modalElement);
+          if (modal) modal.hide();
+        }
+      });
+
+      // Enhanced search and filtering functionality
+      function initializeSearch() {
+        const searchInput = document.getElementById('vehicleSearch');
+        const statusFilter = document.getElementById('statusFilter');
+        const classFilter = document.getElementById('classFilter');
+        const branchFilter = document.getElementById('branchFilter');
+
+        function performSearch() {
+          const searchTerm = searchInput.value.toLowerCase();
+          const statusValue = statusFilter.value;
+          const classValue = classFilter.value;
+          const branchValue = branchFilter.value;
+
+          const filteredData = vehicleData.filter(vehicle => {
+            const matchesSearch = !searchTerm ||
+              vehicle.plate.toLowerCase().includes(searchTerm) ||
+              vehicle.make.toLowerCase().includes(searchTerm) ||
+              vehicle.model.toLowerCase().includes(searchTerm) ||
+              vehicle.vin.toLowerCase().includes(searchTerm);
+
+            const matchesStatus = !statusValue || vehicle.status === statusValue;
+            const matchesClass = !classValue || vehicle.class === classValue;
+            const matchesBranch = !branchValue || vehicle.branch === branchValue;
+
+            return matchesSearch && matchesStatus && matchesClass && matchesBranch;
+          });
+
+          populateVehicleTable(filteredData);
+          updateSearchResults(filteredData.length);
+        }
+
+        if (searchInput) searchInput.addEventListener('input', performSearch);
+        if (statusFilter) statusFilter.addEventListener('change', performSearch);
+        if (classFilter) classFilter.addEventListener('change', performSearch);
+        if (branchFilter) branchFilter.addEventListener('change', performSearch);
+      }
+
+      function updateSearchResults(count) {
+        const resultsElement = document.getElementById('searchResults');
+        if (resultsElement) {
+          resultsElement.textContent = `Showing ${count} of ${vehicleData.length} vehicles`;
+        }
+      }
+
+      // Real-time fleet statistics updates
+      function updateFleetStats() {
+        const totalVehicles = vehicleData.length;
+        const availableVehicles = vehicleData.filter(v => v.status.toLowerCase() === 'available').length;
+        const rentedVehicles = vehicleData.filter(v => v.status.toLowerCase() === 'rented').length;
+        const maintenanceVehicles = vehicleData.filter(v => v.status.toLowerCase() === 'maintenance').length;
+
+        // Update KPI cards with animation
+        animateCounter(document.querySelector('.card-stats:nth-child(1) .card-title'), totalVehicles);
+        animateCounter(document.querySelector('.card-stats:nth-child(2) .card-title'), availableVehicles);
+        animateCounter(document.querySelector('.card-stats:nth-child(3) .card-title'), rentedVehicles);
+        animateCounter(document.querySelector('.card-stats:nth-child(4) .card-title'), maintenanceVehicles);
+      }
+
+      function animateCounter(element, targetValue) {
+        if (!element) return;
+
+        const currentValue = parseInt(element.textContent) || 0;
+        const increment = targetValue > currentValue ? 1 : -1;
+        let current = currentValue;
+
+        const timer = setInterval(() => {
+          current += increment;
+          element.textContent = current;
+
+          if (current === targetValue) {
+            clearInterval(timer);
+          }
+        }, 50);
+      }
+
+      // Enhanced vehicle management functions
+      function editVehicle(id) {
+        const vehicle = vehicleData.find(v => v.id === id);
+        if (!vehicle) return;
+
+        // Populate form with vehicle data - only set values that exist
+        const setFieldValue = (fieldId, value) => {
+          const field = document.getElementById(fieldId);
+          if (field) {
+            field.value = value || '';
+          }
+        };
+
+        setFieldValue('vin', vehicle.vin);
+        setFieldValue('plateNumber', vehicle.plate);
+        setFieldValue('make', vehicle.make);
+        setFieldValue('model', vehicle.model);
+        setFieldValue('year', vehicle.year);
+        setFieldValue('mileage', vehicle.mileage);
+        setFieldValue('fuelType', vehicle.fuelType);
+        setFieldValue('vehicleClass', vehicle.class);
+        setFieldValue('insuranceExpiry', vehicle.insuranceExpiry);
+        setFieldValue('branch', vehicle.branch);
+        setFieldValue('gpsDeviceId', vehicle.gps);
+        setFieldValue('vehicleStatus', vehicle.status);
+        setFieldValue('notes', vehicle.notes);
+
+        // Set form to edit mode
+        const form = document.getElementById('vehicleForm');
+        if (form) {
+          form.dataset.editId = id;
+          // Scroll to form
+          form.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Show success message instead of trying to open non-existent modal
+        showNotification(`Editing vehicle ${vehicle.plate} - Check the form above`, 'info');
+      }
+
+      function changeVehicleStatus(id, newStatus) {
+        const vehicle = vehicleData.find(v => v.id === id);
+        if (vehicle) {
+          vehicle.status = newStatus;
+          populateVehicleTable();
+          updateFleetStats();
+          showNotification(`Vehicle status changed to ${newStatus}`, 'info');
+        }
+      }
+
+      function viewVehicleDetails(id) {
+        const vehicle = vehicleData.find(v => v.id === id);
+        if (!vehicle) return;
+
+        // Create detailed view modal
+        const modalHtml = `
+          <div class="modal fade" id="vehicleDetailsModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Vehicle Details - ${vehicle.plate}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h6>Basic Information</h6>
+                      <p><strong>VIN:</strong> ${vehicle.vin}</p>
+                      <p><strong>Plate:</strong> ${vehicle.plate}</p>
+                      <p><strong>Make/Model:</strong> ${vehicle.make} ${vehicle.model}</p>
+                      <p><strong>Year:</strong> ${vehicle.year}</p>
+                      <p><strong>Class:</strong> ${vehicle.class}</p>
+                      <p><strong>Status:</strong> <span class="badge bg-${getStatusColor(vehicle.status)}">${vehicle.status}</span></p>
+                    </div>
+                    <div class="col-md-6">
+                      <h6>Technical Details</h6>
+                      <p><strong>Mileage:</strong> ${vehicle.mileage?.toLocaleString() || 'N/A'} km</p>
+                      <p><strong>Fuel Type:</strong> ${vehicle.fuelType || 'N/A'}</p>
+                      <p><strong>Branch:</strong> ${vehicle.branch}</p>
+                      <p><strong>GPS Device:</strong> ${vehicle.gps || 'Not assigned'}</p>
+                      <p><strong>GPS Status:</strong> <span class="badge bg-${vehicle.gpsStatus === 'online' ? 'success' : 'danger'}">${vehicle.gpsStatus}</span></p>
+                      <p><strong>Insurance Expiry:</strong> ${vehicle.insuranceExpiry || 'N/A'}</p>
+                    </div>
+                  </div>
+                  ${vehicle.notes ? `<div class="mt-3"><h6>Notes</h6><p>${vehicle.notes}</p></div>` : ''}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="editVehicle(${vehicle.id})" data-bs-dismiss="modal">Edit Vehicle</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Remove existing modal if present
+        const existingModal = document.getElementById('vehicleDetailsModal');
+        if (existingModal) existingModal.remove();
+
+        // Add new modal to body
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+        // Show modal
+        const modal = new bootstrap.Modal(document.getElementById('vehicleDetailsModal'));
+        modal.show();
+      }
+
+      function getStatusColor(status) {
+        switch(status) {
+          case 'available': return 'success';
+          case 'rented': return 'primary';
+          case 'maintenance': return 'warning';
+          case 'out-of-service': return 'danger';
+          default: return 'secondary';
+        }
+      }
+
+      // Notification system
+      function showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+        notification.style.cssText = `
+          top: 20px;
+          right: 20px;
+          z-index: 9999;
+          min-width: 300px;
+          max-width: 400px;
+        `;
+        notification.innerHTML = `
+          ${message}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+          if (notification.parentElement) {
+            notification.remove();
+          }
+        }, 3000);
+      }
+
+      // Export functionality
+      function exportFleetData(format) {
+        if (format === 'csv') {
+          exportToCSV();
+        } else if (format === 'pdf') {
+          exportToPDF();
+        } else if (format === 'excel') {
+          exportToExcel();
+        }
+      }
+
+      function exportToCSV() {
+        const headers = ['VIN', 'Plate', 'Make', 'Model', 'Year', 'Class', 'Branch', 'Status', 'Mileage', 'GPS'];
+        const csvContent = [
+          headers.join(','),
+          ...vehicleData.map(v => [
+            v.vin, v.plate, v.make, v.model, v.year, v.class, v.branch, v.status, v.mileage || '', v.gps || ''
+          ].join(','))
+        ].join('\\n');
+
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `fleet-data-${new Date().toISOString().split('T')[0]}.csv`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+
+        showNotification('Fleet data exported to CSV successfully!', 'success');
+      }
+
+      function exportToPDF() {
+        showNotification('PDF export would be implemented with a PDF library like jsPDF', 'info');
+      }
+
+      function exportToExcel() {
+        showNotification('Excel export would be implemented with a library like SheetJS', 'info');
+      }
+
+      // Bulk operations
+      function bulkStatusUpdate() {
+        const checkboxes = document.querySelectorAll('input[name="vehicleSelect"]:checked');
+        if (checkboxes.length === 0) {
+          showNotification('Please select vehicles to update', 'warning');
+          return;
+        }
+
+        const newStatus = prompt('Enter new status (available, rented, maintenance, out-of-service):');
+        if (!newStatus) return;
+
+        checkboxes.forEach(checkbox => {
+          const vehicleId = parseInt(checkbox.value);
+          changeVehicleStatus(vehicleId, newStatus);
+        });
+
+        showNotification(`Updated status for ${checkboxes.length} vehicles`, 'success');
+      }
+
+      // Real-time updates simulation
+      function startRealTimeUpdates() {
+        setInterval(() => {
+          // Simulate GPS status changes
+          vehicleData.forEach(vehicle => {
+            if (vehicle.gps && Math.random() < 0.1) { // 10% chance
+              vehicle.gpsStatus = vehicle.gpsStatus === 'online' ? 'offline' : 'online';
+            }
+          });
+
+          // Update the table if it's visible
+          populateVehicleTable();
+        }, 30000); // Update every 30 seconds
+      }
+
+      // Enhanced initialization (avoiding duplicates since main DOMContentLoaded already handles this)
+      function initializeEnhancedFeatures() {
+        updateFleetStats();
+        startRealTimeUpdates();
+        populateFilterDropdowns();
+        updateSearchResults(vehicleData.length);
+      }
+
+      function populateFilterDropdowns() {
+        const statusFilter = document.getElementById('statusFilter');
+        const classFilter = document.getElementById('classFilter');
+        const branchFilter = document.getElementById('branchFilter');
+
+        if (statusFilter) {
+          const statuses = ['available', 'rented', 'maintenance', 'out-of-service'];
+          statuses.forEach(status => {
+            const option = document.createElement('option');
+            option.value = status;
+            option.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+            statusFilter.appendChild(option);
+          });
+        }
+
+        if (classFilter) {
+          const classes = [...new Set(vehicleData.map(v => v.class))];
+          classes.forEach(cls => {
+            const option = document.createElement('option');
+            option.value = cls;
+            option.textContent = cls;
+            classFilter.appendChild(option);
+          });
+        }
+
+        if (branchFilter) {
+          const branches = [...new Set(vehicleData.map(v => v.branch))];
+          branches.forEach(branch => {
+            const option = document.createElement('option');
+            option.value = branch;
+            option.textContent = branch;
+            branchFilter.appendChild(option);
+          });
+        }
+      }
+
+      // Additional functions for enhanced functionality
+      function toggleSelectAll() {
+        const selectAllCheckbox = document.getElementById('selectAll');
+        const vehicleCheckboxes = document.querySelectorAll('input[name="vehicleSelect"]');
+
+        vehicleCheckboxes.forEach(checkbox => {
+          checkbox.checked = selectAllCheckbox.checked;
+        });
+      }
+
+      // Update the populateVehicleTable function to support filtering
+      const originalPopulateVehicleTable = populateVehicleTable;
+      populateVehicleTable = function(data = vehicleData) {
+        const tbody = document.getElementById('vehicleTableBody');
+        tbody.innerHTML = '';
+
+        data.forEach(vehicle => {
+          const statusBadge = getStatusBadge(vehicle.status);
+          const gpsStatus = vehicle.gpsStatus === 'online' ?
+            '<span class="badge bg-success">Online</span>' :
+            '<span class="badge bg-secondary">Offline</span>';
+
+          const row = `
+            <tr>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input vehicle-checkbox" type="checkbox" name="vehicleSelect" value="${vehicle.id}">
+                </div>
+              </td>
+              <td class="d-flex align-items-center">
+                <div class="avatar avatar-sm me-3">
+                  <div class="bg-light border rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;">
+                    <i class="fas fa-car text-muted"></i>
+                  </div>
+                </div>
+                <div>
+                  <div class="fw-bold">${vehicle.make} ${vehicle.model}</div>
+                  <small class="text-muted">${vehicle.year}</small>
+                </div>
+              </td>
+              <td><small class="font-monospace">${vehicle.vin}</small></td>
+              <td><span class="fw-bold">${vehicle.plate}</span></td>
+              <td>${vehicle.class}</td>
+              <td>${vehicle.branch}</td>
+              <td>${statusBadge}</td>
+              <td>${gpsStatus}</td>
+              <td>
+                <div class="btn-group" role="group">
+                  <button class="btn btn-outline-info btn-sm" onclick="viewVehicleDetails(${vehicle.id})" title="View Details">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-outline-primary btn-sm" onclick="editVehicle(${vehicle.id})" title="Edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <div class="btn-group">
+                    <button class="btn btn-outline-success btn-sm dropdown-toggle" data-bs-toggle="dropdown" title="Change Status">
+                      <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#" onclick="changeVehicleStatus(${vehicle.id}, 'available')"><i class="fas fa-check-circle text-success me-2"></i>Available</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="changeVehicleStatus(${vehicle.id}, 'rented')"><i class="fas fa-car text-primary me-2"></i>Rented</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="changeVehicleStatus(${vehicle.id}, 'maintenance')"><i class="fas fa-wrench text-warning me-2"></i>Maintenance</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="changeVehicleStatus(${vehicle.id}, 'out-of-service')"><i class="fas fa-times-circle text-danger me-2"></i>Out of Service</a></li>
+                    </ul>
+                  </div>
+                  <button class="btn btn-outline-danger btn-sm" onclick="deleteVehicle(${vehicle.id})" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      };
+    </script>
+  </body>
+</html>

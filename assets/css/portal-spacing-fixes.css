@@ -1,0 +1,823 @@
+/* LynxLite Customer Portal - Spacing Fixes */
+
+/* Main header content styling to match index2.html */
+.main-header-content {
+    background: linear-gradient(135deg, #177dff 0%, #1c7ae0 100%);
+    color: white;
+    padding: 2rem;
+    margin: 0;
+    border-radius: 0;
+}
+
+.main-header-content h1 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.main-header-content p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+/* Override any inline styles that might conflict */
+.main-panel .container[style*="margin-top"] {
+    margin-top: 0;
+}
+
+
+/* Card spacing standardization */
+.card {
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: #f8f9fa;
+    border-radius: 15px 15px 0 0;
+    padding: 20px 25px;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+body.dark-mode .card {
+    background-color: #242526;
+    border-color: #3a3b3c;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .card-header {
+    background-color: #3a3b3c;
+    border-bottom-color: #3a3b3c;
+}
+
+/* Vehicle card spacing */
+.vehicle-card {
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Page sections spacing */
+.page-inner {
+    min-height: calc(100vh - 120px);
+    padding-bottom: 30px;
+}
+
+.page-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+body.dark-mode .page-header {
+    border-bottom-color: #3a3b3c;
+}
+
+/* Content sections spacing */
+.container[id*="-section"] {
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+/* Row and column spacing */
+.row {
+    margin-bottom: 20px;
+}
+
+.row:last-child {
+    margin-bottom: 0;
+}
+
+.col-md-4,
+.col-md-6,
+.col-md-8,
+.col-md-12,
+.col-lg-3,
+.col-lg-4,
+.col-lg-6,
+.col-lg-8,
+.col-lg-9,
+.col-lg-12 {
+    margin-bottom: 20px;
+}
+
+/* Hero sections spacing */
+.support-hero,
+.settings-hero,
+.profile-hero,
+.rental-timeline {
+    margin-bottom: 30px;
+}
+
+/* Table spacing */
+.table-responsive {
+    margin-bottom: 25px;
+}
+
+/* Form spacing */
+.form-group,
+.setting-item,
+.notification-category {
+    margin-bottom: 20px;
+}
+
+.form-group:last-child,
+.setting-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Button group spacing */
+.btn-group,
+.btn-toolbar {
+    margin-bottom: 15px;
+}
+
+/* Quick actions spacing */
+.quick-actions-items {
+    margin-bottom: 30px;
+}
+
+.quick-actions-item {
+    margin-bottom: 20px;
+}
+
+/* Timeline spacing */
+.timeline-item {
+    margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Filter and search spacing */
+.search-filters,
+.filter-tabs,
+.faq-section,
+.ticket-form {
+    margin-bottom: 30px;
+}
+
+/* Stats and summary spacing */
+.stats-summary,
+.contact-methods,
+.settings-nav,
+.settings-content {
+    margin-bottom: 30px;
+}
+
+
+/* Additional spacing for specific components */
+.breadcrumbs {
+    margin-bottom: 20px;
+}
+
+.alert {
+    margin-bottom: 20px;
+}
+
+.modal-content {
+    border-radius: 15px;
+}
+
+/* Footer spacing */
+.footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+body.dark-mode .footer {
+    border-top-color: #3a3b3c;
+}
+
+/* Navbar Header - exact match to index2.html */
+.navbar-header {
+    position: relative;
+    background: transparent;
+    border-bottom: 1px solid #e9ecef;
+}
+
+body.dark-mode .navbar-header {
+    border-bottom-color: #3a3b3c;
+}
+
+/* Container fluid should match index2 exactly */
+.navbar-header .container-fluid {
+    max-width: none;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 100%;
+}
+
+/* Search bar should match index2 width and behavior */
+.navbar-header .nav-search {
+    flex: 1;
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.navbar-header .nav-search .input-group {
+    width: 100%;
+    position: relative;
+}
+
+.navbar-header .nav-search .form-control {
+    border-radius: 20px;
+    border: 1px solid #e9ecef;
+    padding-left: 45px;
+    padding-right: 15px;
+    height: 40px;
+    background: #f8f9fa;
+    font-size: 14px;
+}
+
+body.dark-mode .navbar-header .nav-search .form-control {
+    background: #3a3b3c;
+    border-color: #555;
+    color: #e4e6eb;
+}
+
+.navbar-header .btn-search {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: transparent;
+    border: none;
+    color: #6c757d;
+    padding: 0;
+    width: auto;
+    height: auto;
+}
+
+body.dark-mode .navbar-header .btn-search {
+    color: #b0b3b8;
+}
+
+/* Make sure topbar nav aligns properly */
+.navbar-nav.topbar-nav {
+    margin-left: auto;
+    align-items: center;
+}
+
+/* Dark mode toggle - unified styling for all pages */
+.form-check-input[type="checkbox"] {
+    width: 3em;
+    height: 1.5em;
+    border-radius: 1em;
+    background-color: #dee2e6;
+    border: 1px solid #ced4da;
+    transition: all 0.3s ease;
+}
+
+.form-check-input[type="checkbox"]:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.form-check-input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    border-color: #86b7fe;
+}
+
+body.dark-mode .form-check-input[type="checkbox"] {
+    background-color: #3a3b3c;
+    border-color: #555;
+}
+
+body.dark-mode .form-check-input[type="checkbox"]:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.form-check-label {
+    color: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+body.dark-mode .form-check-label {
+    color: #e4e6eb;
+}
+
+/* Dark mode switch container */
+.form-check.form-switch {
+    min-height: auto;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-check.form-switch .form-check-input {
+    margin-left: 0;
+    margin-top: 0;
+}
+
+
+/* Print styles */
+@media print {
+    .main-header,
+    .sidebar,
+    .footer {
+        display: none;
+    }
+    
+    .main-panel {
+        margin-left: 0;
+    }
+    
+    .main-panel .container:first-child,
+    .main-panel .page-inner {
+        padding-top: 0;
+    }
+}
+
+/* Comprehensive Dark Mode Styling for Customer Portal */
+body.dark-mode {
+    background-color: #18191a;
+    color: #e4e6eb;
+}
+
+/* Card styling in dark mode */
+body.dark-mode .card {
+    background-color: #242526;
+    color: #e4e6eb;
+    border-color: #3a3b3c;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .card-header {
+    background-color: #3a3b3c;
+    border-bottom-color: #3a3b3c;
+    color: #e4e6eb;
+}
+
+body.dark-mode .card-body {
+    background-color: #242526;
+    color: #e4e6eb;
+}
+
+/* Text elements in dark mode */
+body.dark-mode .card-title,
+body.dark-mode .fw-bold,
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode small,
+body.dark-mode .text-muted,
+body.dark-mode .lead {
+    color: #e4e6eb;
+}
+
+/* Navigation and header elements */
+body.dark-mode .navbar,
+body.dark-mode .sidebar,
+body.dark-mode .main-header,
+body.dark-mode .dropdown-menu {
+    background-color: #242526;
+    color: #e4e6eb;
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link,
+body.dark-mode .sidebar-content,
+body.dark-mode .dropdown-item {
+    color: #e4e6eb;
+}
+
+/* Form elements in dark mode */
+body.dark-mode .btn {
+    background-color: #3a3b3c;
+    color: #e4e6eb;
+    border-color: #555;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff;
+}
+
+body.dark-mode .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+body.dark-mode .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #000;
+}
+
+body.dark-mode .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #3a3b3c;
+    color: #e4e6eb;
+    border-color: #555;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: #3a3b3c;
+    border-color: #86b7fe;
+    color: #e4e6eb;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #b0b3b8;
+}
+
+/* Table styling in dark mode */
+body.dark-mode .table {
+    background-color: #23272b;
+    color: #e4e6eb;
+}
+
+body.dark-mode .table-hover tbody tr:hover {
+    background-color: #2c3035;
+    color: #fff;
+}
+
+body.dark-mode .table thead,
+body.dark-mode .table thead th {
+    background-color: #18191a;
+    color: #e4e6eb;
+}
+
+body.dark-mode .table tbody,
+body.dark-mode .table tbody td,
+body.dark-mode .table tbody th {
+    background-color: #23272b;
+    color: #e4e6eb;
+}
+
+body.dark-mode .table tr {
+    background-color: #23272b;
+    color: #e4e6eb;
+}
+
+body.dark-mode .table th,
+body.dark-mode .table td {
+    border-color: #444;
+}
+
+/* Vehicle card specific styling */
+body.dark-mode .vehicle-card {
+    background-color: #242526;
+    border-color: #3a3b3c;
+}
+
+body.dark-mode .vehicle-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Alert and notification styling */
+body.dark-mode .alert {
+    background-color: #3a3b3c;
+    border-color: #555;
+    color: #e4e6eb;
+}
+
+body.dark-mode .alert-info {
+    background-color: #1e3a5f;
+    border-color: #3498db;
+    color: #7db8e8;
+}
+
+body.dark-mode .alert-success {
+    background-color: #1e4d32;
+    border-color: #28a745;
+    color: #7ed957;
+}
+
+body.dark-mode .alert-warning {
+    background-color: #5c4e00;
+    border-color: #ffc107;
+    color: #ffeb3b;
+}
+
+body.dark-mode .alert-danger {
+    background-color: #5c1e1e;
+    border-color: #dc3545;
+    color: #f87171;
+}
+
+/* Quick actions styling */
+body.dark-mode .quick-actions {
+    background-color: #242526;
+    border-color: #3a3b3c;
+}
+
+body.dark-mode .quick-actions-header {
+    color: #e4e6eb;
+}
+
+body.dark-mode .quick-actions-item {
+    background-color: #3a3b3c;
+    border-color: #555;
+}
+
+body.dark-mode .quick-actions-item:hover {
+    background-color: #4a4b4c;
+}
+
+/* Badge styling */
+body.dark-mode .badge {
+    color: #fff;
+}
+
+body.dark-mode .badge-light {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+/* List group styling */
+body.dark-mode .list-group-item {
+    background-color: #242526;
+    border-color: #3a3b3c;
+    color: #e4e6eb;
+}
+
+body.dark-mode .list-group-item:hover {
+    background-color: #3a3b3c;
+}
+
+/* Modal styling */
+body.dark-mode .modal-content {
+    background-color: #242526;
+    border-color: #3a3b3c;
+    color: #e4e6eb;
+}
+
+body.dark-mode .modal-header {
+    border-bottom-color: #3a3b3c;
+}
+
+body.dark-mode .modal-footer {
+    border-top-color: #3a3b3c;
+}
+
+/* Timeline and status styling */
+body.dark-mode .timeline-item {
+    background-color: #242526;
+    border-color: #3a3b3c;
+}
+
+body.dark-mode .status-active,
+body.dark-mode .status-completed {
+    color: #7ed957;
+}
+
+body.dark-mode .status-pending {
+    color: #ffeb3b;
+}
+
+body.dark-mode .status-cancelled {
+    color: #f87171;
+}
+
+/* Background utilities in dark mode */
+body.dark-mode .bg-light {
+    background-color: #3a3b3c;
+    color: #e4e6eb;
+}
+
+body.dark-mode .bg-white {
+    background-color: #242526;
+    color: #e4e6eb;
+}
+
+/* Border utilities in dark mode */
+body.dark-mode .border {
+    border-color: #3a3b3c;
+}
+
+body.dark-mode .border-light {
+    border-color: #555;
+}
+
+
+
+      body.dark-mode .card-title,
+      body.dark-mode .fw-bold,
+      body.dark-mode h6,
+      body.dark-mode p,
+      body.dark-mode small,
+      body.dark-mode .text-muted {
+        color: #e4e6eb !important;
+      }
+      body.dark-mode {
+        background-color: #18191a !important;
+        color: #e4e6eb !important;
+      }
+      body.dark-mode .card,
+      body.dark-mode .navbar,
+      body.dark-mode .sidebar,
+      body.dark-mode .main-header,
+      body.dark-mode .dropdown-menu {
+        background-color: #242526 !important;
+        color: #e4e6eb !important;
+      }
+      body.dark-mode .card-title,
+      body.dark-mode .navbar-brand,
+      body.dark-mode .nav-link,
+      body.dark-mode .sidebar-content,
+      body.dark-mode .dropdown-item {
+        color: #e4e6eb !important;
+      }
+      body.dark-mode .btn,
+      body.dark-mode .form-control {
+        background-color: #3a3b3c !important;
+        color: #e4e6eb !important;
+        border-color: #555;
+      }
+      body.dark-mode .table {
+        background-color: #23272b !important;
+        color: #e4e6eb !important;
+      }
+      body.dark-mode .table-hover tbody tr:hover {
+        background-color: #2c3035 !important;
+        color: #fff !important;
+      }
+      body.dark-mode .table thead,
+      body.dark-mode .table thead th {
+        background-color: #18191a !important;
+        color: #e4e6eb !important;
+      }
+      body.dark-mode .table tbody,
+      body.dark-mode .table tbody td,
+      body.dark-mode .table tbody th {
+        background-color: #23272b !important;
+        color: #e4e6eb !important;
+      }
+      body.dark-mode .table tr {
+        background-color: #23272b !important;
+        color: #e4e6eb !important;
+      }
+      body.dark-mode .table th,
+      body.dark-mode .table td {
+        border-color: #444 !important;
+      }
+      
+      /* Remove conflicting spacing rules */
+      .main-panel .container {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+      }
+      
+      .booking-card {
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+      }
+      
+      .booking-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .booking-status {
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+      
+      .status-active {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      
+      .status-upcoming {
+        background: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+      }
+      
+      .status-completed {
+        background: #f8f9fa;
+        color: #6c757d;
+        border: 1px solid #dee2e6;
+      }
+      
+      .status-cancelled {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      
+      .vehicle-thumbnail {
+        width: 80px;
+        height: 60px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+      }
+      
+      .booking-timeline {
+        border-left: 3px solid #177dff;
+        padding-left: 20px;
+        margin-left: 10px;
+      }
+      
+      .booking-detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .booking-detail-row:last-child {
+        border-bottom: none;
+      }
+      
+      .progress-tracker {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+      }
+      
+      .progress-step {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      
+      .progress-step.completed {
+        background: #28a745;
+        color: white;
+      }
+      
+      .progress-step.active {
+        background: #177dff;
+        color: white;
+      }
+      
+      .progress-step.pending {
+        background: #f8f9fa;
+        color: #6c757d;
+        border: 2px solid #dee2e6;
+      }
+      
+      .progress-line {
+        height: 2px;
+        background: #dee2e6;
+        flex: 1;
+        margin: 0 10px;
+      }
+      
+      .progress-line.completed {
+        background: #28a745;
+      }
+      
+      /* Fix for header spacing issue */
+      .main-panel .container {
+        padding-top: 20px;
+      }
+      
+      /* Ensure proper spacing after fixed header */
+      .main-header-content + .container {
+        margin-top: 20px !important;
+      }
+
+

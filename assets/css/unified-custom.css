@@ -1,0 +1,731 @@
+/* Unified Sidebar and Notification Styles for LynxLite */
+
+/* Sidebar Navigation - Enhanced Alignment */
+.sidebar .nav-secondary .nav-item a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+  min-height: 48px; /* Consistent height for all nav items */
+}
+.sidebar .nav-secondary .nav-item a.active,
+.sidebar .nav-secondary .nav-item a:hover {
+  background: rgba(23, 125, 255, 0.12);
+  color: #177dff;
+}
+.sidebar .nav-secondary .nav-item a i {
+  min-width: 25px; /* Increased for better alignment */
+  font-size: 1.1rem;
+  margin-right: 15px; /* Consistent with kaiadmin.css */
+  color: inherit;
+  text-align: center; /* Center align icons */
+  line-height: 1; /* Prevent line height issues */
+}
+.sidebar .nav-secondary .nav-item a p {
+  margin: 0;
+  text-align: left;
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 500;
+  color: inherit;
+  line-height: 1.2; /* Consistent line height */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis for long text */
+}
+
+/* Override any conflicting sidebar styles */
+.sidebar .nav-secondary .nav-item a p.text-start {
+  text-align: left !important;
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
+  width: auto !important;
+}
+
+/* Ensure consistent icon alignment */
+.sidebar .nav-secondary .nav-item a i.fas {
+  width: 25px !important;
+  text-align: center !important;
+  margin-right: 15px !important;
+}
+
+/* Notification Dropdown */
+.notif-center a {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  color: #575962;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.notif-center a:hover {
+  background: #f5f6fa;
+  color: #177dff;
+}
+.notif-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  margin-right: 12px;
+  color: #fff;
+}
+.notif-danger { background: #f3545d; }
+.notif-warning { background: #ffa534; }
+.notif-info { background: #36a3f7; }
+.notif-primary { background: #177dff; }
+.notif-success { background: #35cd3a; }
+.notif-content {
+  flex: 1;
+  min-width: 0;
+}
+.notif-content .block {
+  font-weight: 500;
+  font-size: 1rem;
+  color: inherit;
+  display: block;
+}
+.notif-content .time {
+  font-size: 0.85rem;
+  color: #a1a2a6;
+}
+
+/* === Dashboard Responsive Fixes === */
+
+/* Responsive sidebar styles */
+.sidebar-collapse {
+  margin-left: -250px !important;
+}
+.main-panel.full-width {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+/* Improved responsive breakpoints */
+@media (max-width: 576px) {
+  .sidebar {
+    margin-left: -250px;
+    transition: margin-left 0.3s ease;
+  }
+  .sidebar.sidebar-show {
+    margin-left: 0;
+  }
+  .main-panel {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  /* Stack KPI cards on mobile */
+  .col-sm-6.col-md-3 {
+    margin-bottom: 1rem;
+  }
+  /* Mobile table improvements */
+  .table-responsive table {
+    font-size: 0.875rem;
+  }
+  /* Mobile button improvements */
+  .btn-group .btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+  /* Hide less important columns on mobile */
+  .table th:nth-child(3),
+  .table td:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  /* Tablet adjustments */
+  .sidebar {
+    margin-left: -250px;
+  }
+  .main-panel {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Desktop optimizations */
+  .main-panel {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+  }
+}
+
+/* Map container improvements */
+.map-container {
+  position: relative;
+  overflow: hidden;
+}
+#fleetMap {
+  border-radius: 0;
+}
+
+/* Chart container responsive */
+.chart-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Dark Mode Styles - Consolidated */
+body.dark-mode {
+  background-color: #18191a !important;
+  color: #e4e6eb !important;
+}
+
+body.dark-mode .card-title,
+body.dark-mode .fw-bold,
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link,
+body.dark-mode .sidebar-content,
+body.dark-mode .dropdown-item,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode small,
+body.dark-mode .text-muted {
+  color: #e4e6eb !important;
+}
+
+body.dark-mode .card,
+body.dark-mode .navbar,
+body.dark-mode .sidebar,
+body.dark-mode .main-header,
+body.dark-mode .dropdown-menu {
+  background-color: #242526 !important;
+  color: #e4e6eb !important;
+}
+
+body.dark-mode .btn:not(.btn-search),
+body.dark-mode .form-control:not(.form-check-input):not(.nav-search .form-control) {
+  background-color: #3a3b3c !important;
+  color: #e4e6eb !important;
+  border-color: #555;
+}
+
+body.dark-mode .nav-search .form-control {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #e4e6eb !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark-mode .table,
+body.dark-mode .table tbody,
+body.dark-mode .table tbody td,
+body.dark-mode .table tbody th,
+body.dark-mode .table tr {
+  background-color: #23272b !important;
+  color: #e4e6eb !important;
+}
+
+body.dark-mode .table thead,
+body.dark-mode .table thead th {
+  background-color: #18191a !important;
+  color: #e4e6eb !important;
+}
+
+body.dark-mode .table-hover tbody tr:hover {
+  background-color: #2c3035 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .table th,
+body.dark-mode .table td {
+  border-color: #444 !important;
+}
+
+body.dark-mode .bg-success,
+body.dark-mode .bg-primary,
+body.dark-mode .bg-warning,
+body.dark-mode .bg-danger,
+body.dark-mode .bg-info,
+body.dark-mode .bg-secondary {
+  filter: brightness(0.8);
+}
+
+/* === Customer Management Specific Styles === */
+
+.circular-progress {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.risk-score-circle {
+  position: relative;
+  display: inline-block;
+}
+
+.risk-score-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -25px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  left: -21px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #dee2e6;
+}
+
+/* === Billing & Payments Specific Styles === */
+
+.revenue-chart {
+  height: 300px;
+}
+
+.transaction-status {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.amount-display {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.payment-method-icon {
+  width: 32px;
+  height: 20px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.visa { background: #1A1F71; color: white; }
+.mastercard { background: #EB001B; color: white; }
+.amex { background: #006FCF; color: white; }
+.discover { background: #FF6000; color: white; }
+.paypal { background: #0070BA; color: white; }
+.stripe { background: #635BFF; color: white; }
+
+/* Billing timeline styles (override customer timeline for billing) */
+.billing-timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.billing-timeline:before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #dee2e6;
+}
+
+.billing-timeline .timeline-item {
+  position: relative;
+  padding-bottom: 25px;
+}
+
+.billing-timeline .timeline-marker {
+  position: absolute;
+  left: -22px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #dee2e6;
+}
+
+.billing-timeline .timeline-marker.success { background: #28a745; }
+.billing-timeline .timeline-marker.warning { background: #ffc107; }
+.billing-timeline .timeline-marker.danger { background: #dc3545; }
+.billing-timeline .timeline-marker.info { background: #17a2b8; }
+
+.quick-action-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.stats-icon {
+  font-size: 2.5rem;
+  opacity: 0.8;
+}
+
+/* === Telematics & Tracking Specific Styles === */
+
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -25px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  left: -21px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #dee2e6;
+}
+
+.vehicle-status-item:hover {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+.alert-item {
+  transition: all 0.2s ease;
+}
+
+.alert-item:hover {
+  background-color: #f8f9fa;
+}
+
+.vehicle-compact {
+  min-height: 40px;
+  font-size: 0.85rem;
+}
+
+.vehicle-status-item.border-danger {
+  border-color: #dc3545 !important;
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+.vehicle-list-container {
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  background: #fff;
+}
+
+.vehicle-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vehicle-list-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.vehicle-list-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.vehicle-list-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.badge-sm {
+  font-size: 0.6rem;
+  padding: 0.2em 0.4em;
+}
+
+/* Enhanced Prototype Styles */
+.vehicle-highlighted {
+  background-color: rgba(0, 123, 255, 0.1) !important;
+  border-color: #007bff !important;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3) !important;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.alert-item {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.alert-item:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+  transform: translateX(5px);
+}
+
+.vehicle-status-item {
+  transition: all 0.2s ease;
+}
+
+.vehicle-status-item:hover {
+  transform: translateX(3px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.stats-card-enhanced {
+  transition: all 0.3s ease;
+}
+
+.stats-card-enhanced:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* === Branch & Staff Management Specific Styles === */
+
+.role-card {
+  transition: all 0.2s ease;
+}
+
+.role-card:hover {
+  background-color: #f8f9fa;
+  border-color: #007bff !important;
+}
+
+/* === Executive Summary & Calendar Styles === */
+
+.executive-metric {
+  transition: all 0.3s ease;
+}
+
+.executive-metric:hover {
+  transform: translateY(-2px);
+}
+
+.mini-calendar .calendar-day {
+  padding: 2px;
+}
+
+.calendar-date {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calendar-date:hover {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.calendar-date.today {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.calendar-date.has-event {
+  position: relative;
+}
+
+.calendar-date.has-event::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: #ffc107;
+  border-radius: 50%;
+}
+
+.schedule-item {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.schedule-item:hover {
+  background-color: #f8f9fa;
+  transform: translateX(3px);
+}
+
+.schedule-time {
+  min-width: 50px;
+  font-size: 0.9rem;
+}
+
+.calendar-day-header {
+  font-weight: 600;
+  color: #6c757d;
+}
+
+/* === Dashboard Density Options === */
+
+/* Comfortable Density */
+.dashboard-comfortable .card {
+  margin-bottom: 2rem;
+}
+
+.dashboard-comfortable .card-body {
+  padding: 2rem;
+}
+
+.dashboard-comfortable .row {
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-comfortable .btn {
+  padding: 0.75rem 1.5rem;
+}
+
+/* Compact Density (Default) */
+.dashboard-compact .card {
+  margin-bottom: 1rem;
+}
+
+.dashboard-compact .card-body {
+  padding: 1.25rem;
+}
+
+.dashboard-compact .row {
+  margin-bottom: 1rem;
+}
+
+/* Dense Density */
+.dashboard-dense .card {
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-dense .card-body {
+  padding: 0.75rem;
+}
+
+.dashboard-dense .row {
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-dense .btn {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.dashboard-dense h4 {
+  font-size: 1.1rem;
+}
+
+.dashboard-dense h5 {
+  font-size: 1rem;
+}
+
+.dashboard-dense h6 {
+  font-size: 0.9rem;
+}
+
+/* Animation Controls */
+.no-animations * {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Widget Transition Effects */
+[data-widget] {
+  transition: all 0.3s ease;
+}
+
+/* Customization Panel Styles */
+#customizationPanel {
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
+}
+
+.widget-toggles .form-check {
+  transition: all 0.2s ease;
+}
+
+.widget-toggles .form-check:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+/* === Maintenance & Compliance Specific Styles === */
+
+.inspection-section h6 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+/* Maintenance timeline styles (specific for maintenance page) */
+.maintenance-timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.maintenance-timeline:before {
+  content: '';
+  position: absolute;
+  left: -21px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #dee2e6;
+}
+
+.maintenance-timeline .timeline-item {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.maintenance-timeline .timeline-marker {
+  position: absolute;
+  left: -25px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
